@@ -9,7 +9,7 @@ Authors@R:
     person(given = "Amy",
              family = "McCorry",
              role = "aut",
-             email = "amy.mccorry@exploristics.com")
+             email = "amy.mccorry@exploristics.com"),
     person(given = "Sheila",
              family = "McCartan",
              role = "aut",

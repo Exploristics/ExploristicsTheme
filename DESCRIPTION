@@ -1,12 +1,27 @@
 Package: ExploristicsTheme
 Title: A custom theme for ggplot2
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`
+    c(person(given = "Gareth",
+             family = "Burns",
+             role = c("aut", "cre"),
+             email = "gareth.burns@exploristics.com"),
+    person(given = "Amy",
+             family = "McCorry",
+             role = "aut",
+             email = "amy.mccorry@exploristics.com"),
+    person(given = "Sheila",
+             family = "McCartan",
+             role = "aut",
+             email = "sheila.mccartan@exploristics.com"))
+Description: This packages contains a series of functions to apply the Exploristics
+  theme to ggplot2 figures.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
-
+RoxygenNote: 7.2.3
+Imports: 
+    ggplot2 (>= 3.0)
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

@@ -8,7 +8,7 @@ Currently the ExploristicsTheme package is stored on the Exploristics Data Scien
 
 To install `ExploristicsTheme` package:
 
-1.  Set if a GitHub account: [GitHub Signup](https://github.com/join)
+1.  Set up a GitHub account: [GitHub Signup](https://github.com/join)
 
 2.  Enable Multi-Factor Authentication: [MFA Guide](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
 

@@ -8,6 +8,7 @@
 #' @param text Optional text to add to the left of the footer. Single line or across 2 lines if you add `\n` between the lines of text.
 #' @param line Add a line between the plot and the footer. Defaults to `FALSE`.
 #' @param logo Path to an image file to use in the footer. The path must be URL, filename or raw vector. Defaults uses the Exploristics logo supplied with the package.
+#' @param suffix Suffix to add to the original plot filename. Don't need to include file extension. Defaults to "_with_footer".
 #' @seealso \code{\link[magick]{image_read}}
 #' @seealso \code{\link[magick]{image_trim}}
 #' @seealso \code{\link[magick]{image_scale}}
@@ -49,7 +50,7 @@
 
 
 
-add_footer <- function(filename=NULL,text=NULL,line=F,logo=NULL){
+add_footer <- function(filename=NULL,text=NULL,line=F,logo=NULL,suffix=NULL){
 
   if(is.null(filename)){
     stop("No file provided. Please enter a filename.")
@@ -68,29 +69,29 @@ add_footer <- function(filename=NULL,text=NULL,line=F,logo=NULL){
     }
 
 
-    #### CURRENTLY DOESN'T WORK PROPERLY, SCALING NEEDS FIXED! ####
+    #### Roughly fixed, needs more tests of different scaling ####
 
     # calculate the scaling needed for the logo based on the dimensions of the plot
     # square
     scale_logo_num <- round(plot_info$height*0.125,0)
-    scale_extent_num <- paste0(round(plot_info$height/1.846,0),"x", round(plot_info$height/32,0))
+    scale_extent_num <- paste0(round(plot_info$height/1.846,0),"x75")#, round(plot_info$height/32,0))
 
     # long
     if(plot_info$height > plot_info$width){
       scale_logo_num <- round(plot_info$width*0.125,0)
-      scale_extent_num <- paste0(round(plot_info$width/1.846,0),"x", round(plot_info$height/32,0))
+      scale_extent_num <- paste0(round(plot_info$width/1.846,0),"x75")#, round(plot_info$height/32,0))
 
     }
     # wide
     if(plot_info$height < plot_info$width){
       scale_logo_num <- round(plot_info$height*0.125,0)
-      scale_extent_num <- paste0(round(plot_info$width/1.846,0),"x", round(plot_info$height/32,0))
+      scale_extent_num <- paste0(round(plot_info$width/1.846,0),"x75")#, round(plot_info$height/32,0))
     }
 
     # scale down the logo and give it a border so it's on the right side of the footer
     footer <- logo_raw %>%
       image_trim()%>%
-      image_scale(scale_logo_num) %>%
+      image_scale("300") %>%
       image_background("white", flatten = TRUE) %>% # #A2D7E4
       image_extent(scale_extent_num, gravity="east",color = "white") %>%
       image_border("10x10",color = "white")
@@ -100,11 +101,11 @@ add_footer <- function(filename=NULL,text=NULL,line=F,logo=NULL){
       if(grepl("\n",text)==T){
         footer <- footer %>%
           image_annotate(text, color = "#2D2669", size = 25,
-                         location = "+10+10", gravity = "northwest")
+                         location = "+10+15", gravity = "northwest")
       } else{
         footer <- footer %>%
           image_annotate(text, color = "#2D2669", size = 25,
-                         location = "+10+20", gravity = "northwest")
+                         location = "+10+25", gravity = "northwest")
       }
 
     }
@@ -124,13 +125,23 @@ add_footer <- function(filename=NULL,text=NULL,line=F,logo=NULL){
       final_plot <- image_append(image_scale(c(plot,lb, footer), final_dim), stack = TRUE)
     } else{
 
+      # set final plot dimensions to the same as the original plot
+      final_dim <- paste0(plot_info$width,"x",plot_info$height)
+
       # stack the 2 images (plot, footer) on top of each other
       final_plot <- image_append(image_scale(c(plot, footer), final_dim), stack = TRUE)
     }
 
 
-    # save the plot with the footer added
-    image_write(final_plot, paste0(tools::file_path_sans_ext(filename),"_with_footer.png"))
+    if(is.null(suffix)){
+      # save the plot with the footer added
+      image_write(final_plot, paste0(tools::file_path_sans_ext(filename),"_with_footer.png"))
+
+    } else{
+      # save the plot with the footer added
+      image_write(final_plot, paste0(tools::file_path_sans_ext(filename),suffix, ".png"))
+
+    }
 
   }
 

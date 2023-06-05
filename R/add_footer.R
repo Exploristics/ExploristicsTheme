@@ -69,8 +69,6 @@ add_footer <- function(filename=NULL,text=NULL,line=F,logo=NULL,suffix=NULL){
     }
 
 
-    #### Roughly fixed, needs more tests of different scaling ####
-
     # calculate the scaling needed for the logo based on the dimensions of the plot
     # square
     scale_logo_num <- round(plot_info$height*0.125,0)

@@ -4,7 +4,7 @@
 \alias{add_footer}
 \title{Add a footer with the Exploristics logo to a ggplot2 figure.}
 \usage{
-add_footer(filename = NULL, text = NULL, line = F, logo = NULL)
+add_footer(filename = NULL, text = NULL, line = F, logo = NULL, suffix = NULL)
 }
 \arguments{
 \item{filename}{An image file of a ggplot2.}
@@ -14,6 +14,8 @@ add_footer(filename = NULL, text = NULL, line = F, logo = NULL)
 \item{line}{Add a line between the plot and the footer. Defaults to \code{FALSE}.}
 
 \item{logo}{Path to an image file to use in the footer. The path must be URL, filename or raw vector. Defaults uses the Exploristics logo supplied with the package.}
+
+\item{suffix}{Suffix to add to the original plot filename. Don't need to include file extension. Defaults to "_with_footer".}
 }
 \description{
 This function returns a ggplot with a footer with the Exploristics logo and an optional text caption added below the plot.
@@ -31,20 +33,21 @@ library(magrittr)
 
 ## generate a plot with the Exploristics theme
 ## if you want to use a numeric variable as discrete use `as.factor()` when setting `fill`
-cars_plot <- ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = as.factor(cyl))) +
-geom_bar(stat="identity") +
+cars_plot <- ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
+geom_point(size=2) +
+labs(title="Example plot") +
 exploristics_theme()
 
 ## add colour scheme and wrap text labels
 cars_plot \%>\%
-exploristics_fill(colour_pal="Expl_External") \%>\%
+exploristics_colour(colour_pal="Expl_External") \%>\%
 text_wrapper()
 
 ## save the plot
 ggsave(filename = "example_cars_plot.png", width = 8, height = 8, dpi = 300)
 
 ## add the footer to the saved plot
-add_footer("example_cars_plot.png", text= "Source:data source\nProduced by: Name")
+add_footer("example_cars_plot.png", text= "Source:Data source\nProduced by: Name")
 }
 \seealso{
 \code{\link[magick]{image_read}}

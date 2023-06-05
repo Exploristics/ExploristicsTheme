@@ -33,7 +33,7 @@ library(ggplot2)
 
 ## generate a plot with the Exploristics theme
 cars_plot <- ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
-geom_bar(stat="identity") +
+geom_point(size=2) +
 exploristics_theme()
 
 ## adding the colour scheme can be written as one line

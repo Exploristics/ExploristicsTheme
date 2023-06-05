@@ -1,7 +1,7 @@
-#' @title Add Exploristics fill to a ggplot2 figure.
+#' @title Add Exploristics colour to a ggplot2 figure.
 #' @description This function returns a ggplot with an Exploristics colour scheme added to it.
 #'   There are 3 colour palettes to choose from.They are suitable for those with most common types of colour blindness.
-#' @details This function sets the fill of the ggplot to a palette matching an
+#' @details This function sets the colour of the ggplot to a palette matching an
 #'   Exploristics colour scheme. A gradient of the palette will be applied for continuous variables.
 #'   `Expl_Blue` is a palette of 6 blues ranging from a dark navy to a light green-blue.
 #'   `Expl_External` is a palette of 6 colours with purples, greens and blues.
@@ -18,35 +18,21 @@
 #' library(ggplot2)
 #'
 #' ## generate a plot with the Exploristics theme
-#' ## if you want to use a numeric variable as discrete use `as.factor()` when setting `fill`
-#' cars_plot <- ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = as.factor(cyl))) +
-#' geom_bar(stat="identity") +
+#' cars_plot <- ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
+#' geom_point(size=2) +
 #' exploristics_theme()
 #'
 #' ## adding the colour scheme can be written as one line
-#' exploristics_fill(cars_plot, colour_pal="Expl_External")
+#' exploristics_colour(cars_plot, colour_pal="Expl_External")
 #'
 #'
 #' library(magrittr)
 #'
 #' ## or using a pipe
 #' cars_plot %>%
-#' exploristics_fill(colour_pal="Expl_External")
-#'
-#'
-#'
-#' ## saving at higher dpi can cause bar plots to have "lines" within the bars
-#' ## if this happens set the colour to the same as the fill in the plot aes() and add exploristics_colour()
-#' cars_plot <- ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = as.factor(cyl),colour=as.factor(cyl))) +
-#' geom_bar(stat="identity") +
-#' exploristics_theme()
-#'
-#' cars_plot %>%
-#' exploristics_fill(colour_pal="Expl_External") %>%
 #' exploristics_colour(colour_pal="Expl_External")
 
-
-exploristics_fill = function(plot,colour_pal=c("Expl_Blue","Expl_External","Expl_HighCont"),rev_gradient=F){
+exploristics_colour = function(plot,colour_pal=c("Expl_Blue","Expl_External","Expl_HighCont"),rev_gradient=F){
 
   # colour palettes
   Expl_Blue <- c("#002659","#293D94","#136BBA","#16A4D4","#9DD6E4","#D6EFF5")
@@ -61,59 +47,59 @@ exploristics_fill = function(plot,colour_pal=c("Expl_Blue","Expl_External","Expl
     return(x)
   }
 
-  # work out number of colours needed for fill
-  fill_var <- as_label(plot$mapping$fill)
+  # work out number of colours needed for colour
+  colour_var <- as_label(plot$mapping$colour)
 
   # if as.*() used set it to that function, else use the type of colour variable
-  if(grepl("as.*)$",fill_var)==T){
+  if(grepl("as.*)$",colour_var)==T){
     # find function applied
-    func_fill <- sub("^as.(\\w+)\\(.*$", "\\1", fill_var)
+    func_colour <- sub("^as.(\\w+)\\(.*$", "\\1", colour_var)
     # clean the name
-    fill_var <- clean_label(fill_var)
+    colour_var <- clean_label(colour_var)
     # use the function as the class
-    fill_class <- func_fill
+    colour_class <- func_colour
   } else{
-    fill_class <- class(unlist(plot$data[fill_var]))
+    colour_class <- class(unlist(plot$data[colour_var]))
   }
 
 
   # discrete or continuous functions needed?
-  if(fill_class %in% c("logical","character","factor","ordered")){
+  if(colour_class %in% c("logical","character","factor","ordered")){
+
+    colour_num <- length(unique(unlist(plot$data[colour_var])))
 
     # discrete
-    fill_num <- length(unique(unlist(plot$data[fill_var])))
-
     if(match.arg(colour_pal)=="Expl_Blue"){
-      plot <- plot + scale_fill_manual(values = grDevices::colorRampPalette(Expl_Blue)(fill_num))
+      plot <- plot + scale_color_manual(values = grDevices::colorRampPalette(Expl_Blue)(colour_num))
     }
     if(match.arg(colour_pal)=="Expl_External"){
-      plot <- plot + scale_fill_manual(values = grDevices::colorRampPalette(Expl_External)(fill_num))
+      plot <- plot + scale_color_manual(values = grDevices::colorRampPalette(Expl_External)(colour_num))
     }
     if(match.arg(colour_pal)=="Expl_HighCont"){
-      plot <- plot + scale_fill_manual(values = grDevices::colorRampPalette(Expl_HighCont)(fill_num))
+      plot <- plot + scale_color_manual(values = grDevices::colorRampPalette(Expl_HighCont)(colour_num))
     }
   } else{
     if(rev_gradient==T){
       # continuous
       if(match.arg(colour_pal)=="Expl_Blue"){
-        plot <- plot + scale_fill_gradientn(colours = rev(Expl_Blue))
+        plot <- plot + scale_color_gradientn(colours = rev(Expl_Blue))
       }
       if(match.arg(colour_pal)=="Expl_External"){
-        plot <- plot + scale_fill_gradientn(colours = rev(Expl_External[c(1,6,2)]))
+        plot <- plot + scale_color_gradientn(colours = rev(Expl_External[c(1,6,2)]))
       }
       if(match.arg(colour_pal)=="Expl_HighCont"){
-        plot <- plot + scale_fill_gradientn(colours = rev(Expl_HighCont[c(1,2,4)]))
+        plot <- plot + scale_color_gradientn(colours = rev(Expl_HighCont[c(1,2,4)]))
       }
     } else{
       # continuous
       if(match.arg(colour_pal)=="Expl_Blue"){
-        plot <- plot + scale_fill_gradientn(colours = Expl_Blue)
+        plot <- plot + scale_color_gradientn(colours = Expl_Blue)
       }
       if(match.arg(colour_pal)=="Expl_External"){
-        plot <- plot + scale_fill_gradientn(colours = Expl_External[c(1,6,2)])
+        plot <- plot + scale_color_gradientn(colours = Expl_External[c(1,6,2)])
       }
       if(match.arg(colour_pal)=="Expl_HighCont"){
-        plot <- plot + scale_fill_gradientn(colours = Expl_HighCont[c(1,2,4)])
+        plot <- plot + scale_color_gradientn(colours = Expl_HighCont[c(1,2,4)])
       }
     }
 
@@ -122,4 +108,3 @@ exploristics_fill = function(plot,colour_pal=c("Expl_Blue","Expl_External","Expl
   return(plot)
 
 }
-

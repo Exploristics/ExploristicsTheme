@@ -1,6 +1,6 @@
 Package: ExploristicsTheme
-Title: A custom theme for ggplot2
-Version: 0.0.0.9001
+Title: A custom theme and colour schemes for ggplot2
+Version: 0.0.1.0
 Authors@R: 
     c(person(given = "Gareth",
              family = "Burns",
@@ -15,13 +15,18 @@ Authors@R:
              role = "aut",
              email = "sheila.mccartan@exploristics.com"))
 Description: This packages contains a series of functions to apply the Exploristics
-  theme to ggplot2 figures.
+  theme and colour schemes to ggplot2 figures.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
-    ggplot2 (>= 3.0)
+    ggplot2 (>= 3.0),
+    scales (>= 1.2.1),
+    stringr (>= 1.5.0),
+    magrittr (>= 2.0.3),
+    magick (>= 2.7.4),
+    rlang (>= 1.1.1)
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

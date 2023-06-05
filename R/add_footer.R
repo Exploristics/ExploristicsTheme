@@ -8,7 +8,7 @@
 #' @param text Optional text to add to the left of the footer. Single line or across 2 lines if you add `\n` between the lines of text.
 #' @param line Add a line between the plot and the footer. Defaults to `FALSE`.
 #' @param logo Path to an image file to use in the footer. The path must be URL, filename or raw vector. Defaults uses the Exploristics logo supplied with the package.
-#' @param suffix Suffix to add to the original plot filename.Don't need to include file extension. Defaults to "_with_footer".
+#' @param suffix Suffix to add to the original plot filename. Don't need to include file extension. Defaults to "_with_footer".
 #' @seealso \code{\link[magick]{image_read}}
 #' @seealso \code{\link[magick]{image_trim}}
 #' @seealso \code{\link[magick]{image_scale}}

@@ -53,7 +53,7 @@ cars_plot %>%
 ```
 
 ### Text wrapper
-If your plot has long titles or labels, use `text_wrapper()` to automatically wrap them on to a new line.
+If your plot has long titles or labels, use `text_wrapper()` to automatically wrap them onto a new line.
 
 ```{r long_title}
 ## generate a plot with a long title
@@ -66,7 +66,7 @@ cars_plot
 
 ```
 
-The title above gets cutoff, but using `text_wrapper()` it will add a new line:
+The title above gets cut off, but using `text_wrapper()` it will add a new line:
 
 ```{r text_wrap}
 ## add colour scheme and wrap text labels
@@ -140,8 +140,8 @@ p %>%
   
 ## Potential issues
 
-### using `exploristics_fill()` with `geom_bar()`
-When setting the fill of a bar plot the default border, which is set by `colour`, can cause horizontal lines to appear across the bars in the plot.
+### using fill in bar plots
+When setting `fill` and using `geom_bar()` the default border, which is set by `colour`, can cause horizontal lines to appear across the bars in the plot.
 
 To fix this set `fill` and `colour` in `aes()` to the same variable and then add `exploristics_fill()` and `exploristics_colour()` with both using the same colour palette.
 

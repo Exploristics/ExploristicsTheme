@@ -49,7 +49,7 @@ exploristics_fill(colour_pal="Expl_External")
 
 
 
-## saving at higher dpi can cause bar plots to have "lines" within the bars
+## bar plots can appear to have "lines" within the bars if only setting colour
 ## if this happens set the colour to the same as the fill in the plot aes() and add exploristics_colour()
 cars_plot <- ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = as.factor(cyl),colour=as.factor(cyl))) +
 geom_bar(stat="identity") +

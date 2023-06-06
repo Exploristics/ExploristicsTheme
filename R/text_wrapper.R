@@ -30,7 +30,7 @@
 #'
 #' library(magrittr)
 #'
-#' ## pipe along with the colour scheme too
+#' ## pipe along with the colour scheme
 #' cars_plot_final <- cars_plot %>%
 #' exploristics_fill(colour_pal="Expl_External") %>%
 #' text_wrapper()

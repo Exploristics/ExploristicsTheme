@@ -35,7 +35,7 @@
 #'
 #'
 #'
-#' ## saving at higher dpi can cause bar plots to have "lines" within the bars
+#' ## bar plots can appear to have "lines" within the bars if only setting colour
 #' ## if this happens set the colour to the same as the fill in the plot aes() and add exploristics_colour()
 #' cars_plot <- ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = as.factor(cyl),colour=as.factor(cyl))) +
 #' geom_bar(stat="identity") +
@@ -83,14 +83,28 @@ exploristics_fill = function(plot,colour_pal=c("Expl_Blue","Expl_External","Expl
     # discrete
     fill_num <- length(unique(unlist(plot$data[fill_var])))
 
+    # use specified colours from palette if 6 or less needed.
+    # create colorRampPalette if >6 needed.
+    if(fill_num <=6){
+      if(match.arg(colour_pal)=="Expl_Blue"){
+        plot <- plot + scale_fill_manual(values = Expl_Blue[1:fill_num])
+      }
+      if(match.arg(colour_pal)=="Expl_External"){
+        plot <- plot + scale_fill_manual(values = Expl_External[1:fill_num])
+      }
+      if(match.arg(colour_pal)=="Expl_HighCont"){
+        plot <- plot + scale_fill_manual(values = Expl_HighCont[1:fill_num])
+      }
+    } else{
     if(match.arg(colour_pal)=="Expl_Blue"){
       plot <- plot + scale_fill_manual(values = grDevices::colorRampPalette(Expl_Blue)(fill_num))
-    }
+      }
     if(match.arg(colour_pal)=="Expl_External"){
       plot <- plot + scale_fill_manual(values = grDevices::colorRampPalette(Expl_External)(fill_num))
-    }
+      }
     if(match.arg(colour_pal)=="Expl_HighCont"){
       plot <- plot + scale_fill_manual(values = grDevices::colorRampPalette(Expl_HighCont)(fill_num))
+      }
     }
   } else{
     if(rev_gradient==T){

@@ -66,18 +66,33 @@ exploristics_colour = function(plot,colour_pal=c("Expl_Blue","Expl_External","Ex
   # discrete or continuous functions needed?
   if(colour_class %in% c("logical","character","factor","ordered")){
 
+    # discrete
     colour_num <- length(unique(unlist(plot$data[colour_var])))
 
-    # discrete
-    if(match.arg(colour_pal)=="Expl_Blue"){
-      plot <- plot + scale_color_manual(values = grDevices::colorRampPalette(Expl_Blue)(colour_num))
+    # use specified colours from palette if 6 or less needed.
+    # create colorRampPalette if >6 needed.
+    if(colour_num <=6){
+      if(match.arg(colour_pal)=="Expl_Blue"){
+        plot <- plot + scale_color_manual(values = Expl_Blue[1:colour_num])
+      }
+      if(match.arg(colour_pal)=="Expl_External"){
+        plot <- plot + scale_color_manual(values = Expl_External[1:colour_num])
+      }
+      if(match.arg(colour_pal)=="Expl_HighCont"){
+        plot <- plot + scale_color_manual(values = Expl_HighCont[1:colour_num])
+      }
+    } else{
+      if(match.arg(colour_pal)=="Expl_Blue"){
+        plot <- plot + scale_color_manual(values = grDevices::colorRampPalette(Expl_Blue)(colour_num))
+      }
+      if(match.arg(colour_pal)=="Expl_External"){
+        plot <- plot + scale_color_manual(values = grDevices::colorRampPalette(Expl_External)(colour_num))
+      }
+      if(match.arg(colour_pal)=="Expl_HighCont"){
+        plot <- plot + scale_color_manual(values = grDevices::colorRampPalette(Expl_HighCont)(colour_num))
+      }
     }
-    if(match.arg(colour_pal)=="Expl_External"){
-      plot <- plot + scale_color_manual(values = grDevices::colorRampPalette(Expl_External)(colour_num))
-    }
-    if(match.arg(colour_pal)=="Expl_HighCont"){
-      plot <- plot + scale_color_manual(values = grDevices::colorRampPalette(Expl_HighCont)(colour_num))
-    }
+
   } else{
     if(rev_gradient==T){
       # continuous

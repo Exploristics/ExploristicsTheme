@@ -30,9 +30,10 @@ The plot with the footer added is saved to a .png file with the same filename as
 library(ggplot2)
 library(magick)
 library(magrittr)
+library(scales)
+library(stringr)
 
 ## generate a plot with the Exploristics theme
-## if you want to use a numeric variable as discrete use `as.factor()` when setting `fill`
 cars_plot <- ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
 geom_point(size=2) +
 labs(title="Example plot") +

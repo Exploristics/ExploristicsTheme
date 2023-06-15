@@ -51,7 +51,7 @@
 
 
 
-add_footer <- function(filename=NULL,text=NULL,line=F,logo=NULL,suffix=NULL){
+add_footer <- function(filename=NULL,text=NULL,line=FALSE,logo=NULL,suffix=NULL){
 
   if(is.null(filename)){
     stop("No file provided. Please enter a filename.")
@@ -96,8 +96,8 @@ add_footer <- function(filename=NULL,text=NULL,line=F,logo=NULL,suffix=NULL){
       image_border("10x10",color = "white")
 
     # if text caption is to be added, put it on the left side of the footer
-    if(is.null(text)==F){
-      if(grepl("\n",text)==T){
+    if(is.null(text)==FALSE){
+      if(grepl("\n",text)==TRUE){
         footer <- footer %>%
           image_annotate(text, color = "#2D2669", size = 25,
                          location = "+10+15", gravity = "northwest")
@@ -110,7 +110,7 @@ add_footer <- function(filename=NULL,text=NULL,line=F,logo=NULL,suffix=NULL){
     }
 
     # if using a line between the plot and footer, create it
-    if(line==T){
+    if(isTRUE(line)){
       # new image to act as a line break
       # make it the same length as the footer
       lb_width <- image_info(footer)$width

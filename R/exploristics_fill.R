@@ -46,12 +46,16 @@
 #' exploristics_colour(colour_pal="Expl_External")
 
 
-exploristics_fill = function(plot,colour_pal=c("Expl_Blue","Expl_External","Expl_HighCont"),rev_gradient=F){
+exploristics_fill = function(plot,colour_pal="Expl_Blue",rev_gradient=F){
 
   # colour palettes
-  Expl_Blue <- c("#002659","#293D94","#136BBA","#16A4D4","#9DD6E4","#D6EFF5")
-  Expl_External <- c("#7119A2","#28CAAB","#3C56E1","#B04AFF","#97EDDB","#92C8FF")
-  Expl_HighCont <- c("#2D2669","#FF4A1B","#18CDFF","#E8E126","#BF00B5","#5EB17D")
+  # Expl_Blue <- c("#002659","#293D94","#136BBA","#16A4D4","#9DD6E4","#D6EFF5")
+  # Expl_External <- c("#7119A2","#28CAAB","#3C56E1","#B04AFF","#97EDDB","#92C8FF")
+  # Expl_HighCont <- c("#2D2669","#FF4A1B","#18CDFF","#E8E126","#BF00B5","#5EB17D")
+  # all in stored in `data/`
+
+  # ensure the chosen colour palette is one of the Explorisitcs palettes
+  colourPalette <- match.arg(colour_pal,choices=c("Expl_Blue","Expl_External","Expl_HighCont"))
 
 
   ## function to remove "as.factor()" or "as.character(as.numeric())" from labels
@@ -86,47 +90,33 @@ exploristics_fill = function(plot,colour_pal=c("Expl_Blue","Expl_External","Expl
     # use specified colours from palette if 6 or less needed.
     # create colorRampPalette if >6 needed.
     if(fill_num <=6){
-      if(match.arg(colour_pal)=="Expl_Blue"){
-        plot <- plot + scale_fill_manual(values = Expl_Blue[1:fill_num])
-      }
-      if(match.arg(colour_pal)=="Expl_External"){
-        plot <- plot + scale_fill_manual(values = Expl_External[1:fill_num])
-      }
-      if(match.arg(colour_pal)=="Expl_HighCont"){
-        plot <- plot + scale_fill_manual(values = Expl_HighCont[1:fill_num])
-      }
+        plot <- plot + scale_fill_manual(values = get(colourPalette)[1:fill_num])
+
     } else{
-    if(match.arg(colour_pal)=="Expl_Blue"){
-      plot <- plot + scale_fill_manual(values = grDevices::colorRampPalette(Expl_Blue)(fill_num))
-      }
-    if(match.arg(colour_pal)=="Expl_External"){
-      plot <- plot + scale_fill_manual(values = grDevices::colorRampPalette(Expl_External)(fill_num))
-      }
-    if(match.arg(colour_pal)=="Expl_HighCont"){
-      plot <- plot + scale_fill_manual(values = grDevices::colorRampPalette(Expl_HighCont)(fill_num))
-      }
+      plot <- plot + scale_fill_manual(values = grDevices::colorRampPalette(get(colourPalette))(fill_num))
+
     }
   } else{
     if(rev_gradient==T){
       # continuous
-      if(match.arg(colour_pal)=="Expl_Blue"){
+      if(colourPalette=="Expl_Blue"){
         plot <- plot + scale_fill_gradientn(colours = rev(Expl_Blue))
       }
-      if(match.arg(colour_pal)=="Expl_External"){
+      if(colourPalette=="Expl_External"){
         plot <- plot + scale_fill_gradientn(colours = rev(Expl_External[c(1,6,2)]))
       }
-      if(match.arg(colour_pal)=="Expl_HighCont"){
+      if(colourPalette=="Expl_HighCont"){
         plot <- plot + scale_fill_gradientn(colours = rev(Expl_HighCont[c(1,2,4)]))
       }
     } else{
       # continuous
-      if(match.arg(colour_pal)=="Expl_Blue"){
+      if(colourPalette=="Expl_Blue"){
         plot <- plot + scale_fill_gradientn(colours = Expl_Blue)
       }
-      if(match.arg(colour_pal)=="Expl_External"){
+      if(colourPalette=="Expl_External"){
         plot <- plot + scale_fill_gradientn(colours = Expl_External[c(1,6,2)])
       }
-      if(match.arg(colour_pal)=="Expl_HighCont"){
+      if(colourPalette=="Expl_HighCont"){
         plot <- plot + scale_fill_gradientn(colours = Expl_HighCont[c(1,2,4)])
       }
     }

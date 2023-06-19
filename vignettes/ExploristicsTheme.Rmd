@@ -75,20 +75,43 @@ cars_plot %>%
   text_wrapper()
 ```
 
-### Footer
-To add a footer to your plot with the Exploristics logo and an optional text caption, first use `ggsave()` to save your plot to an image file. Pass the file to `add_footer()` which will save a new plot with the footer added as a `.png` file.
+### Save with logo
 
-```{r footer}
-## save the last plot generated
-ggsave(filename = "example_cars_plot.png", width = 8, height = 8, dpi = 300)
+#### Adding to a ggplot
+Use `save_with_logo()` to add a footer to your plot with the Exploristics logo and an optional text caption. Specify a `filename` without an extension to save the plot to. It will be saved with the footer added as a `.png` file.
 
-## add the footer to the saved plot with a custom caption
-## include `\n` to space your caption over 2 lines
-add_footer("example_cars_plot.png", text= "Source: Data source\nProduced by: Name")
+```{r footer_ggplot}
+## add colour scheme, wrap text labels and save with the Exploristics logo
+cars_plot %>%
+  exploristics_colour(colour_pal="Expl_External") %>%
+  text_wrapper() %>%
+  save_with_logo(filename="example_cars_plot", text= "Source:Data source\nProduced by: Name")
+```
+
+![The saved plot with the footer added](example_cars_plot.png){width=600px height=640px}
+
+
+#### Adding to an image
+The footer can also be added to any image file. This could be a plot you've previously generated that didn't use `ggplot2`. Here, a base R plot is saved to an image file. The file is then passed to `save_with_logo()` which will save a new plot with the footer added as a `.png` file. The default footer suffix of "_with_footer" is added so the original image file is not overwritten.
+
+```{r footer_image,results='hide'}
+## create a plot and save to a file
+png(filename = "example_cars_base_r_plot.png", width = 8, height = 5, units="in", res = 300)
+plot(mtcars$hp,mtcars$mpg,pch=19)
+dev.off()
 
 ```
 
-![The saved plot with the footer added](example_cars_plot_with_footer.png){width=600px height=640px}
+![The image of the base R plot](example_cars_base_r_plot.png){width=600px height=375px}
+
+```{r footer_image_with_logo}
+## add the footer to the saved image with a custom caption
+save_with_logo("example_cars_base_r_plot.png", text= "Source: Data source")
+
+```
+
+
+![The same image with the footer added](example_cars_base_r_plot_with_footer.png){width=600px height=415px}
   
   
   
@@ -103,12 +126,12 @@ ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
   exploristics_theme()
 
 
-## add `theme()` to change additional options
+## add `theme()` to change additional options or overwrite `exploristics_theme()` default values
 ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
   geom_point(size=2) +
   labs(title="Example plot") +
   exploristics_theme() +
-  theme(legend.position = "top")
+  theme(legend.position = "top", legend.text = element_text(size=12))
 
 ```
 
@@ -121,7 +144,7 @@ p <- ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = as.factor(cyl))) +
   geom_bar(stat="identity") +
   exploristics_theme()
 
-## the legend title is `as.factor(cyl)`
+## the legend title is "as.factor(cyl)"
 p %>%
   exploristics_fill(colour_pal="Expl_External")
 ```
@@ -140,7 +163,7 @@ p %>%
   
 ## Potential issues
 
-### using fill in bar plots
+### Using fill for bar plots
 When setting `fill` and using `geom_bar()` the default border, which is set by `colour`, can cause horizontal lines to appear across the bars in the plot.
 
 To fix this set `fill` and `colour` in `aes()` to the same variable and then add `exploristics_fill()` and `exploristics_colour()` with both using the same colour palette.

@@ -3,8 +3,8 @@
 #' @details This function saves a ggplot with a footer with the Exploristics logo at the bottom-right corner and an optional text caption at the bottom-left corner below the plot.
 #' There is also an option to add a line between the plot and the footer.
 #' The plot will be saved with the footer added is saved to a the provided filename as a `.png` file.
-#' An image file can also be used with this function. It will add the footer to an image then save it to a .png file with the same filename as the original plot image but with the suffix "with_footer" added to it.
-#' @param plot A ggplot or the path to a previously saved image file.
+#' An image file can also be used with this function, so the Exploristics logo can be added to any plot. The footer will be added to the image then saved to a `.png` file with the same filename as the original plot image but with the suffix "with_footer" added to it.
+#' @param plot A ggplot or the path to an image file.
 #' @param filename The file to save the image to. Don't include file extension as it will be saved as a `.png`.
 #' @param text Optional text to add to the left of the footer. Single line or across 2 lines if you add `\n` between the lines of text.
 #' @param line Add a line between the plot and the footer. Defaults to `FALSE`.
@@ -67,13 +67,13 @@
 #' ## save the plot
 #' ggsave(filename = "example_cars_plot.png", width = 8, height = 8, dpi = 300)
 #'
-#' ## add the footer to the saved image
+#' ## add the footer with the logo to the saved image
 #' save_with_logo("example_cars_plot.png", text= "Source:Data source\nProduced by: Name")
 
 save_with_logo <- function(plot=NULL, filename=NULL, text=NULL, line=FALSE, logo=NULL, width = 8, height = 8, dpi = 300, suffix=NULL){
 
   if(is.null(plot)){
-    stop("No plot provided. Please supply a ggplot or the filename of a previously saved image.")
+    stop("No plot provided. Please supply a ggplot or the path of a previously saved image.")
   }
 
   # check if plot is a ggplot or an image file
@@ -87,7 +87,7 @@ save_with_logo <- function(plot=NULL, filename=NULL, text=NULL, line=FALSE, logo
       ggsave(tmpfile, width = width, height = height, dpi = dpi)
 
       if(is.null(filename)){
-        stop("No file provided. Please enter a filename.")
+        stop("No filename provided. Please enter a filename.")
       }else{
 
       # don't use a suffix when saving

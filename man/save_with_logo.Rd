@@ -17,7 +17,7 @@ save_with_logo(
 )
 }
 \arguments{
-\item{plot}{A ggplot or the path to a previously saved image file.}
+\item{plot}{A ggplot or the path to an image file.}
 
 \item{filename}{The file to save the image to. Don't include file extension as it will be saved as a \code{.png}.}
 
@@ -42,7 +42,7 @@ This function saves a ggplot with a footer with the Exploristics logo and an opt
 This function saves a ggplot with a footer with the Exploristics logo at the bottom-right corner and an optional text caption at the bottom-left corner below the plot.
 There is also an option to add a line between the plot and the footer.
 The plot will be saved with the footer added is saved to a the provided filename as a \code{.png} file.
-An image file can also be used with this function. It will add the footer to an image then save it to a .png file with the same filename as the original plot image but with the suffix "with_footer" added to it.
+An image file can also be used with this function, so the Exploristics logo can be added to any plot. The footer will be added to the image then saved to a \code{.png} file with the same filename as the original plot image but with the suffix "with_footer" added to it.
 }
 \examples{
 library(ggplot2)
@@ -81,7 +81,7 @@ text_wrapper()
 ## save the plot
 ggsave(filename = "example_cars_plot.png", width = 8, height = 8, dpi = 300)
 
-## add the footer to the saved image
+## add the footer with the logo to the saved image
 save_with_logo("example_cars_plot.png", text= "Source:Data source\nProduced by: Name")
 }
 \seealso{

@@ -74,8 +74,8 @@ exploristics_theme <- function(axis_lines=T,grid_lines=F,legend=T,legend_side=T,
     axis.text.x = element_text(margin = margin(5, b = 10)),
 
 
-    axis.ticks = if(axis_lines) element_line(colour="black",linewidth = 1.05) else element_blank(),
-    axis.line = if(axis_lines) element_line(colour="black",linewidth = 1.05) else element_blank(),
+    axis.ticks = if(axis_lines) element_line(colour="black", lwd = 1.05) else element_blank(),
+    axis.line = if(axis_lines) element_line(colour="black", lwd = 1.05) else element_blank(),
 
 
     #Grid lines

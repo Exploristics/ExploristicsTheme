@@ -20,13 +20,13 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Imports: 
-    ggplot2 (>= 3.0),
-    scales (>= 1.2),
-    stringr (>= 1.5),
-    magrittr (>= 2.0),
-    magick (>= 2.7),
-    rlang (>= 1.0.6)
+Imports:
+    ggplot2,
+    scales,
+    stringr,
+    magrittr,
+    magick,
+    rlang (>= 0.4.0)
 Suggests: 
     knitr,
     rmarkdown,

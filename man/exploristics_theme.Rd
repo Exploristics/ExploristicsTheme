@@ -5,11 +5,11 @@
 \title{Add Exploristics theme to ggplot2 figure.}
 \usage{
 exploristics_theme(
-  axis_lines = T,
-  grid_lines = F,
-  legend = T,
-  legend_side = T,
-  legend_title = T,
+  axis_lines = TRUE,
+  grid_lines = FALSE,
+  legend = TRUE,
+  legend_side = TRUE,
+  legend_title = TRUE,
   title_size = 20,
   subtitle_size = 16,
   axis_title_size = 18,

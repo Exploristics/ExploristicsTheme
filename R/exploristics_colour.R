@@ -32,7 +32,7 @@
 #' cars_plot %>%
 #' exploristics_colour(colour_pal="Expl_External")
 
-exploristics_colour = function(plot,colour_pal="Expl_Blue",rev_gradient=F){
+exploristics_colour = function(plot,colour_pal="Expl_Blue",rev_gradient=FALSE){
 
   # colour palettes
   # Expl_Blue <- c("#002659","#293D94","#136BBA","#16A4D4","#9DD6E4","#D6EFF5")
@@ -55,7 +55,7 @@ exploristics_colour = function(plot,colour_pal="Expl_Blue",rev_gradient=F){
   colour_var <- as_label(plot$mapping$colour)
 
   # if as.*() used set it to that function, else use the type of colour variable
-  if(grepl("as.*)$",colour_var)==T){
+  if(grepl("as.*)$",colour_var)==TRUE){
     # find function applied
     func_colour <- sub("^as.(\\w+)\\(.*$", "\\1", colour_var)
     # clean the name
@@ -84,7 +84,7 @@ exploristics_colour = function(plot,colour_pal="Expl_Blue",rev_gradient=F){
     }
 
   } else{
-    if(rev_gradient==T){
+    if(rev_gradient==TRUE){
       # continuous
       if(colourPalette=="Expl_Blue"){
         plot <- plot + scale_color_gradientn(colours = rev(Expl_Blue))

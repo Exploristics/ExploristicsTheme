@@ -23,11 +23,12 @@
 #' exploristics_theme()
 
 
-exploristics_theme <- function(axis_lines=T,grid_lines=F,legend=T,legend_side=T,legend_title=T,title_size=20,subtitle_size=16,axis_title_size=18,axis_size=18) {
+exploristics_theme <- function(axis_lines=TRUE,grid_lines=FALSE,legend=TRUE,legend_side=TRUE,legend_title=TRUE,title_size=20,subtitle_size=16,axis_title_size=18,axis_size=18) {
 
   font <- "sans"
 
-  theme(
+  # most of the theme is created here
+  base_theme <- theme(
     #Text format:
     #This sets the font, size, type and colour of text for the chart's title
     plot.title = element_text(
@@ -74,9 +75,7 @@ exploristics_theme <- function(axis_lines=T,grid_lines=F,legend=T,legend_side=T,
     axis.text.x = element_text(margin = margin(5, b = 10)),
 
 
-    axis.ticks = if(axis_lines) element_line(colour="black", lwd = 1.05) else element_blank(),
-    axis.line = if(axis_lines) element_line(colour="black", lwd = 1.05) else element_blank(),
-
+    ## Note, how axis line elements are set is conditional on the ggplot2 version in the `conditional_theme` vars below ##
 
     #Grid lines
     #This removes all minor gridlines and adds major y gridlines. In many cases you will want to change this to remove y gridlines and add x gridlines. The cookbook shows you examples for doing so
@@ -92,6 +91,46 @@ exploristics_theme <- function(axis_lines=T,grid_lines=F,legend=T,legend_side=T,
     strip.background = element_rect(fill = "white"),
     strip.text = element_text(size  = title_size,  hjust = 0)
   )
+
+  # for `ggplot2` >=3.4.0 `linewidth` should be used for `element_line()`
+  # for < 3.4 `size` should be used for `element_line()`
+  # check the version og ggplot2 being used
+  if(packageVersion("ggplot2")>="3.4.0"){
+    lwd_arg <- "linewidth"
+  } else{
+    lwd_arg <- "size"
+  }
+
+  # conditionally set the `axis.tick` of the theme depending on the version of `ggplot2`
+  conditional_theme_ticks <- theme(
+    axis.ticks = if (axis_lines) {
+      if (lwd_arg == "linewidth") {
+        element_line(colour = "black", linewidth = 1.05)
+      } else {
+        element_line(colour = "black", size = 1.05)
+      }
+    } else {
+      element_blank()
+    }
+  )
+
+  # conditionally set the `axis.line` of the theme depending on the version of `ggplot2`
+  conditional_theme_line <- theme(
+      axis.line = if (axis_lines) {
+        if (lwd_arg == "linewidth") {
+          element_line(colour = "black", linewidth = 1.05)
+        } else {
+          element_line(colour = "black", size = 1.05)
+        }
+      } else {
+        element_blank()
+      }
+  )
+
+  # combine the base and conditional themes
+  expl_theme <- base_theme + conditional_theme_ticks + conditional_theme_line
+
+  return(expl_theme)
 
 }
 

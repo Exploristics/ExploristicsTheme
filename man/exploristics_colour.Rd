@@ -4,7 +4,7 @@
 \alias{exploristics_colour}
 \title{Add Exploristics colour to a ggplot2 figure.}
 \usage{
-exploristics_colour(plot, colour_pal = "Expl_Blue", rev_gradient = F)
+exploristics_colour(plot, colour_pal = "Expl_Blue", rev_gradient = FALSE)
 }
 \arguments{
 \item{plot}{A ggplot2 figure (S3: gg, ggplot).}

@@ -46,7 +46,7 @@
 #' exploristics_colour(colour_pal="Expl_External")
 
 
-exploristics_fill = function(plot,colour_pal="Expl_Blue",rev_gradient=F){
+exploristics_fill = function(plot,colour_pal="Expl_Blue",rev_gradient=FALSE){
 
   # colour palettes
   # Expl_Blue <- c("#002659","#293D94","#136BBA","#16A4D4","#9DD6E4","#D6EFF5")
@@ -69,7 +69,7 @@ exploristics_fill = function(plot,colour_pal="Expl_Blue",rev_gradient=F){
   fill_var <- as_label(plot$mapping$fill)
 
   # if as.*() used set it to that function, else use the type of colour variable
-  if(grepl("as.*)$",fill_var)==T){
+  if(grepl("as.*)$",fill_var)==TRUE){
     # find function applied
     func_fill <- sub("^as.(\\w+)\\(.*$", "\\1", fill_var)
     # clean the name
@@ -97,7 +97,7 @@ exploristics_fill = function(plot,colour_pal="Expl_Blue",rev_gradient=F){
 
     }
   } else{
-    if(rev_gradient==T){
+    if(rev_gradient==TRUE){
       # continuous
       if(colourPalette=="Expl_Blue"){
         plot <- plot + scale_fill_gradientn(colours = rev(Expl_Blue))

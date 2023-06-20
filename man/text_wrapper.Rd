@@ -10,7 +10,7 @@ text_wrapper(
   axis_title_wrap = 30,
   axis_wrap = 20,
   other_wrap = 30,
-  spaces = T
+  spaces = TRUE
 )
 }
 \arguments{

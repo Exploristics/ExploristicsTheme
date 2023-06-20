@@ -4,7 +4,7 @@
 \alias{exploristics_fill}
 \title{Add Exploristics fill to a ggplot2 figure.}
 \usage{
-exploristics_fill(plot, colour_pal = "Expl_Blue", rev_gradient = F)
+exploristics_fill(plot, colour_pal = "Expl_Blue", rev_gradient = FALSE)
 }
 \arguments{
 \item{plot}{A ggplot2 figure (S3: gg, ggplot).}

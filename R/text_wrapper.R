@@ -57,36 +57,42 @@ text_wrapper <- function(plot,title_wrap=40,axis_title_wrap=30,axis_wrap=20,othe
   # check if x-axis is discrete or continuous
   x_var <- as_label(plot$mapping$x)
 
-  # check if type is specified by using an as.*() function
-  if(grepl("as.*)$",x_var)==TRUE){
-    # find function applied
-    func_x <- sub("^as.(\\w+)\\(.*$", "\\1", x_var)
-    # clean the name
-    x_var <- clean_label(x_var)
-    # use the function as the class
-    x_class <- func_x
-  } else{
-    x_class <- class(unlist(plot$data[x_var]))
-  }
-
-
-  # wrap the text with the axis width specified
-  if(x_class %in% c("logical","character","factor","ordered")){
-    if(spaces==TRUE){
-      plot$data[x_var] <- apply(plot$data, 1, function(row) {
-        gsub(pattern = "_", replacement = " ", x = row[x_var])
-      })
+  # does the plot have an x mapping?
+  if(!is.null(x_var)&x_var!="NULL"){
+    # check if type is specified by using an as.*() function
+    if(grepl("as.*)$",x_var)==TRUE){
+      # find function applied
+      func_x <- sub("^as.(\\w+)\\(.*$", "\\1", x_var)
+      # clean the name
+      x_var <- clean_label(x_var)
+      # use the function as the class
+      x_class <- func_x
+    } else{
+      x_class <- class(unlist(plot$data[x_var]))
     }
-   plot <- plot + scale_x_discrete(labels = label_wrap(axis_wrap))
 
-  } else{
-    plot <- plot + scale_x_continuous(labels = label_wrap(axis_wrap))
 
+    # wrap the text with the axis width specified
+    if(x_class %in% c("logical","character","factor","ordered")){
+      if(spaces==TRUE){
+        plot$data[x_var] <- apply(plot$data, 1, function(row) {
+          gsub(pattern = "_", replacement = " ", x = row[x_var])
+        })
+      }
+      plot <- plot + scale_x_discrete(labels = label_wrap(axis_wrap))
+
+    } else{
+      plot <- plot + scale_x_continuous(labels = label_wrap(axis_wrap))
+
+    }
   }
+
 
   # check if y-axis is discrete or continuous
   y_var <- as_label(plot$mapping$y)
 
+  # does the plot have an y mapping?
+  if(!is.null(y_var)&y_var!="NULL"){
   # check if type is specified by using an as.*() function
   if(grepl("as.*)$",y_var)==TRUE){
     # find function applied
@@ -112,7 +118,9 @@ text_wrapper <- function(plot,title_wrap=40,axis_title_wrap=30,axis_wrap=20,othe
   } else{
     plot <- plot + scale_y_continuous(labels = label_wrap(axis_wrap))
 
+    }
   }
+
 
   ## Titles
   # does the plot have a title?

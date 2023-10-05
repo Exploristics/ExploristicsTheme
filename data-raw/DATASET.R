@@ -23,4 +23,23 @@ Expl_HighCont <-
     "#BF00B5",
     "#5EB17D")
 
-usethis::use_data(Expl_Blue, Expl_External , Expl_HighCont, overwrite = TRUE)
+Text_Colour <- "#121037"
+Footer_Text_Colour <- "#2D2669"
+Line_Colour <- "#A2D7E4"
+Tick_Colour <- "#000000"
+Backgroud_Colour <- "#FFFFFF"
+
+usethis::use_data(Expl_Blue,
+                  Expl_External,
+                  Expl_HighCont,
+                  overwrite = TRUE)
+
+usethis::use_data(
+  Text_Colour,
+  Footer_Text_Colour,
+  Line_Colour,
+  Tick_Colour,
+  Backgroud_Colour,
+  internal = TRUE,
+  overwrite = TRUE
+)

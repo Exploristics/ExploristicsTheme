@@ -42,7 +42,7 @@ exploristics_theme <-
       plot.title = element_text(
         family = font,
         size = title_size,
-        color = "#121037",
+        color = Text_Colour,
         hjust = 0.5
       ),
       #This sets the font, size, type and colour of text for the chart's subtitle, as well as setting a margin between the title and the subtitle
@@ -68,7 +68,7 @@ exploristics_theme <-
         element_text(
           family = font,
           size = axis_size,
-          color = "#121037"
+          color = Text_Colour
         )
       else
         element_blank(),
@@ -76,7 +76,7 @@ exploristics_theme <-
       legend.text = element_text(
         family = font,
         size = axis_title_size,
-        color = "#121037"
+        color = Text_Colour
       ),
 
       #Axis format
@@ -84,12 +84,12 @@ exploristics_theme <-
       axis.title = element_text(
         family = font,
         size = axis_title_size,
-        color = "#121037"
+        color = Text_Colour
       ),
       axis.text = element_text(
         family = font,
         size = axis_size,
-        color = "#121037"
+        color = Text_Colour
       ),
       axis.text.x = element_text(margin = margin(5, b = 10)),
 
@@ -100,11 +100,11 @@ exploristics_theme <-
       #This removes all minor gridlines and adds major y gridlines. In many cases you will want to change this to remove y gridlines and add x gridlines. The cookbook shows you examples for doing so
       panel.grid.minor = element_blank(),
       panel.grid.major.y = if (grid_lines)
-        element_line(color = "#A2D7E4")
+        element_line(color = Line_Colour)
       else
         element_blank(),
       panel.grid.major.x = if (grid_lines)
-        element_line(color = "#A2D7E4")
+        element_line(color = Line_Colour)
       else
         element_blank(),
 
@@ -113,7 +113,7 @@ exploristics_theme <-
       panel.background = element_blank(),
 
       #Strip background (#This sets the panel background for facet-wrapped plots to white, removing the standard grey ggplot background colour and sets the title size of the facet-wrap title to font size 22)
-      strip.background = element_rect(fill = "white"),
+      strip.background = element_rect(fill = Backgroud_Colour),
       strip.text = element_text(size  = title_size,  hjust = 0)
     )
 
@@ -129,9 +129,9 @@ exploristics_theme <-
     # conditionally set the `axis.tick` of the theme depending on the version of `ggplot2`
     conditional_theme_ticks <- theme(axis.ticks = if (axis_lines) {
       if (lwd_arg == "linewidth") {
-        element_line(colour = "black", linewidth = 1.05)
+        element_line(colour = Tick_Colour, linewidth = 1.05)
       } else {
-        element_line(colour = "black", size = 1.05)
+        element_line(colour = Tick_Colour, size = 1.05)
       }
     } else {
       element_blank()
@@ -140,9 +140,9 @@ exploristics_theme <-
     # conditionally set the `axis.line` of the theme depending on the version of `ggplot2`
     conditional_theme_line <- theme(axis.line = if (axis_lines) {
       if (lwd_arg == "linewidth") {
-        element_line(colour = "black", linewidth = 1.05)
+        element_line(colour = Tick_Colour, linewidth = 1.05)
       } else {
-        element_line(colour = "black", size = 1.05)
+        element_line(colour = Tick_Colour, size = 1.05)
       }
     } else {
       element_blank()

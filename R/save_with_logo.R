@@ -154,11 +154,11 @@ save_with_logo <-
     footer <- logo_raw %>%
       image_trim() %>%
       image_scale("300") %>%
-      image_background("white", flatten = TRUE) %>% # #A2D7E4
+      image_background(Backgroud_Colour, flatten = TRUE) %>% # #A2D7E4
       image_extent(scale_extent_num,
                    gravity = "east",
-                   color = "white") %>%
-      image_border("10x10", color = "white")
+                   color = Backgroud_Colour) %>%
+      image_border("10x10", color = Backgroud_Colour)
 
     # if text caption is to be added, put it on the left side of the footer
     if (!is.null(text)) {
@@ -166,7 +166,7 @@ save_with_logo <-
         footer <- footer %>%
           image_annotate(
             text,
-            color = "#2D2669",
+            color = Footer_Text_Colour,
             size = 25,
             location = "+10+15",
             gravity = "northwest"
@@ -175,7 +175,7 @@ save_with_logo <-
         footer <- footer %>%
           image_annotate(
             text,
-            color = "#2D2669",
+            color = Footer_Text_Colour,
             size = 25,
             location = "+10+25",
             gravity = "northwest"
@@ -190,7 +190,7 @@ save_with_logo <-
       # make it the same length as the footer
       lb_width <- image_info(footer)$width
       lb_height <- 3
-      lb <- image_blank(lb_width, lb_height, color = "#2D2669")
+      lb <- image_blank(lb_width, lb_height, color = Footer_Text_Colour)
 
       # set final plot dimensions to the same as the original plot
       final_dim <- paste0(plot_info$width, "x", plot_info$height)

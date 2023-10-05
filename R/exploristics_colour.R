@@ -46,12 +46,12 @@ exploristics_colour <-
 
     # work out number of colours needed for colour
     colour_class <-
-      retrieve_aesthetic_class(plot, aesthetics = "colour")
+      retrieve_aesthetic_class(plot, aesthetics = c("colour", "color"))
 
     # discrete or continuous functions needed?
     if (colour_class %in% c("logical", "character", "factor", "ordered")) {
       # discrete
-      colour_num <- length(unique(plot$data[[retrieve_aesthetic_variable(plot, "colour")]]))
+      colour_num <- length(unique(plot$data[[retrieve_aesthetic_variable(plot, c("colour", "color"))]]))
 
       # use specified colours from palette if 6 or less needed.
       # create colorRampPalette if >6 needed.

@@ -38,7 +38,12 @@ replace_underscore <- function(x) {
 
 retrieve_aesthetic_variable <- function(plot, aesthetics, ...) {
   sapply(aesthetics, function(variable) {
-    as_label(plot$mapping[[variable]])
+    # edge case of NULL as as_label returns "NULL" as a character vector
+    if (is.null(plot$mapping[[variable]])) {
+      return(NULL)
+    }
+
+    return(as_label(plot$mapping[[variable]]))
   })
 }
 
@@ -65,6 +70,9 @@ retrieve_aesthetic_class <- function(plot, aesthetics, ...) {
       paste(aesthetics, collapse = ",")
     )
   }
+
+  # Only use the aesthetics that have a mapping within plot
+  aesthetics <- intersect(aesthetics, names(plot$mapping))
 
   sapply(aesthetics, function(variable) {
     variable <- retrieve_aesthetic_variable(plot, variable)

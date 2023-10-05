@@ -140,7 +140,7 @@ text_wrapper <-
 
       # add spaces if needed
       title_text <- if (spaces)
-        add_spaces(title_text)
+        replace_underscore(title_text)
       else
         title_text
 
@@ -155,7 +155,7 @@ text_wrapper <-
       # add spaces if needed
       subtitle_text <-
         if (spaces)
-          add_spaces(subtitle_text)
+          replace_underscore(subtitle_text)
       else
         subtitle_text
 
@@ -185,7 +185,7 @@ text_wrapper <-
       }
       # add spaces if needed
       x_text <- if (spaces)
-        add_spaces(x_text)
+        replace_underscore(x_text)
       else
         x_text
 
@@ -203,7 +203,7 @@ text_wrapper <-
       }
       # add spaces if needed
       y_text <- if (spaces)
-        add_spaces(y_text)
+        replace_underscore(y_text)
       else
         y_text
 
@@ -227,7 +227,7 @@ text_wrapper <-
       }
       # add spaces if needed
       label_text <- if (spaces)
-        add_spaces(label_text)
+        replace_underscore(label_text)
       else
         label_text
 

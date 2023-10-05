@@ -51,7 +51,7 @@ exploristics_colour <-
     colour_var <- as_label(plot$mapping$colour)
 
     # if as.*() used set it to that function, else use the type of colour variable
-    if (grepl("as.*)$", colour_var) == TRUE) {
+    if (isTRUE(grepl("as.*)$", colour_var))) {
       # find function applied
       func_colour <- sub("^as.(\\w+)\\(.*$", "\\1", colour_var)
       # clean the name
@@ -81,7 +81,7 @@ exploristics_colour <-
       }
 
     } else{
-      if (rev_gradient == TRUE) {
+      if (isTRUE(rev_gradient)) {
         # continuous
         if (colourPalette == "Expl_Blue") {
           plot <- plot + scale_color_gradientn(colours = rev(Expl_Blue))

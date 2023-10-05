@@ -51,7 +51,7 @@ text_wrapper <-
     # does the plot have an x mapping?
     if (!is.null(x_var) & x_var != "NULL") {
       # check if type is specified by using an as.*() function
-      if (grepl("as.*)$", x_var) == TRUE) {
+      if (isTRUE(grepl("as.*)$", x_var))) {
         # find function applied
         func_x <- sub("^as.(\\w+)\\(.*$", "\\1", x_var)
         # clean the name
@@ -65,7 +65,7 @@ text_wrapper <-
 
       # wrap the text with the axis width specified
       if (x_class %in% c("logical", "character", "factor", "ordered")) {
-        if (spaces == TRUE) {
+        if (isTRUE(spaces)) {
           plot$data[x_var] <- apply(plot$data, 1, function(row) {
             gsub(pattern = "_",
                  replacement = " ",
@@ -88,7 +88,7 @@ text_wrapper <-
     # does the plot have an y mapping?
     if (!is.null(y_var) & y_var != "NULL") {
       # check if type is specified by using an as.*() function
-      if (grepl("as.*)$", y_var) == TRUE) {
+      if (isTRUE(grepl("as.*)$", y_var))) {
         # find function applied
         func_y <- sub("^as.(\\w+)\\(.*$", "\\1", y_var)
         # clean the name
@@ -102,7 +102,7 @@ text_wrapper <-
 
       # wrap the text with the axis width specified
       if (y_class %in% c("logical", "character", "factor", "ordered")) {
-        if (spaces == TRUE) {
+        if (isTRUE(spaces)) {
           plot$data[y_var] <- apply(plot$data, 1, function(row) {
             gsub(pattern = "_",
                  replacement = " ",
@@ -135,7 +135,7 @@ text_wrapper <-
 
     # wrap the title and subtitle with the title width specified
     # title
-    if (has_title == TRUE) {
+    if (isTRUE(has_title)) {
       title_text <- plot$labels$title
 
       # add spaces if needed
@@ -149,7 +149,7 @@ text_wrapper <-
     }
 
     # subtitle
-    if (has_subtitle == TRUE) {
+    if (isTRUE(has_subtitle)) {
       subtitle_text <- plot$labels$subtitle
 
       # add spaces if needed
@@ -176,11 +176,11 @@ text_wrapper <-
     }
 
     # x-axis label
-    if (has_x_lab == TRUE) {
+    if (isTRUE(has_x_lab)) {
       x_text <- plot$labels$x
 
       # clean if needed
-      if (grepl("as.*)$", x_text) == TRUE) {
+      if (isTRUE(grepl("as.*)$", x_text))) {
         x_text <- clean_label(x_text)
       }
       # add spaces if needed
@@ -194,11 +194,11 @@ text_wrapper <-
     }
 
     # y-axis label
-    if (has_y_lab == TRUE) {
+    if (isTRUE(has_y_lab)) {
       y_text <- plot$labels$y
 
       # clean if needed
-      if (grepl("as.*)$", y_text) == TRUE) {
+      if (isTRUE(grepl("as.*)$", y_text))) {
         y_text <- clean_label(y_text)
       }
       # add spaces if needed
@@ -222,7 +222,7 @@ text_wrapper <-
       label_text <- unlist(plot$labels[other_labels[l]])
 
       # clean if needed
-      if (grepl("as.*)$", label_text) == TRUE) {
+      if (isTRUE(grepl("as.*)$", label_text))) {
         label_text <- clean_label(label_text)
       }
       # add spaces if needed

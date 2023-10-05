@@ -161,8 +161,8 @@ save_with_logo <-
       image_border("10x10", color = "white")
 
     # if text caption is to be added, put it on the left side of the footer
-    if (is.null(text) == FALSE) {
-      if (grepl("\n", text) == TRUE) {
+    if (!is.null(text)) {
+      if (isTRUE(grepl("\n", text))) {
         footer <- footer %>%
           image_annotate(
             text,

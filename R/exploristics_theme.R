@@ -1,12 +1,13 @@
 #' @title Add Exploristics theme to ggplot2 figure.
 #' @description This function allows you to add the Exploristics theme to a ggplot2 figure.
-#' @details This function is added to your ggplot to set elements of the `theme()` including background,
-#' axis, legend and titles to the style used at Exploristics.
-#' @param axis_lines Add x- and y-axis lines to the plot. Defaults to `TRUE`.
-#' @param grid_lines Add major grid lines to the plot. Defaults to `FALSE`.
-#' @param legend Display plot legend. Defaults to `TRUE`.
-#' @param legend_side Position the legend to the right side id `TRUE` or the bottom of the plot if `FALSE`. Defaults to `TRUE`.
-#' @param legend_title Display legend title. Defaults to `TRUE`.
+#' @details This function is added to your ggplot to set elements of the \code{`theme()`}
+#'  including background, axis, legend and titles to the style used at Exploristics.
+#' @param axis_lines Add x- and y-axis lines to the plot. Defaults to \code{`TRUE`}.
+#' @param grid_lines Add major grid lines to the plot. Defaults to \code{`FALSE`}.
+#' @param legend Display plot legend. Defaults to \code{`TRUE`}.
+#' @param legend_side Position the legend to the right side id \code{`TRUE`}
+#'   or the bottom of the plot if \code{`FALSE`}. Defaults to \code{`TRUE`}.
+#' @param legend_title Display legend title. Defaults to \code{`TRUE`}.
 #' @param title_size Font size for the plot title. Defaults to 20.
 #' @param subtitle_size Font size for the plot subtitle. Defaults to 16.
 #' @param axis_title_size Font size for the plot x- and y-axis titles. Defaults to 18.
@@ -122,7 +123,7 @@ exploristics_theme <-
     # check the version og ggplot2 being used
     if (packageVersion("ggplot2") >= "3.4.0") {
       lwd_arg <- "linewidth"
-    } else{
+    } else {
       lwd_arg <- "size"
     }
 

@@ -1,13 +1,14 @@
 #' @title Add Exploristics colour to a ggplot2 figure.
-#' @description This function returns a ggplot with an Exploristics colour scheme added to it.
-#'   There are 3 colour palettes to choose from.They are suitable for those with most common types of colour blindness.
+#' @description This function returns a ggplot with an Exploristics colour scheme
+#'   added to it. There are 3 colour palettes to choose from. They are suitable
+#'   for those with most common types of colour blindness.
 #' @details This function sets the colour of the ggplot to a palette matching an
 #'   Exploristics colour scheme. A gradient of the palette will be applied for continuous variables.
 #'   `Expl_Blue` is a palette of 6 blues ranging from a dark navy to a light green-blue.
 #'   `Expl_External` is a palette of 6 colours with purples, greens and blues.
 #'   `Expl_HighCont` is a high-contrast palette of 6 colours with a variety of colours.
 #' @param plot A ggplot2 figure (S3: gg, ggplot).
-#' @param colour_pal The colour palette to use. Can be `Expl_Blue`, `Expl_External` or `Expl_HighCont`. Defaults to `Expl_Blue`
+#' @param colour_pal The colour palette to use. Can be one of `Expl_Blue`, `Expl_External` or `Expl_HighCont`. Defaults to `Expl_Blue`
 #' @param rev_gradient Should the reverse gradient of the colour palette be used (only for continuous variables). Defaults to `FALSE`.
 #' @seealso \code{\link[ggplot2]{scale_color_manual}}
 #' @seealso \code{\link[ggplot2]{scale_color_gradientn}}
@@ -36,11 +37,6 @@ exploristics_colour <-
   function(plot,
            colour_pal = "Expl_Blue",
            rev_gradient = FALSE) {
-    # colour palettes
-    # Expl_Blue <- c("#002659","#293D94","#136BBA","#16A4D4","#9DD6E4","#D6EFF5")
-    # Expl_External <- c("#7119A2","#28CAAB","#3C56E1","#B04AFF","#97EDDB","#92C8FF")
-    # Expl_HighCont <- c("#2D2669","#FF4A1B","#18CDFF","#E8E126","#BF00B5","#5EB17D")
-    # all in stored in `data/`
 
     # ensure the chosen colour palette is one of the Explorisitcs palettes
     colourPalette <-
@@ -58,7 +54,7 @@ exploristics_colour <-
       colour_var <- clean_label(colour_var)
       # use the function as the class
       colour_class <- func_colour
-    } else{
+    } else {
       colour_class <- class(unlist(plot$data[colour_var]))
     }
 
@@ -74,13 +70,13 @@ exploristics_colour <-
         plot <-
           plot + scale_color_manual(values = get(colourPalette)[1:colour_num])
 
-      } else{
+      } else {
         plot <-
           plot + scale_color_manual(values = grDevices::colorRampPalette(get(colourPalette))(colour_num))
 
       }
 
-    } else{
+    } else {
       if (isTRUE(rev_gradient)) {
         # continuous
         if (colourPalette == "Expl_Blue") {
@@ -94,7 +90,7 @@ exploristics_colour <-
           plot <-
             plot + scale_color_gradientn(colours = rev(Expl_HighCont[c(1, 2, 4)]))
         }
-      } else{
+      } else {
         # continuous
         if (colourPalette == "Expl_Blue") {
           plot <- plot + scale_color_gradientn(colours = Expl_Blue)

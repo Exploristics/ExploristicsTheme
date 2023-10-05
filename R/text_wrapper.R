@@ -43,7 +43,6 @@ text_wrapper <-
            axis_wrap = 20,
            other_wrap = 30,
            spaces = TRUE) {
-
     ## Axis tick text
     # check if x-axis is discrete or continuous
     x_var <- as_label(plot$mapping$x)
@@ -58,7 +57,7 @@ text_wrapper <-
         x_var <- clean_label(x_var)
         # use the function as the class
         x_class <- func_x
-      } else{
+      } else {
         x_class <- class(unlist(plot$data[x_var]))
       }
 
@@ -75,7 +74,7 @@ text_wrapper <-
         plot <-
           plot + scale_x_discrete(labels = label_wrap(axis_wrap))
 
-      } else{
+      } else {
         plot <- plot + scale_x_continuous(labels = label_wrap(axis_wrap))
 
       }
@@ -95,7 +94,7 @@ text_wrapper <-
         y_var <- clean_label(y_var)
         # use the function as the class
         y_class <- func_y
-      } else{
+      } else {
         y_class <- class(unlist(plot$data[y_var]))
       }
 
@@ -109,9 +108,10 @@ text_wrapper <-
                  x = row[y_var])
           })
         }
-        plot <- plot + scale_y_discrete(labels = label_wrap(axis_wrap))
+        plot <-
+          plot + scale_y_discrete(labels = label_wrap(axis_wrap))
 
-      } else{
+      } else {
         plot <- plot + scale_y_continuous(labels = label_wrap(axis_wrap))
 
       }
@@ -156,8 +156,8 @@ text_wrapper <-
       subtitle_text <-
         if (spaces)
           replace_underscore(subtitle_text)
-      else
-        subtitle_text
+        else
+          subtitle_text
 
       plot <- plot + labs(subtitle = str_wrap(subtitle_text,
                                               width = title_wrap))
@@ -169,7 +169,7 @@ text_wrapper <-
       x_wrap <- axis_title_wrap[1]
       y_wrap <- axis_title_wrap[2]
 
-    } else{
+    } else {
       x_wrap <- axis_title_wrap
       y_wrap <- axis_title_wrap
 
@@ -232,8 +232,9 @@ text_wrapper <-
         label_text
 
 
-      plot <- plot + labs(!!as.name(other_labels[l]) := str_wrap(label_text,
-                                                                 width = other_wrap))
+      plot <-
+        plot + labs(!!as.name(other_labels[l]) := str_wrap(label_text,
+                                                           width = other_wrap))
     }
 
     return(plot)

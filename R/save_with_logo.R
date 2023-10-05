@@ -99,7 +99,7 @@ save_with_logo <-
 
       if (is.null(filename)) {
         stop("No filename provided. Please enter a filename.")
-      } else{
+      } else {
         # don't use a suffix when saving
         use_suffix <- FALSE
 
@@ -107,7 +107,7 @@ save_with_logo <-
         plot_img <- image_read(tmpfile)
 
       }
-    } else{
+    } else {
       # set the file name to the one provided and use a suffix when saving
       filename <- plot
       use_suffix <- TRUE
@@ -123,10 +123,11 @@ save_with_logo <-
 
     if (is.null(logo)) {
       # read in the logo
-      logo_raw = image_read(system.file("extdata", "FC_logo_only_name.png", package =
-                                          "ExploristicsTheme"))
-    } else{
-      logo_raw = image_read(logo)
+      logo_raw <-
+        image_read(system.file("extdata", "FC_logo_only_name.png", package =
+                                 "ExploristicsTheme"))
+    } else {
+      logo_raw <-  image_read(logo)
     }
 
 
@@ -171,7 +172,7 @@ save_with_logo <-
             location = "+10+15",
             gravity = "northwest"
           )
-      } else{
+      } else {
         footer <- footer %>%
           image_annotate(
             text,
@@ -190,7 +191,8 @@ save_with_logo <-
       # make it the same length as the footer
       lb_width <- image_info(footer)$width
       lb_height <- 3
-      lb <- image_blank(lb_width, lb_height, color = Footer_Text_Colour)
+      lb <-
+        image_blank(lb_width, lb_height, color = Footer_Text_Colour)
 
       # set final plot dimensions to the same as the original plot
       final_dim <- paste0(plot_info$width, "x", plot_info$height)
@@ -198,7 +200,7 @@ save_with_logo <-
       # stack the 3 images (plot, line, footer) on top of each other
       final_plot <-
         image_append(image_scale(c(plot_img, lb, footer), final_dim), stack = TRUE)
-    } else{
+    } else {
       # set final plot dimensions to the same as the original plot
       final_dim <- paste0(plot_info$width, "x", plot_info$height)
 
@@ -216,13 +218,13 @@ save_with_logo <-
                       "_with_footer.png"
                     ))
 
-      } else{
+      } else {
         # save the plot with the footer added to the given filename with the suffix provided
         image_write(final_plot,
                     paste0(tools::file_path_sans_ext(filename), suffix, ".png"))
 
       }
-    } else{
+    } else {
       # save the plot with the footer added to the given filename
       image_write(final_plot, paste0(tools::file_path_sans_ext(filename), ".png"))
 

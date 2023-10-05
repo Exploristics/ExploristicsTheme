@@ -67,7 +67,7 @@ exploristics_fill <-
       fill_var <- clean_label(fill_var)
       # use the function as the class
       fill_class <- func_fill
-    } else{
+    } else {
       fill_class <- class(unlist(plot$data[fill_var]))
     }
 
@@ -83,12 +83,12 @@ exploristics_fill <-
         plot <-
           plot + scale_fill_manual(values = get(colourPalette)[1:fill_num])
 
-      } else{
+      } else {
         plot <-
           plot + scale_fill_manual(values = grDevices::colorRampPalette(get(colourPalette))(fill_num))
 
       }
-    } else{
+    } else {
       if (isTRUE(rev_gradient)) {
         # continuous
         if (colourPalette == "Expl_Blue") {
@@ -102,7 +102,7 @@ exploristics_fill <-
           plot <-
             plot + scale_fill_gradientn(colours = rev(Expl_HighCont[c(1, 2, 4)]))
         }
-      } else{
+      } else {
         # continuous
         if (colourPalette == "Expl_Blue") {
           plot <- plot + scale_fill_gradientn(colours = Expl_Blue)

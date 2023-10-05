@@ -47,7 +47,8 @@ exploristics_theme <-
         color = Text_Colour,
         hjust = 0.5
       ),
-      #This sets the font, size, type and colour of text for the chart's subtitle, as well as setting a margin between the title and the subtitle
+      # This sets the font, size, type and colour of text for the chart's
+      # subtitle, as well as setting a margin between the title and the subtitle
       plot.subtitle = element_text(
         family = font,
         size = subtitle_size,
@@ -57,8 +58,11 @@ exploristics_theme <-
       plot.caption = element_blank(),
       #This leaves the caption text element empty
 
-      #Legend format
-      #This sets the position and alignment of the legend, removes a title and background for it and sets the requirements for any text within the legend. The legend may often need some more manual tweaking when it comes to its exact position based on the plot coordinates.
+      # Legend format
+      # This sets the position and alignment of the legend, removes a title and
+      # background for it and sets the requirements for any text within the
+      # legend. The legend may often need some more manual tweaking when it
+      # comes to its exact position based on the plot coordinates.
       legend.position = ifelse(
         legend,
         ifelse(legend_side, "right", "bottom"),
@@ -81,8 +85,11 @@ exploristics_theme <-
         color = Text_Colour
       ),
 
-      #Axis format
-      #This sets the text font, size and colour for the axis test, as well as setting the margins and removes lines and ticks. In some cases, axis lines and axis ticks are things we would want to have in the chart - the cookbook shows examples of how to do so.
+      # Axis format
+      # This sets the text font, size and colour for the axis test, as well as
+      # setting the margins and removes lines and ticks. In some cases, axis
+      # lines and axis ticks are things we would want to have in the chart
+      # - the cookbook shows examples of how to do so.
       axis.title = element_text(
         family = font,
         size = axis_title_size,
@@ -96,10 +103,13 @@ exploristics_theme <-
       axis.text.x = element_text(margin = margin(5, b = 10)),
 
 
-      ## Note, how axis line elements are set is conditional on the ggplot2 version in the `conditional_theme` vars below ##
+      ## Note, how axis line elements are set is conditional on the ggplot2
+      ## version in the `conditional_theme` vars below ##
 
-      #Grid lines
-      #This removes all minor gridlines and adds major y gridlines. In many cases you will want to change this to remove y gridlines and add x gridlines. The cookbook shows you examples for doing so
+      # Grid lines
+      # This removes all minor gridlines and adds major y gridlines. In many
+      # cases you will want to change this to remove y gridlines and add x
+      # gridlines. The cookbook shows you examples for doing so
       panel.grid.minor = element_blank(),
       panel.grid.major.y = if (grid_lines)
         element_line(color = Line_Colour)
@@ -110,11 +120,14 @@ exploristics_theme <-
       else
         element_blank(),
 
-      #Blank background
-      #This sets the panel background as blank, removing the standard grey ggplot background colour from the plot
+      # Blank background
+      # This sets the panel background as blank, removing the standard grey
+      # ggplot background colour from the plot
       panel.background = element_blank(),
 
-      #Strip background (#This sets the panel background for facet-wrapped plots to white, removing the standard grey ggplot background colour and sets the title size of the facet-wrap title to font size 22)
+      # Strip background (#This sets the panel background for facet-wrapped plots
+      # to white, removing the standard grey ggplot background colour and sets
+      # the title size of the facet-wrap title to font size 22)
       strip.background = element_rect(fill = Backgroud_Colour),
       strip.text = element_text(size  = title_size,  hjust = 0)
     )
@@ -128,7 +141,8 @@ exploristics_theme <-
       lwd_arg <- "size"
     }
 
-    # conditionally set the `axis.tick` of the theme depending on the version of `ggplot2`
+    # conditionally set the `axis.tick` of the theme depending on the version
+    # of `ggplot2`
     conditional_theme_ticks <- theme(axis.ticks = if (axis_lines) {
       if (lwd_arg == "linewidth") {
         element_line(colour = Tick_Colour, linewidth = 1.05)
@@ -139,7 +153,8 @@ exploristics_theme <-
       element_blank()
     })
 
-    # conditionally set the `axis.line` of the theme depending on the version of `ggplot2`
+    # conditionally set the `axis.line` of the theme depending on the version
+    # of `ggplot2`
     conditional_theme_line <- theme(axis.line = if (axis_lines) {
       if (lwd_arg == "linewidth") {
         element_line(colour = Tick_Colour, linewidth = 1.05)

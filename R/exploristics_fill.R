@@ -92,28 +92,28 @@ exploristics_fill <-
       if (isTRUE(rev_gradient)) {
         # continuous
         if (colourPalette == "Expl_Blue") {
-          plot <- plot + scale_fill_gradientn(colours = rev(Expl_Blue))
+          plot <- plot + scale_fill_gradient(colours = rev(Expl_Blue))
         }
         if (colourPalette == "Expl_External") {
           plot <-
-            plot + scale_fill_gradientn(colours = rev(Expl_External[c(1, 6, 2)]))
+            plot + scale_fill_gradient(colours = rev(Expl_External[c(1, 6, 2)]))
         }
         if (colourPalette == "Expl_HighCont") {
           plot <-
-            plot + scale_fill_gradientn(colours = rev(Expl_HighCont[c(1, 2, 4)]))
+            plot + scale_fill_gradient(colours = rev(Expl_HighCont[c(1, 2, 4)]))
         }
       } else{
         # continuous
         if (colourPalette == "Expl_Blue") {
-          plot <- plot + scale_fill_gradientn(colours = Expl_Blue)
+          plot <- plot + scale_fill_gradient(colours = Expl_Blue)
         }
         if (colourPalette == "Expl_External") {
           plot <-
-            plot + scale_fill_gradientn(colours = Expl_External[c(1, 6, 2)])
+            plot + scale_fill_gradient(colours = Expl_External[c(1, 6, 2)])
         }
         if (colourPalette == "Expl_HighCont") {
           plot <-
-            plot + scale_fill_gradientn(colours = Expl_HighCont[c(1, 2, 4)])
+            plot + scale_fill_gradient(colours = Expl_HighCont[c(1, 2, 4)])
         }
       }
 

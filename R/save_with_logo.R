@@ -70,31 +70,41 @@
 #' ## add the footer with the logo to the saved image
 #' save_with_logo("example_cars_plot.png", text= "Source:Data source\nProduced by: Name")
 
-save_with_logo <- function(plot=NULL, filename=NULL, text=NULL, line=FALSE, logo=NULL, width = 8, height = 8, dpi = 300, suffix=NULL){
+save_with_logo <-
+  function(plot = NULL,
+           filename = NULL,
+           text = NULL,
+           line = FALSE,
+           logo = NULL,
+           width = 8,
+           height = 8,
+           dpi = 300,
+           suffix = NULL) {
+    if (is.null(plot)) {
+      stop("No plot provided. Please supply a ggplot or the path of a previously saved image.")
+    }
 
-  if(is.null(plot)){
-    stop("No plot provided. Please supply a ggplot or the path of a previously saved image.")
-  }
-
-  # check if plot is a ggplot or an image file
-  if(is.ggplot(plot)){
+    # check if plot is a ggplot or an image file
+    if (is.ggplot(plot)) {
       # create a temp file to save the plot to
       tmpfile <- tempfile(fileext = ".png")
       # plot the plot
       plot
 
       # save the plot
-      ggsave(tmpfile, width = width, height = height, dpi = dpi)
+      ggsave(tmpfile,
+             width = width,
+             height = height,
+             dpi = dpi)
 
-      if(is.null(filename)){
+      if (is.null(filename)) {
         stop("No filename provided. Please enter a filename.")
-      }else{
+      } else{
+        # don't use a suffix when saving
+        use_suffix <- FALSE
 
-      # don't use a suffix when saving
-      use_suffix <- FALSE
-
-      # read in the plot
-      plot_img <- image_read(tmpfile)
+        # read in the plot
+        plot_img <- image_read(tmpfile)
 
       }
     } else{
@@ -111,9 +121,10 @@ save_with_logo <- function(plot=NULL, filename=NULL, text=NULL, line=FALSE, logo
     # get plot info
     plot_info <- image_info(plot_img)
 
-    if(is.null(logo)){
+    if (is.null(logo)) {
       # read in the logo
-      logo_raw = image_read(system.file("extdata","FC_logo_only_name.png", package="ExploristicsTheme"))
+      logo_raw = image_read(system.file("extdata", "FC_logo_only_name.png", package =
+                                          "ExploristicsTheme"))
     } else{
       logo_raw = image_read(logo)
     }
@@ -121,45 +132,60 @@ save_with_logo <- function(plot=NULL, filename=NULL, text=NULL, line=FALSE, logo
 
     # calculate the scaling needed for the logo based on the dimensions of the plot
     # square
-    scale_logo_num <- round(plot_info$height*0.125,0)
-    scale_extent_num <- paste0(round(plot_info$height/1.846,0),"x75")#, round(plot_info$height/32,0))
+    scale_logo_num <- round(plot_info$height * 0.125, 0)
+    scale_extent_num <-
+      paste0(round(plot_info$height / 1.846, 0), "x75")#, round(plot_info$height/32,0))
 
     # long
-    if(plot_info$height > plot_info$width){
-      scale_logo_num <- round(plot_info$width*0.125,0)
-      scale_extent_num <- paste0(round(plot_info$width/1.846,0),"x75")#, round(plot_info$height/32,0))
+    if (plot_info$height > plot_info$width) {
+      scale_logo_num <- round(plot_info$width * 0.125, 0)
+      scale_extent_num <-
+        paste0(round(plot_info$width / 1.846, 0), "x75")#, round(plot_info$height/32,0))
 
     }
     # wide
-    if(plot_info$height < plot_info$width){
-      scale_logo_num <- round(plot_info$height*0.125,0)
-      scale_extent_num <- paste0(round(plot_info$width/1.846,0),"x75")#, round(plot_info$height/32,0))
+    if (plot_info$height < plot_info$width) {
+      scale_logo_num <- round(plot_info$height * 0.125, 0)
+      scale_extent_num <-
+        paste0(round(plot_info$width / 1.846, 0), "x75")#, round(plot_info$height/32,0))
     }
 
     # scale down the logo and give it a border so it's on the right side of the footer
     footer <- logo_raw %>%
-      image_trim()%>%
+      image_trim() %>%
       image_scale("300") %>%
       image_background("white", flatten = TRUE) %>% # #A2D7E4
-      image_extent(scale_extent_num, gravity="east",color = "white") %>%
-      image_border("10x10",color = "white")
+      image_extent(scale_extent_num,
+                   gravity = "east",
+                   color = "white") %>%
+      image_border("10x10", color = "white")
 
     # if text caption is to be added, put it on the left side of the footer
-    if(is.null(text)==FALSE){
-      if(grepl("\n",text)==TRUE){
+    if (is.null(text) == FALSE) {
+      if (grepl("\n", text) == TRUE) {
         footer <- footer %>%
-          image_annotate(text, color = "#2D2669", size = 25,
-                         location = "+10+15", gravity = "northwest")
+          image_annotate(
+            text,
+            color = "#2D2669",
+            size = 25,
+            location = "+10+15",
+            gravity = "northwest"
+          )
       } else{
         footer <- footer %>%
-          image_annotate(text, color = "#2D2669", size = 25,
-                         location = "+10+25", gravity = "northwest")
+          image_annotate(
+            text,
+            color = "#2D2669",
+            size = 25,
+            location = "+10+25",
+            gravity = "northwest"
+          )
       }
 
     }
 
     # if using a line between the plot and footer, create it
-    if(isTRUE(line)){
+    if (isTRUE(line)) {
       # new image to act as a line break
       # make it the same length as the footer
       lb_width <- image_info(footer)$width
@@ -167,28 +193,33 @@ save_with_logo <- function(plot=NULL, filename=NULL, text=NULL, line=FALSE, logo
       lb <- image_blank(lb_width, lb_height, color = "#2D2669")
 
       # set final plot dimensions to the same as the original plot
-      final_dim <- paste0(plot_info$width,"x",plot_info$height)
+      final_dim <- paste0(plot_info$width, "x", plot_info$height)
 
       # stack the 3 images (plot, line, footer) on top of each other
-      final_plot <- image_append(image_scale(c(plot_img,lb, footer), final_dim), stack = TRUE)
+      final_plot <-
+        image_append(image_scale(c(plot_img, lb, footer), final_dim), stack = TRUE)
     } else{
-
       # set final plot dimensions to the same as the original plot
-      final_dim <- paste0(plot_info$width,"x",plot_info$height)
+      final_dim <- paste0(plot_info$width, "x", plot_info$height)
 
       # stack the 2 images (plot, footer) on top of each other
-      final_plot <- image_append(image_scale(c(plot_img, footer), final_dim), stack = TRUE)
+      final_plot <-
+        image_append(image_scale(c(plot_img, footer), final_dim), stack = TRUE)
     }
 
-    if(isTRUE(use_suffix)){
-      if(is.null(suffix)){
-
+    if (isTRUE(use_suffix)) {
+      if (is.null(suffix)) {
         # save the plot with the footer added to the given filename with the default suffix
-        image_write(final_plot, paste0(tools::file_path_sans_ext(filename),"_with_footer.png"))
+        image_write(final_plot,
+                    paste0(
+                      tools::file_path_sans_ext(filename),
+                      "_with_footer.png"
+                    ))
 
       } else{
         # save the plot with the footer added to the given filename with the suffix provided
-        image_write(final_plot, paste0(tools::file_path_sans_ext(filename),suffix, ".png"))
+        image_write(final_plot,
+                    paste0(tools::file_path_sans_ext(filename), suffix, ".png"))
 
       }
     } else{
@@ -199,4 +230,4 @@ save_with_logo <- function(plot=NULL, filename=NULL, text=NULL, line=FALSE, logo
       unlink(tmpfile)
     }
 
-}
+  }

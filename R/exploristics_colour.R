@@ -32,7 +32,7 @@
 #' cars_plot %>%
 #' exploristics_colour(colour_pal="Expl_External")
 
-exploristics_colour = function(plot,colour_pal="Expl_Blue",rev_gradient=FALSE){
+exploristics_colour <- function(plot,colour_pal="Expl_Blue",rev_gradient=FALSE){
 
   # colour palettes
   # Expl_Blue <- c("#002659","#293D94","#136BBA","#16A4D4","#9DD6E4","#D6EFF5")

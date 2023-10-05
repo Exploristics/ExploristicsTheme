@@ -4,9 +4,11 @@
 #'   for those with most common types of colour blindness.
 #' @details This function sets the colour of the ggplot to a palette matching an
 #'   Exploristics colour scheme. A gradient of the palette will be applied for continuous variables.
-#'   `Expl_Blue` is a palette of 6 blues ranging from a dark navy to a light green-blue.
-#'   `Expl_External` is a palette of 6 colours with purples, greens and blues.
-#'   `Expl_HighCont` is a high-contrast palette of 6 colours with a variety of colours.
+#'   \itemize{
+#'   \item{`Expl_Blue` is a palette of 6 blues ranging from a dark navy to a light green-blue.}
+#'   \item{`Expl_External` is a palette of 6 colours with purples, greens and blues.}
+#'   \item{`Expl_HighCont` is a high-contrast palette of 6 colours with a variety of colours.}
+#'   }
 #' @param plot A ggplot2 figure (S3: gg, ggplot).
 #' @param colour_pal The colour palette to use. Can be one of `Expl_Blue`, `Expl_External` or `Expl_HighCont`. Defaults to `Expl_Blue`
 #' @param rev_gradient Should the reverse gradient of the colour palette be used (only for continuous variables). Defaults to `FALSE`.
@@ -37,32 +39,19 @@ exploristics_colour <-
   function(plot,
            colour_pal = "Expl_Blue",
            rev_gradient = FALSE) {
-
     # ensure the chosen colour palette is one of the Explorisitcs palettes
     colourPalette <-
       match.arg(colour_pal,
                 choices = c("Expl_Blue", "Expl_External", "Expl_HighCont"))
 
     # work out number of colours needed for colour
-    colour_var <- as_label(plot$mapping$colour)
-
-    # if as.*() used set it to that function, else use the type of colour variable
-    if (isTRUE(grepl("as.*)$", colour_var))) {
-      # find function applied
-      func_colour <- sub("^as.(\\w+)\\(.*$", "\\1", colour_var)
-      # clean the name
-      colour_var <- clean_label(colour_var)
-      # use the function as the class
-      colour_class <- func_colour
-    } else {
-      colour_class <- class(unlist(plot$data[colour_var]))
-    }
-
+    colour_class <-
+      retrieve_aesthetic_class(plot, aesthetics = "colour")
 
     # discrete or continuous functions needed?
     if (colour_class %in% c("logical", "character", "factor", "ordered")) {
       # discrete
-      colour_num <- length(unique(unlist(plot$data[colour_var])))
+      colour_num <- length(unique(plot$data[[retrieve_aesthetic_variable(plot, "colour")]]))
 
       # use specified colours from palette if 6 or less needed.
       # create colorRampPalette if >6 needed.

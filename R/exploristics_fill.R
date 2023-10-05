@@ -38,12 +38,12 @@
 #' ## bar plots can appear to have "lines" within the bars if only setting colour
 #' ## if this happens set the colour to the same as the fill in the plot aes() and add exploristics_colour()
 #' cars_plot <- ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = as.factor(cyl),colour=as.factor(cyl))) +
-#' geom_bar(stat="identity") +
+#' geom_bar(stat = "identity") +
 #' exploristics_theme()
 #'
 #' cars_plot %>%
-#' exploristics_fill(colour_pal="Expl_External") %>%
-#' exploristics_colour(colour_pal="Expl_External")
+#' exploristics_fill(colour_pal = "Expl_External") %>%
+#' exploristics_colour(colour_pal = "Expl_External")
 
 
 exploristics_fill <-
@@ -56,21 +56,7 @@ exploristics_fill <-
       match.arg(colour_pal,
                 choices = c("Expl_Blue", "Expl_External", "Expl_HighCont"))
 
-    # work out number of colours needed for fill
-    fill_var <- as_label(plot$mapping$fill)
-
-    # if as.*() used set it to that function, else use the type of colour variable
-    if (isTRUE(grepl("as.*)$", fill_var))) {
-      # find function applied
-      func_fill <- sub("^as.(\\w+)\\(.*$", "\\1", fill_var)
-      # clean the name
-      fill_var <- clean_label(fill_var)
-      # use the function as the class
-      fill_class <- func_fill
-    } else {
-      fill_class <- class(unlist(plot$data[fill_var]))
-    }
-
+    fill_class <- retrieve_aesthetic_class(plot, aesthetics = "fill")
 
     # discrete or continuous functions needed?
     if (fill_class %in% c("logical", "character", "factor", "ordered")) {

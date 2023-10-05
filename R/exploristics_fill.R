@@ -61,14 +61,6 @@ exploristics_fill <-
       match.arg(colour_pal,
                 choices = c("Expl_Blue", "Expl_External", "Expl_HighCont"))
 
-
-    ## function to remove "as.factor()" or "as.character(as.numeric())" from labels
-    # e.g. "as.factor(cyl)" becomes "cyl"
-    clean_label <- function(x) {
-      x <- sub(".*\\((.*?)\\).*", "\\1", x)
-      return(x)
-    }
-
     # work out number of colours needed for fill
     fill_var <- as_label(plot$mapping$fill)
 

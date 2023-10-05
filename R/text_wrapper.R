@@ -43,20 +43,6 @@ text_wrapper <-
            axis_wrap = 20,
            other_wrap = 30,
            spaces = TRUE) {
-    ## function to remove "as.factor()" or "as.character(as.numeric())" from labels
-    # e.g. "as.factor(cyl)" becomes "cyl"
-    clean_label <- function(x) {
-      x <- sub(".*\\((.*?)\\).*", "\\1", x)
-      return(x)
-    }
-
-    ## function to replace underscores with spaces
-    # e.g. "Name_1" becomes "Name 1"
-    add_spaces <- function(x) {
-      x <- gsub(pattern = "_", replacement = " ", x)
-      return(x)
-    }
-
 
     ## Axis tick text
     # check if x-axis is discrete or continuous

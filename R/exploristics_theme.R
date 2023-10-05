@@ -14,6 +14,7 @@
 #' @param axis_size Font size for the plot axis tick labels. Defaults to 18.
 #' @seealso \code{\link[ggplot2]{theme}}
 #' @import 'ggplot2'
+#' @importFrom 'utils' 'packageVersion'
 #' @export
 #' @examples
 #' library(ggplot2)

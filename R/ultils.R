@@ -93,11 +93,11 @@ retrieve_aesthetic_class <- function(plot, aesthetics, ...) {
 
 }
 
-#' @title Retrieve Aesthetic Variable Label
+#' @title Retrieve Text Value of Label
 #' @author Gareth Burns
 #' @description
-#'   Retrieves the variable label of the plot a data.frame for a given
-#'   set of aesthetic.
+#'   Retrieves the text of the plot for a given
+#'   set of labels
 #' @param plot A data.frame
 #' @param labels A character vector. Identities of the of the labels which
 #'   text to be retrieved.

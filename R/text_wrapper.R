@@ -112,6 +112,9 @@ text_wrapper <-
       !is.null(plot$labels[[label]]) && plot$labels[[label]] != ""
     })
 
+    # Filter out labels with no text associated
+    labels <- labels[sapply(labels, is.TRUE)]
+
     labels <- lapply(labels, function(label) {
       text <- retrieve_label_text(plot, label, spaces = spaces)
       wrap_width <- switch(label,

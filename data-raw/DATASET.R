@@ -23,6 +23,10 @@ Expl_HighCont <-
     "#BF00B5",
     "#5EB17D")
 
+GradientLUT <- c(Expl_Blue = seq(length(Expl_Blue)),
+                 Expl_External = c(1, 6, 2),
+                 Expl_HighCont = c(1, 2, 4))
+
 Text_Colour <- "#121037"
 Footer_Text_Colour <- "#2D2669"
 Line_Colour <- "#A2D7E4"
@@ -35,6 +39,7 @@ usethis::use_data(Expl_Blue,
                   overwrite = TRUE)
 
 usethis::use_data(
+  GradientLUT,
   Text_Colour,
   Footer_Text_Colour,
   Line_Colour,

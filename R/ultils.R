@@ -92,3 +92,32 @@ retrieve_aesthetic_class <- function(plot, aesthetics, ...) {
   }, simplify = TRUE, USE.NAMES = TRUE)
 
 }
+
+#' @title Retrieve Aesthetic Variable Label
+#' @author Gareth Burns
+#' @description
+#'   Retrieves the variable label of the plot a data.frame for a given
+#'   set of aesthetic.
+#' @param plot A data.frame
+#' @param labels A character vector. Identities of the of the labels which
+#'   text to be retrieved.
+#' @return A named character vector. Name is label, value is text.
+#' @noRd
+
+retrieve_label_text <- function(plot, labels, spaces = TRUE, ...) {
+  sapply(labels, function(label) {
+    # edge case of NULL as as_label returns "NULL" as a character vector
+    if (is.null(plot$labels[[label]])) {
+      return(NULL)
+    }
+
+    label <- clean_label(as_label(plot$labels[[label]]))
+
+    if (isTRUE(spaces)) {
+      replace_underscore(label)
+    }
+
+    return(label)
+
+  })
+}

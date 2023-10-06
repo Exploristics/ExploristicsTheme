@@ -1,14 +1,24 @@
 #' @title Wrap text labels across multiple lines on a ggplot2 figure.
-#' @description This function returns a ggplot with the text labels split on to new lines based on a given length of characters.
-#' @details This function returns a ggplot with the text labels (e.g. title and axis tick labels) split on to new lines based on a given length of characters.
-#'  Also, replaces as.type() style function calls like `as.factor()` or `as.numeric(as.character())` in x-axis, y-axis and various legend titles like fill, color, size etc. automatically.
-#'  Can also replace underscores with spaces in all text labels.
+#' @description This function returns a ggplot with the text labels split on to
+#'   new lines based on a given length of characters.
+#' @details This function returns a ggplot with the text labels (e.g. title and
+#'  axis tick labels) split on to new lines based on a given length of characters.
+#'  Also, replaces as.type() style function calls like `as.factor()` or
+#'  `as.numeric(as.character())` in x-axis, y-axis and various legend titles
+#'  like fill, color, size etc. automatically. Can also replace underscores.
+#'  with spaces in all text labels.
 #' @param plot A ggplot2 figure (S3: gg, ggplot).
-#' @param title_wrap The maximum number of characters before a new line in the plot title and subtitle. Defaults to 40.
-#' @param axis_title_wrap The maximum number of characters before a new line in the plot axis titles. Defaults to 30.
-#' @param axis_wrap The maximum number of characters before a new line in the plot axis tick labels. Defaults to 20.
-#' @param other_wrap The maximum number of characters before a new line in the other text labels on the plot like the title of legends for fill, color, size etc. Defaults to 30.
-#' @param spaces Whether to replace underscores with spaces in all text labels. Defaults to `TRUE`.
+#' @param title_wrap The maximum number of characters before a new line in the
+#'   plot title and subtitle. Defaults to 40.
+#' @param axis_title_wrap The maximum number of characters before a new line in
+#'   the plot axis titles. Defaults to 30.
+#' @param axis_wrap The maximum number of characters before a new line in the
+#'   plot axis tick labels. Defaults to 20.
+#' @param other_wrap The maximum number of characters before a new line in
+#'   the other text labels on the plot like the title of legends for fill,
+#'   color, size etc. Defaults to 30.
+#' @param spaces Whether to replace underscores with spaces in all text labels.
+#'   Defaults to `TRUE`.
 #' @seealso \code{\link[scales]{label_wrap}}
 #' @seealso \code{\link[stringr]{str_wrap}}
 #' @import 'ggplot2'
@@ -45,22 +55,11 @@ text_wrapper <-
            spaces = TRUE) {
     ## Axis tick text
     # check if x-axis is discrete or continuous
-    x_var <- as_label(plot$mapping$x)
+    x_var <- retrieve_aesthetic_variable(plot, "x")
 
     # does the plot have an x mapping?
-    if (!is.null(x_var) & x_var != "NULL") {
-      # check if type is specified by using an as.*() function
-      if (isTRUE(grepl("as.*)$", x_var))) {
-        # find function applied
-        func_x <- sub("^as.(\\w+)\\(.*$", "\\1", x_var)
-        # clean the name
-        x_var <- clean_label(x_var)
-        # use the function as the class
-        x_class <- func_x
-      } else {
-        x_class <- class(unlist(plot$data[x_var]))
-      }
-
+    if (!is.null(x_var)) {
+      x_class <- retrieve_aesthetic_class(plot, x_var)
 
       # wrap the text with the axis width specified
       if (x_class %in% c("logical", "character", "factor", "ordered")) {
@@ -76,28 +75,17 @@ text_wrapper <-
 
       } else {
         plot <- plot + scale_x_continuous(labels = label_wrap(axis_wrap))
-
       }
     }
 
 
     # check if y-axis is discrete or continuous
-    y_var <- as_label(plot$mapping$y)
+    y_var <- retrieve_aesthetic_variable(plot, "y")
 
     # does the plot have an y mapping?
-    if (!is.null(y_var) & y_var != "NULL") {
+    if (!is.null(y_var)) {
       # check if type is specified by using an as.*() function
-      if (isTRUE(grepl("as.*)$", y_var))) {
-        # find function applied
-        func_y <- sub("^as.(\\w+)\\(.*$", "\\1", y_var)
-        # clean the name
-        y_var <- clean_label(y_var)
-        # use the function as the class
-        y_class <- func_y
-      } else {
-        y_class <- class(unlist(plot$data[y_var]))
-      }
-
+      y_class <- retrieve_aesthetic_class(plot, y_var)
 
       # wrap the text with the axis width specified
       if (y_class %in% c("logical", "character", "factor", "ordered")) {
@@ -120,122 +108,25 @@ text_wrapper <-
 
     ## Titles
     # does the plot have a title?
-    has_title <-
-      !is.null(plot$labels$title) && plot$labels$title != ""
+    labels <- lapply(plot$labels, function(label) {
+      !is.null(plot$labels[[label]]) && plot$labels[[label]] != ""
+    })
 
-    # does the plot have a subtitle?
-    has_subtitle <-
-      !is.null(plot$labels$subtitle) && plot$labels$subtitle != ""
+    labels <- lapply(labels, function(label) {
+      text <- retrieve_label_text(plot, label, spaces = spaces)
+      wrap_width <- switch(label,
+                           "title" = title_wrap,
+                           "x" = axis_title_wrap,
+                           "y",
+                           other_wrap)
+      str_wrap(text,
+               width = wrap_width)
 
-    # does the plot have an x axis label?
-    has_x_lab <- !is.null(plot$labels$x) && plot$labels$x != ""
+    })
 
-    # does the plot have an y axis label?
-    has_y_lab <- !is.null(plot$labels$y) && plot$labels$y != ""
-
-    # wrap the title and subtitle with the title width specified
-    # title
-    if (isTRUE(has_title)) {
-      title_text <- plot$labels$title
-
-      # add spaces if needed
-      title_text <- if (spaces)
-        replace_underscore(title_text)
-      else
-        title_text
-
-      plot <- plot + labs(title = str_wrap(title_text,
-                                           width = title_wrap))
-    }
-
-    # subtitle
-    if (isTRUE(has_subtitle)) {
-      subtitle_text <- plot$labels$subtitle
-
-      # add spaces if needed
-      subtitle_text <-
-        if (spaces)
-          replace_underscore(subtitle_text)
-        else
-          subtitle_text
-
-      plot <- plot + labs(subtitle = str_wrap(subtitle_text,
-                                              width = title_wrap))
-    }
-
-    # can specify 2 values so first is the x axis and second is the y axis
-    # otherwise just use the 1 value for both
-    if (length(axis_title_wrap) > 1) {
-      x_wrap <- axis_title_wrap[1]
-      y_wrap <- axis_title_wrap[2]
-
-    } else {
-      x_wrap <- axis_title_wrap
-      y_wrap <- axis_title_wrap
-
-    }
-
-    # x-axis label
-    if (isTRUE(has_x_lab)) {
-      x_text <- plot$labels$x
-
-      # clean if needed
-      if (isTRUE(grepl("as.*)$", x_text))) {
-        x_text <- clean_label(x_text)
-      }
-      # add spaces if needed
-      x_text <- if (spaces)
-        replace_underscore(x_text)
-      else
-        x_text
-
-      plot <- plot + labs(x = str_wrap(x_text,
-                                       width = x_wrap))
-    }
-
-    # y-axis label
-    if (isTRUE(has_y_lab)) {
-      y_text <- plot$labels$y
-
-      # clean if needed
-      if (isTRUE(grepl("as.*)$", y_text))) {
-        y_text <- clean_label(y_text)
-      }
-      # add spaces if needed
-      y_text <- if (spaces)
-        replace_underscore(y_text)
-      else
-        y_text
-
-      plot <- plot + labs(y = str_wrap(y_text,
-                                       width = y_wrap))
-    }
-
-    # Any other labels
-    # wrap them with the specified other width
-    # e.g. color, fill, size etc.
-    other_labels <-
-      setdiff(unique(names(plot$labels)), c("title", "subtitle", "x", "y"))
-
-
-    for (l in seq_along(other_labels)) {
-      label_text <- unlist(plot$labels[other_labels[l]])
-
-      # clean if needed
-      if (isTRUE(grepl("as.*)$", label_text))) {
-        label_text <- clean_label(label_text)
-      }
-      # add spaces if needed
-      label_text <- if (spaces)
-        replace_underscore(label_text)
-      else
-        label_text
-
-
-      plot <-
-        plot + labs(!!as.name(other_labels[l]) := str_wrap(label_text,
-                                                           width = other_wrap))
-    }
+    plot <-
+      plot +
+      do.call("labs", args = labels)
 
     return(plot)
   }

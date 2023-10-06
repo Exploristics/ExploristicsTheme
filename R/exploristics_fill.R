@@ -50,18 +50,18 @@ exploristics_fill <-
   function(plot,
            colour_pal = "Expl_Blue",
            rev_gradient = FALSE) {
-
     # ensure the chosen colour palette is one of the Explorisitics palettes
     colourPalette <-
       match.arg(colour_pal,
                 choices = c("Expl_Blue", "Expl_External", "Expl_HighCont"))
 
-    fill_class <- retrieve_aesthetic_class(plot, aesthetics = "fill")
+    fill_class <-
+      retrieve_aesthetic_class(plot, aesthetics = "fill")
 
     # discrete or continuous functions needed?
     if (fill_class %in% c("logical", "character", "factor", "ordered")) {
       # discrete
-      fill_num <- length(unique(unlist(plot$data[fill_var])))
+      fill_num <- length(unique((plot$data[[fill_var]])))
 
       # use specified colours from palette if 6 or less needed.
       # create colorRampPalette if >6 needed.
@@ -75,34 +75,13 @@ exploristics_fill <-
 
       }
     } else {
+      colours <- get(colourPalette)[GradientLUT[colourPalette]]
+
       if (isTRUE(rev_gradient)) {
-        # continuous
-        if (colourPalette == "Expl_Blue") {
-          plot <- plot + scale_fill_gradientn(colours = rev(Expl_Blue))
-        }
-        if (colourPalette == "Expl_External") {
-          plot <-
-            plot + scale_fill_gradientn(colours = rev(Expl_External[c(1, 6, 2)]))
-        }
-        if (colourPalette == "Expl_HighCont") {
-          plot <-
-            plot + scale_fill_gradientn(colours = rev(Expl_HighCont[c(1, 2, 4)]))
-        }
-      } else {
-        # continuous
-        if (colourPalette == "Expl_Blue") {
-          plot <- plot + scale_fill_gradientn(colours = Expl_Blue)
-        }
-        if (colourPalette == "Expl_External") {
-          plot <-
-            plot + scale_fill_gradientn(colours = Expl_External[c(1, 6, 2)])
-        }
-        if (colourPalette == "Expl_HighCont") {
-          plot <-
-            plot + scale_fill_gradientn(colours = Expl_HighCont[c(1, 2, 4)])
-        }
+        colours <- rev(colours)
       }
 
+      plot + scale_fill_gradientn(colours = colours)
     }
 
     return(plot)

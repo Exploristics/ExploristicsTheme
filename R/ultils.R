@@ -84,9 +84,9 @@ retrieve_aesthetic_class <- function(plot, aesthetics, ...) {
       # clean the name
       func <- clean_label(func)
       # use the function as the class
-      class <- func
+      return(func)
     } else {
-      fill_class <- class(plot$data[[variable]])
+      return(class(plot$data[[variable]]))
     }
 
   }, simplify = TRUE, USE.NAMES = TRUE)

@@ -22,10 +22,10 @@
 #' ## generate a plot and add the Exploristics theme
 #' ggplot(data = mtcars, aes(x = hp, y = mpg)) +
 #' geom_point() +
-#' exploristics_theme()
+#' theme_exploristics()
 
 
-exploristics_theme <-
+theme_exploristics <-
   function(axis_lines = TRUE,
            grid_lines = FALSE,
            legend = TRUE,

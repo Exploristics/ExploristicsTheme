@@ -61,7 +61,8 @@ exploristics_fill <-
     # discrete or continuous functions needed?
     if (fill_class %in% c("logical", "character", "factor", "ordered")) {
       # discrete
-      fill_num <- length(unique((plot$data[[fill_var]])))
+
+      fill_num <- length(unique((layer_data(plot)$fill)))
 
       # use specified colours from palette if 6 or less needed.
       # create colorRampPalette if >6 needed.

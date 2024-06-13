@@ -65,9 +65,9 @@ retrieve_aesthetic_class <- function(plot, aesthetics, ...) {
   if (all(!aesthetics %in% names(plot$mapping))) {
     stop(
       sprintf(
-        "None of the supplied aesthetics variables %1$s are used within the supplied plot"
-      ),
-      paste(aesthetics, collapse = ",")
+        "None of the supplied aesthetics variables (%1$s) are used within the supplied plot",
+        paste(aesthetics, collapse = ",")
+      )
     )
   }
 

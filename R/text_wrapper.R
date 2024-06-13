@@ -59,12 +59,12 @@ text_wrapper <-
 
     # does the plot have an x mapping?
     if (!is.null(x_var)) {
-      x_class <- retrieve_aesthetic_class(plot, x_var)
+      x_class <- retrieve_aesthetic_class(plot, "x")
 
       # wrap the text with the axis width specified
       if (x_class %in% c("logical", "character", "factor", "ordered")) {
         if (isTRUE(spaces)) {
-          plot$data[x_var] <- apply(plot$data, 1, function(row) {
+          plot$data[x_var] <- apply(plot$data, 1L, function(row) {
             gsub(pattern = "_",
                  replacement = " ",
                  x = row[x_var])
@@ -85,7 +85,7 @@ text_wrapper <-
     # does the plot have an y mapping?
     if (!is.null(y_var)) {
       # check if type is specified by using an as.*() function
-      y_class <- retrieve_aesthetic_class(plot, y_var)
+      y_class <- retrieve_aesthetic_class(plot, "y")
 
       # wrap the text with the axis width specified
       if (y_class %in% c("logical", "character", "factor", "ordered")) {
@@ -113,18 +113,17 @@ text_wrapper <-
     })
 
     # Filter out labels with no text associated
-    labels <- labels[sapply(labels, is.TRUE)]
+    labels <- labels[sapply(labels, isTRUE)]
 
     labels <- lapply(labels, function(label) {
       text <- retrieve_label_text(plot, label, spaces = spaces)
       wrap_width <- switch(label,
                            "title" = title_wrap,
                            "x" = axis_title_wrap,
-                           "y",
+                           "y" = axis_title_wrap,
                            other_wrap)
       str_wrap(text,
                width = wrap_width)
-
     })
 
     plot <-

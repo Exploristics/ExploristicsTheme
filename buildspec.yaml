@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+  runtime-versions:
+  python: 3.8
+commands:
+  - apt-get update -y
+  - apt-get install -y r-base r-base-dev
+  - Rscript -e 'install.packages("pkgdown")'
+
+build:
+  commands:
+  - Rscript -e 'pkgdown::build_site()'
+
+post_build:
+  commands:
+  - aws s3 sync --delete ./docs s3://exploristics.theme
+
+cache:
+  paths:
+  - /root/.cache/pip

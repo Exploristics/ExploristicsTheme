@@ -6,9 +6,9 @@ phases:
       python: 3.8
   pre_build:
     commands:
-      - apt-get update -y
-      - apt-get install -y r-base r-base-dev
-      - Rscript -e 'install.packages("pkgdown")'
+      - yum update -y
+      - yum install -y R
+      - Rscript -e 'install.packages("pkgdown", repos="http://cran.rstudio.com/")'
 
   build:
     commands:

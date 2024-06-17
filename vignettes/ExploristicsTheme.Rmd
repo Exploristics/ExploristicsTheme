@@ -80,7 +80,7 @@ cars_plot %>%
 #### Adding to a ggplot
 Use `save_with_logo()` to add a footer to your plot with the Exploristics logo and an optional text caption. Specify a `filename` without an extension to save the plot to. It will be saved with the footer added as a `.png` file.
 
-```{r footer_ggplot}
+```{r footer_ggplot, eval=FALSE}
 ## add colour scheme, wrap text labels and save with the Exploristics logo
 cars_plot %>%
   exploristics_colour(colour_pal="Expl_External") %>%
@@ -94,7 +94,7 @@ cars_plot %>%
 #### Adding to an image
 The footer can also be added to any image file. This could be a plot you've previously generated that didn't use `ggplot2`. Here, a base R plot is saved to an image file. The file is then passed to `save_with_logo()` which will save a new plot with the footer added as a `.png` file. The default footer suffix of "_with_footer" is added so the original image file is not overwritten.
 
-```{r footer_image,results='hide'}
+```{r footer_image,results='hide', eval=FALSE}
 ## create a plot and save to a file
 png(filename = "example_cars_base_r_plot.png", width = 8, height = 5, units="in", res = 300)
 plot(mtcars$hp,mtcars$mpg,pch=19)

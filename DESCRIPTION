@@ -9,11 +9,7 @@ Authors@R:
       person(given = "Gareth",
              family = "Burns",
              role = "aut",
-             email = "gareth.burns@exploristics.com"),
-      person(given = "Sheila",
-             family = "McCartan",
-             role = "ctb",
-             email = "sheila.mccartan@exploristics.com"))
+             email = "gareth.burns@exploristics.com"))
 Description: This packages contains a series of functions to apply the Exploristics
   theme and colour schemes to ggplot2 figures.
 License: MIT + file LICENSE

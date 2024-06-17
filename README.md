@@ -17,5 +17,5 @@ To install `ExploristicsTheme` package:
 4.  Run the below code to install latest version of `ExploristicsTheme` package.
 
 ``` r
-devtools::install_github("https://github.com/Expl-DST/ExploristicsTheme")
+devtools::install_github("https://github.com/GABurns/ExploristicsTheme")
 ```

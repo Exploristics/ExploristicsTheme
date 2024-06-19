@@ -1,3 +1,5 @@
 # ExploristicsTheme (development version)
 
-* Initial CRAN submission.
+## 19th June 2024
+
+* Initial Package Beta

@@ -39,7 +39,6 @@ exploristics_colour <-
   function(plot,
            colour_pal = "Expl_Blue",
            rev_gradient = FALSE) {
-    browser()
     # ensure the chosen colour palette is one of the Explorisitcs palettes
     colourPalette <-
       match.arg(colour_pal,

@@ -1,6 +1,9 @@
 ## code to prepare `DATASET` dataset goes here
 
 # colour palettes
+Expl_Rebrand <- c(
+  "#16213D", "#A1B9E0", "#6B8BE5", "#DA8280"
+)
 Expl_Blue <-
   c("#002659",
     "#293D94",
@@ -23,17 +26,19 @@ Expl_HighCont <-
     "#BF00B5",
     "#5EB17D")
 
-GradientLUT <- c(Expl_Blue = seq(length(Expl_Blue)),
+GradientLUT <- c(Expl_Rebrand = c(1,2),
+                 Expl_Blue = seq(length(Expl_Blue)),
                  Expl_External = c(1, 6, 2),
                  Expl_HighCont = c(1, 2, 4))
 
-Text_Colour <- "#121037"
-Footer_Text_Colour <- "#2D2669"
-Line_Colour <- "#A2D7E4"
-Tick_Colour <- "#000000"
+Text_Colour <- Expl_Rebrand[1]
+Footer_Text_Colour <- Expl_Rebrand[3]
+Line_Colour <- Expl_Rebrand[2]
+Tick_Colour <- Expl_Rebrand[1]
 Backgroud_Colour <- "#FFFFFF"
 
-usethis::use_data(Expl_Blue,
+usethis::use_data(Expl_Rebrand,
+                  Expl_Blue,
                   Expl_External,
                   Expl_HighCont,
                   overwrite = TRUE)

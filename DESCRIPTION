@@ -12,12 +12,13 @@ Authors@R:
              email = "gareth.burns@exploristics.com"))
 Description: This packages contains a series of functions to apply the Exploristics
   theme and colour schemes to ggplot2 figures.
+URL: https://github.com/GABurns/ExploristicsTheme
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Imports:
-    ggplot2,
+    ggplot2 (>= 3.4.0),
     scales,
     stringr,
     magrittr,

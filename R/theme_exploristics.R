@@ -60,7 +60,6 @@ theme_exploristics <-
         # legend. The legend may often need some more manual tweaking when it
         # comes to its exact position based on the plot coordinates.
         legend.position = "right",
-        legend.text.align = 0,
         legend.background = element_blank(),
         legend.title =     element_text(
           family = font,
@@ -71,7 +70,8 @@ theme_exploristics <-
         legend.text = element_text(
           family = font,
           size = ceiling(base_size * 1.5),
-          color = Text_Colour
+          color = Text_Colour,
+          hjust = 0
         ),
 
         # Axis format

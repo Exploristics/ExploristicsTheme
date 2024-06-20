@@ -16,23 +16,33 @@ text_wrapper(
 \arguments{
 \item{plot}{A ggplot2 figure (S3: gg, ggplot).}
 
-\item{title_wrap}{The maximum number of characters before a new line in the plot title and subtitle. Defaults to 40.}
+\item{title_wrap}{The maximum number of characters before a new line in the
+plot title and subtitle. Defaults to 40.}
 
-\item{axis_title_wrap}{The maximum number of characters before a new line in the plot axis titles. Defaults to 30.}
+\item{axis_title_wrap}{The maximum number of characters before a new line in
+the plot axis titles. Defaults to 30.}
 
-\item{axis_wrap}{The maximum number of characters before a new line in the plot axis tick labels. Defaults to 20.}
+\item{axis_wrap}{The maximum number of characters before a new line in the
+plot axis tick labels. Defaults to 20.}
 
-\item{other_wrap}{The maximum number of characters before a new line in the other text labels on the plot like the title of legends for fill, color, size etc. Defaults to 30.}
+\item{other_wrap}{The maximum number of characters before a new line in
+the other text labels on the plot like the title of legends for fill,
+color, size etc. Defaults to 30.}
 
-\item{spaces}{Whether to replace underscores with spaces in all text labels. Defaults to \code{TRUE}.}
+\item{spaces}{Whether to replace underscores with spaces in all text labels.
+Defaults to \code{TRUE}.}
 }
 \description{
-This function returns a ggplot with the text labels split on to new lines based on a given length of characters.
+This function returns a ggplot with the text labels split on to
+new lines based on a given length of characters.
 }
 \details{
-This function returns a ggplot with the text labels (e.g. title and axis tick labels) split on to new lines based on a given length of characters.
-Also, replaces as.type() style function calls like \code{as.factor()} or \code{as.numeric(as.character())} in x-axis, y-axis and various legend titles like fill, color, size etc. automatically.
-Can also replace underscores with spaces in all text labels.
+This function returns a ggplot with the text labels (e.g. title and
+axis tick labels) split on to new lines based on a given length of characters.
+Also, replaces as.type() style function calls like \code{as.factor()} or
+\code{as.numeric(as.character())} in x-axis, y-axis and various legend titles
+like fill, color, size etc. automatically. Can also replace underscores.
+with spaces in all text labels.
 }
 \examples{
 library(ggplot2)
@@ -43,7 +53,7 @@ library(stringr)
 ## if you want to use a numeric variable as discrete use `as.factor()` when setting `fill`
 cars_plot <- ggplot(data = mtcars, aes(x = cyl, y = as.numeric(mpg), fill = as.factor(cyl))) +
 geom_bar(stat="identity") +
-exploristics_theme()
+theme_exploristics()
 
 
 library(magrittr)

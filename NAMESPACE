@@ -3,6 +3,8 @@
 export(exploristics_colour)
 export(exploristics_fill)
 export(save_with_logo)
+export(scale_colour_exploristics)
+export(scale_fill_exploristics)
 export(text_wrapper)
 export(theme_exploristics)
 import('ggplot2')

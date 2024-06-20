@@ -55,7 +55,7 @@ library(stringr)
 cars_plot <- ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
 geom_point(size=2) +
 labs(title="Example plot") +
-exploristics_theme()
+theme_exploristics()
 
 ## add colour scheme, wrap text labels and save with the Exploristics logo
 cars_plot \%>\%
@@ -71,18 +71,19 @@ width = 8, height = 8, dpi = 300)
 cars_plot <- ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
 geom_point(size=2) +
 labs(title="Example plot") +
-exploristics_theme()
+theme_exploristics()
 
 ## add colour scheme and wrap text labels
 cars_plot \%>\%
-exploristics_colour(colour_pal="Expl_External") \%>\%
+exploristics_colour(colour_pal = "Expl_External") \%>\%
 text_wrapper()
 
 ## save the plot
 ggsave(filename = "example_cars_plot.png", width = 8, height = 8, dpi = 300)
 
 ## add the footer with the logo to the saved image
-save_with_logo("example_cars_plot.png", text= "Source:Data source\nProduced by: Name")
+save_with_logo("example_cars_plot.png",
+text = "Source:Data source\nProduced by: Name")
 }
 \seealso{
 \code{\link[ggplot2]{ggsave}}

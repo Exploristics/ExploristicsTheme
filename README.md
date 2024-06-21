@@ -9,7 +9,7 @@
 Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active/)
 [![Package
 version](https://img.shields.io/badge/GitHub-0.0.0.9000-orange.svg)](https://github.com/GABurns/ExploristicsTheme)
-[![last_update](https://img.shields.io/badge/last%20update--blue.svg)](https://github.com/GABurns/ExploristicsTheme)
+[![last_update](https://img.shields.io/badge/last%20update-21/06/2024-blue.svg)](https://github.com/GABurns/ExploristicsTheme)
 <!-- badges: end -->
 
 A bespoke ggplot2 theme that embodies a company’s brand identity. Using
@@ -24,23 +24,45 @@ a stronger brand connection with our audience.
 
 ## Graph Gallery
 
-### Stacked Coloumn
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;">
 
-<img src="man/figures/README-column-1.png" width="100%" />
+<div>
 
-### Scatterpot
+<img src="man/figures/stackedbarplot.jpg" style="width: 100%; height: auto;">
 
-### Time Series
+</div>
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<div>
 
-### Boxplot
+<img src="man/figures/doughnut.jpg" style="width: 100%; height: auto;">
 
-<img src="man/figures/README-boxplot-1.png" width="100%" />
+</div>
 
-### Violin
+<div>
 
-<img src="man/figures/README-violin-1.png" width="100%" />
+<img src="man/figures/heatmap.jpg" style="width: 100%; height: auto;">
+
+</div>
+
+<div>
+
+<img src="man/figures/bubbleplot.jpg" style="width: 100%; height: auto;">
+
+</div>
+
+<div>
+
+<img src="man/figures/boxplot.jpg" style="width: 100%; height: auto;">
+
+</div>
+
+<div>
+
+<img src="man/figures/chloropeth.jpg" style="width: 100%; height: auto;">
+
+</div>
+
+</div>
 
 ## Installation
 

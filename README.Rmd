@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 # Load R Packages
 library(ggplot2)
 library(ExploristicsTheme)
+library(patchwork)
 ```
 
 # ExploristicsTheme <img src="man/figures/logo.png" align="right" height="200" style="float:right; height:200px;">
@@ -22,97 +23,32 @@ library(ExploristicsTheme)
 <!-- badges: start -->
 [![Project Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active/)
 [![Package version](https://img.shields.io/badge/GitHub-0.0.0.9000-orange.svg)](https://github.com/GABurns/ExploristicsTheme)
-[![last_update](https://img.shields.io/badge/last%20update--blue.svg)](https://github.com/GABurns/ExploristicsTheme) 
+[![last_update](https://img.shields.io/badge/last%20update-21/06/2024-blue.svg)](https://github.com/GABurns/ExploristicsTheme) 
 <!-- badges: end -->
 
 A bespoke ggplot2 theme that embodies a company's brand identity. Using this theme not only enhances the visual appeal of plots but also ensures consistency across all graphical outputs, reinforcing the brand’s presence and professionalism. This theme implements our unique color palette, typography, and stylistic elements. By integrating these brand-specific features into our data visualizations, we aim to provide a cohesive and recognizable look that aligns with our corporate values and aesthetic standards, thereby facilitating clearer communication and a stronger brand connection with our audience.
 
 ## Graph Gallery
 
-### Stacked Coloumn
+```{r echo=FALSE, results='asis'}
+html_output <- '<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;">'
 
-```{r column, echo=FALSE}
-# Sample data for product category sales (replace with actual data)
-category_sales <- data.frame(
-  category = c("Electronics", "Clothing", "Home", "Sports"),
-  sales = c(1500, 1200, 1100, 900)
-)
+graphs <- c(
+  "man/figures/stackedbarplot.jpg",
+  "man/figures/doughnut.jpg",
+  "man/figures/heatmap.jpg",
+  "man/figures/bubbleplot.jpg",
+  "man/figures/boxplot.jpg",
+  "man/figures/chloropeth.jpg")
 
-# Plot
-ggplot(category_sales, aes(x = category, y = sales, fill = category)) +
-  geom_col() +
-  labs(title = "Product Category Sales",
-       x = "Category",
-       y = "Sales ($)",
-       caption = "Source: Company Sales Data") +
-  theme_exploristics() 
+for (graph in graphs) {
+  img_html <- paste0('<img src="', graph, '" style="width: 100%; height: auto;">')
+  html_output <- paste0(html_output, '<div>', img_html, '</div>')
+}
 
-```
+html_output <- paste0(html_output, '</div>')
+cat(html_output)
 
-### Scatterpot
-
-
-
-### Time Series
-
-```{r, echo=FALSE}
-# Sample data for sales performance (replace with actual data)
-sales_data <- data.frame(
-  date = seq(as.Date("2023-01-01"), by = "month", length.out = 12),
-  sales = c(500, 450, 480, 520, 530, 560, 600, 590, 610, 630, 650, 670)
-)
-
-# Plot
-ggplot(sales_data, aes(x = date, y = sales)) +
-  geom_point() +
-  geom_line() +
-  labs(title = "Sales Performance Over Time",
-       x = "Date",
-       y = "Sales ($)",
-       caption = "Source: Company Sales Data") +
-  theme_exploristics()
-```
-
-### Boxplot
-
-```{r boxplot, echo=FALSE}
-# Sample data for customer demographics (replace with actual data)
-customer_data <- data.frame(
-  age = sample(18:70, 200, replace = TRUE)
-)
-
-# Plot
-ggplot(customer_data, aes(x = "", y = age)) +
-  geom_boxplot() +
-  labs(title = "Customer Age Distribution",
-       x = "Customer",
-       y = "Age",
-       caption = "Source: Company Customer Data") +
-  theme_exploristics()
-
-```
-
-### Violin
-
-```{r violin, echo=FALSE}
-# Sample data for sales by region (replace with actual data)
-set.seed(123)
-region_sales <- data.frame(
-  region = rep(c("North", "South", "East", "West"), each = 50),
-  sales = c(rnorm(50, mean = 5000, sd = 1000),
-            rnorm(50, mean = 3000, sd = 800),
-            rnorm(50, mean = 4000, sd = 900),
-            rnorm(50, mean = 3500, sd = 700))
-)
-
-# Plot
-ggplot(region_sales, aes(x = region, y = sales, fill = region)) +
-  geom_violin() +
-  labs(title = "Sales Distribution by Region",
-       x = "Region",
-       y = "Sales ($)",
-       caption = "Source: Company Sales Data") +
-  theme_exploristics()
 ```
 
 

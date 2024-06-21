@@ -4,6 +4,6 @@
 #' @examples
 
 
-scale_fill_exploristics <- function(){
-  scale_fill_gradient(low = Expl_Rebrand[2], high = Expl_Rebrand[2], na.value = Expl_Rebrand[4])
+scale_fill_exploristics <- function(...){
+  scale_fill_gradient(low = Expl_Rebrand[2], high = Expl_Rebrand[1], na.value = Expl_Rebrand[4], ...)
 }

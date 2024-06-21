@@ -37,6 +37,8 @@ theme_exploristics <-
         base_rect_size = base_rect_size
       ) %+replace%
       theme(
+        text = element_text(color = Text_Colour),
+        line = element_line(color = Text_Colour),
         # Text format:
         # This sets the font, size, type and colour of text for the chart's title
         plot.title = element_text(
@@ -49,10 +51,14 @@ theme_exploristics <-
         # subtitle, as well as setting a margin between the title and the subtitle
         plot.subtitle = element_text(
           family = font,
+          colour = ExploristicsTheme::Expl_Rebrand[2],
           size = ceiling(base_size * 1.333),
           margin = margin(9, 0, 9, 0),
           hjust = 0.5
         ),
+        plot.caption = element_text(colour = ExploristicsTheme::Expl_Rebrand[4],
+                                    hjust = 1.0),
+        plot.caption.position = "plot",
 
         # Legend format
         # This sets the position and alignment of the legend, removes a title and

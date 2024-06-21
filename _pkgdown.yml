@@ -1,20 +1,5 @@
 url:
 
-authors:
-  Amy McCory:
-    href: https://www.linkedin.com/in/amy-mccorry-phd-a454402b0/
-  Gareth Burns:
-    href: https://www.linkedin.com/in/drgarethburns/
-
-navbar:
-  structure:
-    right: [linkedin, github]
-  components:
-    linkedin:
-      icon: fa-linkedin
-      href: https://www.linkedin.com/company/exploristics/s
-      aria-label: Exploristics
-
 template:
   bootstrap: 5
   bslib:
@@ -22,3 +7,40 @@ template:
     fg: "#16213D"
     primary: "#16213D"
     secondary: "#DA8280"
+    base_font: {google: "Questrial"}
+
+authors:
+  Amy McCory:
+    href: https://www.linkedin.com/in/amy-mccorry-phd-a454402b0/
+  Gareth Burns:
+    href: https://www.linkedin.com/in/drgarethburns/
+
+navbar:
+  bg: primary
+  left:
+    - icon: fa-home fa-lg
+      href: index.html
+    - text: "Vignettes"
+      href: articles/index.html
+    - text: "Functions"
+      href: reference/index.html
+    - text: "News"
+      href: news/index.html
+  structure:
+    right: [linkedin, github, webpage]
+  components:
+    linkedin:
+      icon: fa-linkedin
+      href: https://www.linkedin.com/company/exploristics/s
+      aria-label: Exploristics
+    webpage:
+      icon: fa-users
+      href: https://www.exploristics.com/
+
+home:
+  links:
+  - text: Exploristics
+    href: https://www.exploristics.com/
+
+
+

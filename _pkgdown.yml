@@ -31,7 +31,7 @@ navbar:
   components:
     linkedin:
       icon: fa-linkedin
-      href: https://www.linkedin.com/company/exploristics/s
+      href: https://www.linkedin.com/company/exploristics/
       aria-label: Exploristics
     webpage:
       icon: fa-users

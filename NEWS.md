@@ -1,5 +1,6 @@
-# ExploristicsTheme (development version)
+# ExploristicsTheme 1.1.0
 
-## 19th June 2024
+## New Features
 
-* Initial Package Beta
+* Exploristics Theme and Colour Palettes will be applied defaulted when user
+loads *ExploristicsTheme* package.

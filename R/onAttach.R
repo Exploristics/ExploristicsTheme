@@ -1,7 +1,7 @@
 # On loading package set the theme as Exploristics Theme
 
 .onAttach <- function(pkgname, libname) {
-  theme_set(theme_exploristics())
+  theme_set(exploristics_theme())
 
   # grDevices::colorRampPalette(get("Expl_Rebrand"))(9)
 

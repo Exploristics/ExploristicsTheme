@@ -31,7 +31,7 @@ choroplethMap <- ggplot(data = map_data) +
     caption = "Note: Exploristics theme applied",
     fill = "Value"
   ) +
-  theme_exploristics() +
+  exploristics_theme() +
   theme(
     axis.text = element_blank(),
     axis.ticks = element_blank(),

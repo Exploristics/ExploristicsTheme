@@ -35,7 +35,7 @@
 #' ## if you want to use a numeric variable as discrete use `as.factor()` when setting `fill`
 #' cars_plot <- ggplot(data = mtcars, aes(x = cyl, y = as.numeric(mpg), fill = as.factor(cyl))) +
 #' geom_bar(stat="identity") +
-#' theme_exploristics()
+#' exploristics_theme()
 #'
 #'
 #' library(magrittr)

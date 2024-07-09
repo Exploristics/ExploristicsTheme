@@ -4,11 +4,23 @@
 \alias{scale_colour_exploristics}
 \title{Exploristics Gradient colour scales}
 \usage{
-scale_colour_exploristics()
+scale_colour_exploristics(...)
+}
+\arguments{
+\item{...}{Arguments passed to \code{\link[ggplot2]{scale_color_gradient}}}
 }
 \description{
 Exploristics Gradient colour scales
 }
+\examples{
+library(ggplot2)
+ggplot(mtcars, aes(x = wt, y = wt)) +
+ geom_point(aes(colour = qsec)) +
+ scale_colour_exploristics()
+}
 \seealso{
 \code{\link[ggplot2]{scale_color_gradient}}
+}
+\author{
+Gareth Burns
 }

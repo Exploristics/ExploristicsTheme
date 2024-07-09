@@ -9,20 +9,29 @@ exploristics_fill(plot, colour_pal = "Expl_Blue", rev_gradient = FALSE)
 \arguments{
 \item{plot}{A ggplot2 figure (S3: gg, ggplot).}
 
-\item{colour_pal}{The colour palette to use. Can be \code{Expl_Blue}, \code{Expl_External} or \code{Expl_HighCont}. Defaults to \code{Expl_Blue}}
+\item{colour_pal}{The colour palette to use. Can be one of \code{Expl_Blue},
+\code{Expl_External} or \code{Expl_HighCont}. Defaults to \code{Expl_Blue}.}
 
-\item{rev_gradient}{Should the reverse gradient of the colour palette be used (only for continuous variables). Defaults to \code{FALSE}.}
+\item{rev_gradient}{Should the reverse gradient of the colour palette be used
+(only for continuous variables). Defaults to \code{FALSE}.}
 }
 \description{
-This function returns a ggplot with an Exploristics colour scheme added to it.
-There are 3 colour palettes to choose from.They are suitable for those with most common types of colour blindness.
+This function returns a ggplot with an Exploristics colour scheme
+added to it. There are 3 colour palettes to choose from. They are suitable
+for those with most common types of colour blindness.
 }
 \details{
 This function sets the fill of the ggplot to a palette matching an
-Exploristics colour scheme. A gradient of the palette will be applied for continuous variables.
-\code{Expl_Blue} is a palette of 6 blues ranging from a dark navy to a light green-blue.
-\code{Expl_External} is a palette of 6 colours with purples, greens and blues.
-\code{Expl_HighCont} is a high-contrast palette of 6 colours with a variety of colours.
+Exploristics colour scheme. A gradient of the palette will be applied for
+continuous variables.
+\itemize{
+\item{\code{Expl_Blue} is a palette of 6 blues ranging from a dark navy to a
+light green-blue.}
+\item{\code{Expl_External} is a palette of 6 colours with purples, greens and
+blues.}
+\item{\code{Expl_HighCont} is a high-contrast palette of 6 colours with a variety of
+colours.}
+}
 }
 \examples{
 library(ggplot2)

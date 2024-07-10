@@ -107,8 +107,6 @@ exploristics_theme <-
         panel.grid.minor = element_blank(),
         panel.grid.major = element_blank(),
 
-
-
         # Blank background
         # This sets the panel background as blank, removing the standard grey
         # ggplot background colour from the plot

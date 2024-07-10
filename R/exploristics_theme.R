@@ -148,6 +148,6 @@ theme_exploristics <-  function(base_size = 12,
                                 base_family = "",
                                 base_line_size = base_size / 11,
                                 base_rect_size = base_size / 11) {
-  do.call("theme_exploristics", args = as.list(environment(), all = TRUE))
+  do.call("exploristics_theme", args = as.list(environment(), all = TRUE))
 
 }

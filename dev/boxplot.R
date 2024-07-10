@@ -27,7 +27,7 @@ boxplot <- ggplot(data, aes(x = group, y = value, fill = group)) +
     y = "Value",
     fill = "Group"
   ) +
-  theme_exploristics( ) +
+  exploristics_theme( ) +
   coord_flip()
 
 ggsave(filename = "man/figures/boxplot.jpg")

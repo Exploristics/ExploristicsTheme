@@ -41,7 +41,7 @@
 #' cars_plot <- ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
 #' geom_point(size=2) +
 #' labs(title="Example plot") +
-#' theme_exploristics()
+#' exploristics_theme()
 #'
 #' ## add colour scheme, wrap text labels and save with the Exploristics logo
 #' cars_plot %>%
@@ -57,7 +57,7 @@
 #' cars_plot <- ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
 #' geom_point(size=2) +
 #' labs(title="Example plot") +
-#' theme_exploristics()
+#' exploristics_theme()
 #'
 #' ## add colour scheme and wrap text labels
 #' cars_plot %>%

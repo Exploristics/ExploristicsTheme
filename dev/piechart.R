@@ -28,7 +28,7 @@ doughnut_chart <- pie_chart +
        subtitle = "4 Discrete Groups",
        caption = "Note: Exploristics theme applied",
        fill = "Category") +
-  theme_exploristics() +
+  exploristics_theme() +
   theme(axis.title = element_blank(),
         axis.line = element_blank(),
         axis.ticks = element_blank()) +

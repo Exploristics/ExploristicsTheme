@@ -21,7 +21,7 @@
 #' ## if you want to use a numeric variable as discrete use `as.factor()` when setting `fill`
 #' cars_plot <- ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = as.factor(cyl))) +
 #' geom_bar(stat="identity") +
-#' theme_exploristics()
+#' exploristics_theme()
 #'
 #' ## adding the colour scheme can be written as one line
 #' exploristics_fill(cars_plot, colour_pal="Expl_External")
@@ -39,7 +39,7 @@
 #' ## if this happens set the colour to the same as the fill in the plot aes() and add exploristics_colour()
 #' cars_plot <- ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = as.factor(cyl),colour=as.factor(cyl))) +
 #' geom_bar(stat = "identity") +
-#' theme_exploristics()
+#' exploristics_theme()
 #'
 #' cars_plot %>%
 #' exploristics_fill(colour_pal = "Expl_External") %>%

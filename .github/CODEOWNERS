@@ -1,3 +1,8 @@
 # Global CodeOwners (require review from either users)
 *       @GABurns @amymccorry
 
+# Files that VPV work need reviewed to ensure no breaking changes
+R/theme_exploristics.R @GABurns
+R/scale_colour_exploristics.R @GABurns
+R/scale_fill_exploristics.R @GABurns
+

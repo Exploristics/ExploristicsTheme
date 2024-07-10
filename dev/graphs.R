@@ -29,7 +29,7 @@ choroplethMap <- ggplot(data = map_data) +
     title = "Choropleth Map of the United States",
     fill = "Value"
   ) +
-  theme_exploristics() +
+  exploristics_theme() +
   scale_fill_continuous()+
   theme(
     axis.text = element_blank(),

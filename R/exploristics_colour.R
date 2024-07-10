@@ -23,7 +23,7 @@
 #' ## generate a plot with the Exploristics theme
 #' cars_plot <- ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
 #' geom_point(size=2) +
-#' theme_exploristics()
+#' exploristics_theme()
 #'
 #' ## adding the colour scheme can be written as one line
 #' exploristics_colour(cars_plot, colour_pal="Expl_External")

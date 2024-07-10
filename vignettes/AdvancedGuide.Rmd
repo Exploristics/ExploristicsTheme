@@ -31,7 +31,7 @@ library(stringr)
 ## Usage
 
 ### Theme
-This package provides a `theme()` for use with ggplot2. It has some sensible defaults for font sizes, axis lines etc. You can add it to your plots using `theme_exploristics()`.
+This package provides a `theme()` for use with ggplot2. It has some sensible defaults for font sizes, axis lines etc. You can add it to your plots using `exploristics_theme()`.
 
 ```{r theme}
 ## generate a plot with the Exploristics theme
@@ -39,7 +39,7 @@ cars_plot <-
   ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
   geom_point(size = 2) +
   labs(title = "Example plot") +
-  theme_exploristics()
+  exploristics_theme()
 
 cars_plot
 
@@ -64,7 +64,7 @@ cars_plot <-
   ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
   geom_point(size = 2) +
   labs(title = "Example plot title that is a bit too long to look good without wrapping") +
-  theme_exploristics()
+  exploristics_theme()
 
 cars_plot
 
@@ -126,21 +126,21 @@ save_with_logo("example_cars_base_r_plot.png", text = "Source: Data source")
   
   
 ### Overwriting the default theme
-If you want to change any option in the `theme_exploristics()` you can add another `theme()` call after it with the formatting you'd like to overwrite.
+If you want to change any option in the `exploristics_theme()` you can add another `theme()` call after it with the formatting you'd like to overwrite.
 
 ```{r theme_overwrite}
 ## generate a plot with the Exploristics theme
 ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
   geom_point(size = 2) +
   labs(title = "Example plot") +
-  theme_exploristics()
+  exploristics_theme()
 
 
-## add `theme()` to change additional options or overwrite `theme_exploristics()` default values
+## add `theme()` to change additional options or overwrite `exploristics_theme()` default values
 ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
   geom_point(size = 2) +
   labs(title = "Example plot") +
-  theme_exploristics() +
+  exploristics_theme() +
   theme(legend.position = "top", legend.text = element_text(size = 12))
 
 ```
@@ -153,7 +153,7 @@ In some cases you may want to plot variables as a specific class, e.g. a `numeri
 p <-
   ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = as.factor(cyl))) +
   geom_bar(stat = "identity") +
-  theme_exploristics()
+  exploristics_theme()
 
 ## the legend title is "as.factor(cyl)"
 p %>%
@@ -189,7 +189,7 @@ cars_plot_col_fill <-
     colour = as.factor(cyl)
   )) +
   geom_bar(stat = "identity") +
-  theme_exploristics()
+  exploristics_theme()
 
 cars_plot_col_fill %>%
   exploristics_fill(colour_pal = "Expl_HighCont") %>%

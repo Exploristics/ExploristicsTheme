@@ -16,10 +16,10 @@
 #' ## generate a plot and add the Exploristics theme
 #' ggplot(data = mtcars, aes(x = hp, y = mpg)) +
 #' geom_point() +
-#' theme_exploristics()
+#' exploristics_theme()
 
 
-theme_exploristics <-
+exploristics_theme <-
   function(base_size = 12,
            base_family = "",
            base_line_size = base_size / 11,
@@ -128,3 +128,26 @@ theme_exploristics <-
       )
     return(expl_theme)
   }
+
+#' @title Add Exploristics theme to ggplot2 figure.
+#' @description A \code{\link[ExploristicsTheme]{exploristics_theme}} function but
+#'   starting with \code{theme} naming convention.
+#' @author Gareth Burns
+#' @details The \code{theme_} prefix is required for use in KerusCloud VPV and
+#'   having both \code{\link[ExploristicsTheme]{theme_exploristics}} and
+#'   \code{\link[ExploristicsTheme]{exploristics_theme}} maintains backwards compatibility
+#' @param base_size base font size, given in pts.
+#' @param base_family	base font family
+#' @param base_line_size base size for line elements
+#' @param base_rect_size base size for rect elements
+#' @seealso \code{\link[ggplot2]{theme}}
+#' @import 'ggplot2'
+#' @export
+
+theme_exploristics <-  function(base_size = 12,
+                                base_family = "",
+                                base_line_size = base_size / 11,
+                                base_rect_size = base_size / 11) {
+  do.call("exploristics_theme", args = as.list(environment(), all = TRUE))
+
+}

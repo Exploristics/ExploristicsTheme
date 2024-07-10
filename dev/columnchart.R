@@ -25,7 +25,7 @@ stacked_barplot <- ggplot(data, aes(x = reorder(category, value), y = value, fil
     y = "Value",
     fill = "Subcategory"
   ) +
-  theme_exploristics()
+  exploristics_theme()
 
 
 ggsave(filename = "man/figures/stackedbarplot.jpg")

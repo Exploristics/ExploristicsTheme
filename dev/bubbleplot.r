@@ -29,7 +29,7 @@ bubble_plot <- ggplot(data, aes(x = x_value, y = y_value, size = size_value, col
     size = "Bubble Size",
     color = "Category"
   ) +
-  theme_exploristics() +
+  exploristics_theme() +
   guides(
     color = guide_legend(override.aes = list(size = 6)),  # Combine color legend
     size = guide_legend(override.aes = list(color = ExploristicsTheme::Expl_Rebrand[4]))  # Combine size legend

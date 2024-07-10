@@ -24,6 +24,6 @@ library(ExploristicsTheme)
 
 ## How it works
 
-When loading the ExploristicsTheme package, the package changes the default ggplot2 theme to theme_exploristics and changes the default colour palettes to the brand ones.
+When loading the ExploristicsTheme package, the package changes the default ggplot2 theme to exploristics_theme and changes the default colour palettes to the brand ones.
 
 At present there's 4 colours for discrete colour palettes and if your plot exceeds this, it will revert to the ggplot2 default colour scheme.

@@ -2,7 +2,7 @@
 *       @GABurns @amymccorry @EmilyRogan1997
 
 # Files that VPV work need reviewed to ensure no breaking changes
-R/theme_exploristics.R @GABurns
+R/exploristics_theme.R @GABurns
 R/scale_colour_exploristics.R @GABurns
 R/scale_fill_exploristics.R @GABurns
 

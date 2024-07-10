@@ -59,7 +59,6 @@ exploristics_theme <-
         plot.caption = element_text(colour = ExploristicsTheme::Expl_Rebrand[4],
                                     hjust = 1.0),
         plot.caption.position = "plot",
-
         # Legend format
         # This sets the position and alignment of the legend, removes a title and
         # background for it and sets the requirements for any text within the

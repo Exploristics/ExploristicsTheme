@@ -4,7 +4,7 @@
 \alias{theme_exploristics}
 \title{Add Exploristics theme to ggplot2 figure.}
 \usage{
-theme_exploristics(
+exploristics_theme(
   base_size = 12,
   base_family = "",
   base_line_size = base_size/11,

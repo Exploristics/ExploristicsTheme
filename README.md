@@ -1,15 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ExploristicsTheme <img src="man/figures/logo.png" align="right" height="200" style="float:right; height:200px;">
+# ExploristicsTheme <img src="man/figures/logo.png" align="right" height="200" style="float:right; height:200px;"/>
 
 <!-- badges: start -->
 
 [![Project
 Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active/)
 [![Package
-version](https://img.shields.io/badge/GitHub-0.0.0.9000-orange.svg)](https://github.com/Exploristics/ExploristicsTheme)
-[![last_update](https://img.shields.io/badge/last%20update-21/06/2024-blue.svg)](https://github.com/Exploristics/ExploristicsTheme)
+version](https://img.shields.io/badge/GitHub-2.0.0-orange.svg)](https://github.com/Exploristics/ExploristicsTheme)
+[![last_update](https://img.shields.io/badge/last%20update-27/07/2024-blue.svg)](https://github.com/Exploristics/ExploristicsTheme)
+
 <!-- badges: end -->
 
 A bespoke ggplot2 theme that embodies a company’s brand identity. Using
@@ -63,6 +64,28 @@ a stronger brand connection with our audience.
 </div>
 
 </div>
+
+## Colour Palettes
+
+The package has a range of colour palettes that are aligned with
+Exploristics brand but provide flexibility to create bespoke data
+visualizations. These palettes are:
+
+### Expl_Rebrand
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+### Expl_External
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+### Expl_HighContrast
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+
+### Expl_Blue
+
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 ## Installation
 

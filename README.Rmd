@@ -16,17 +16,18 @@ knitr::opts_chunk$set(
 library(ggplot2)
 library(ExploristicsTheme)
 library(patchwork)
+library(monochromeR)
 ```
 
-# ExploristicsTheme <img src="man/figures/logo.png" align="right" height="200" style="float:right; height:200px;">
+# ExploristicsTheme <img src="man/figures/logo.png" align="right" height="200" style="float:right; height:200px;"/>
 
 <!-- badges: start -->
-[![Project Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active/)
-[![Package version](https://img.shields.io/badge/GitHub-0.0.0.9000-orange.svg)](https://github.com/Exploristics/ExploristicsTheme)
-[![last_update](https://img.shields.io/badge/last%20update-21/06/2024-blue.svg)](https://github.com/Exploristics/ExploristicsTheme) 
+
+[![Project Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active/) [![Package version](https://img.shields.io/badge/GitHub-2.0.0-orange.svg)](https://github.com/Exploristics/ExploristicsTheme) [![last_update](https://img.shields.io/badge/last%20update-27/07/2024-blue.svg)](https://github.com/Exploristics/ExploristicsTheme)
+
 <!-- badges: end -->
 
-A bespoke ggplot2 theme that embodies a company's brand identity. Using this theme not only enhances the visual appeal of plots but also ensures consistency across all graphical outputs, reinforcing the brand’s presence and professionalism. This theme implements our unique color palette, typography, and stylistic elements. By integrating these brand-specific features into our data visualizations, we aim to provide a cohesive and recognizable look that aligns with our corporate values and aesthetic standards, thereby facilitating clearer communication and a stronger brand connection with our audience.
+A bespoke ggplot2 theme that embodies a company's brand identity. Using this theme not only enhances the visual appeal of plots but also ensures consistency across all graphical outputs, reinforcing the brand's presence and professionalism. This theme implements our unique color palette, typography, and stylistic elements. By integrating these brand-specific features into our data visualizations, we aim to provide a cohesive and recognizable look that aligns with our corporate values and aesthetic standards, thereby facilitating clearer communication and a stronger brand connection with our audience.
 
 ## Graph Gallery
 
@@ -51,6 +52,33 @@ cat(html_output)
 
 ```
 
+## Colour Palettes
+
+The \code{ExploristicsTheme} package has a range of colour palettes that are aligned with Exploristics brand but provide flexibility to create bespoke data visualizations. These palettes are:
+
+### Expl_Rebrand
+
+```{r echo=FALSE}
+monochromeR::view_palette(ExploristicsTheme::Expl_Rebrand)
+```
+
+### Expl_External
+
+```{r echo=FALSE}
+monochromeR::view_palette(ExploristicsTheme::Expl_External)
+```
+
+### Expl_HighContrast
+
+```{r echo=FALSE}
+monochromeR::view_palette(ExploristicsTheme::Expl_HighCont)
+```
+
+### Expl_Blue
+
+```{r echo=FALSE}
+monochromeR::view_palette(ExploristicsTheme::Expl_Blue)
+```
 
 ## Installation
 
@@ -71,5 +99,5 @@ devtools::install_github("https://github.com/Exploristics/ExploristicsTheme")
 ```
 
 ## Code of Conduct
-  
+
 Please note that the KerusCloudVPV project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

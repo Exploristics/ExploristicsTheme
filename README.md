@@ -41,12 +41,6 @@ a stronger brand connection with our audience.
 
 <div>
 
-<img src="man/figures/heatmap.jpg" style="width: 100%; height: auto;">
-
-</div>
-
-<div>
-
 <img src="man/figures/bubbleplot.jpg" style="width: 100%; height: auto;">
 
 </div>
@@ -63,6 +57,12 @@ a stronger brand connection with our audience.
 
 </div>
 
+<div>
+
+<img src="man/figures/heatmap.jpg" style="width: 100%; height: auto;">
+
+</div>
+
 </div>
 
 ## Colour Palettes
@@ -71,15 +71,15 @@ The package has a range of colour palettes that are aligned with
 Exploristics brand but provide flexibility to create bespoke data
 visualizations. These palettes are:
 
-### Expl_Rebrand
+### Rebrand
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
-### Expl_External
+### External
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
-### Expl_HighContrast
+### High Contrast
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 

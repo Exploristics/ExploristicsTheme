@@ -2,7 +2,7 @@
 
 # colour palettes
 Expl_Rebrand <- c(
-  "#16213D", "#A1B9E0", "#6B8BE5", "#DA8280"
+  "#18213B", "#718BDE", "#A4B8DC", "#89D8C1", "#DEF58C", "#EFC3B1", "#CD8581"
 )
 Expl_Blue <-
   c("#002659",
@@ -32,7 +32,7 @@ GradientLUT <- c(Expl_Rebrand = c(1,2),
                  Expl_HighCont = c(1, 2, 4))
 
 Text_Colour <- Expl_Rebrand[1]
-Footer_Text_Colour <- Expl_Rebrand[3]
+Footer_Text_Colour <- Expl_Rebrand[7]
 Line_Colour <- Expl_Rebrand[2]
 Tick_Colour <- Expl_Rebrand[1]
 Backgroud_Colour <- "#FFFFFF"

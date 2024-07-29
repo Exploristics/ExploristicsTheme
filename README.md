@@ -8,8 +8,8 @@
 [![Project
 Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active/)
 [![Package
-version](https://img.shields.io/badge/GitHub-0.0.0.9000-orange.svg)](https://github.com/GABurns/ExploristicsTheme)
-[![last_update](https://img.shields.io/badge/last%20update-21/06/2024-blue.svg)](https://github.com/GABurns/ExploristicsTheme)
+version](https://img.shields.io/badge/GitHub-0.0.0.9000-orange.svg)](https://github.com/Exploristics/ExploristicsTheme)
+[![last_update](https://img.shields.io/badge/last%20update-21/06/2024-blue.svg)](https://github.com/Exploristics/ExploristicsTheme)
 <!-- badges: end -->
 
 A bespoke ggplot2 theme that embodies a company’s brand identity. Using
@@ -84,7 +84,7 @@ To install `ExploristicsTheme` package:
     package.
 
 ``` r
-devtools::install_github("https://github.com/GABurns/ExploristicsTheme")
+devtools::install_github("https://github.com/Exploristics/ExploristicsTheme")
 ```
 
 ## Code of Conduct

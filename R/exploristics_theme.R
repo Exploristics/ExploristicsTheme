@@ -56,7 +56,7 @@ exploristics_theme <-
           margin = margin(9, 0, 9, 0),
           hjust = 0.5
         ),
-        plot.caption = element_text(colour = ExploristicsTheme::Expl_Rebrand[4],
+        plot.caption = element_text(colour = ExploristicsTheme::Expl_Rebrand[7],
                                     hjust = 1.0),
         plot.caption.position = "plot",
         # Legend format

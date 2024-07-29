@@ -5,9 +5,9 @@ library(ggplot2)
 # Create mock data
 set.seed(42)  # For reproducibility
 data <- data.frame(
-  category = rep(c("A", "B", "C", "D"), each = 3),
-  subcategory = rep(c("X", "Y", "Z"), times = 4),
-  value = sample(10:100, 12, replace = TRUE)
+  category = rep(c("X", "Y", "Z"), times = 7),
+  subcategory = rep(c("A", "B", "C", "D", "E", "F", "G"), each = 3),
+  value = sample(10:100, 21, replace = TRUE)
 )
 
 # Display the mock data
@@ -19,7 +19,7 @@ stacked_barplot <- ggplot(data, aes(x = reorder(category, value), y = value, fil
   coord_flip() +
   labs(
     title = "Stacked Barplot",
-    subtitle = "4 Discrete Groups",
+    subtitle = "7 Discrete Groups",
     caption = "Note: Exploristics theme applied",
     x = "Category",
     y = "Value",

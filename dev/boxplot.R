@@ -5,11 +5,14 @@ library(ggplot2)
 
 # Create mock data
 set.seed(42)  # For reproducibility
-group <- rep(c("A", "B", "C", "D"), each = 50)
+group <- rep(c("A", "B", "C", "D", "E", "F", "G"), each = 50)
 value <- c(rnorm(50, mean = 10, sd = 2),
            rnorm(50, mean = 12, sd = 2),
            rnorm(50, mean = 9, sd = 2),
-           rnorm(50, mean = 11, sd = 2))
+           rnorm(50, mean = 11, sd = 2),
+           rnorm(50, mean = 20, sd = 2),
+           rnorm(50, mean = 15, sd = 2),
+           rnorm(50, mean = 8, sd = 2))
 
 data <- data.frame(group = factor(group), value = value)
 
@@ -21,7 +24,7 @@ boxplot <- ggplot(data, aes(x = group, y = value, fill = group)) +
   geom_boxplot() +
   labs(
     title = "Boxplot",
-    subtitle = "4 Discrete Groups",
+    subtitle = "7 Discrete Groups",
     caption = "Note: Exploristics theme applied",
     x = "Group",
     y = "Value",

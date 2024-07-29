@@ -55,6 +55,7 @@ retrieve_aesthetic_variable <- function(plot, aesthetics, ...) {
 #' @param plot A data.frame
 #' @param aesthetics A character vector. Identities of the of the mappings which
 #'   variables class to be retrieved.
+#' @importFrom methods is
 #' @return A named character vector. Name is aesthetic, value is class.
 #' @noRd
 

@@ -1,4 +1,4 @@
-# ExploristicsTheme (development version)
+# ExploristicsTheme 2.0.0
 
 ## Version 2.0.0
 
@@ -10,3 +10,4 @@
 ### Documentation
 
 -   [pkgdown](https://pkgdown.r-lib.org/) website with advanced guide, colour palettes and graph gallery
+

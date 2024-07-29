@@ -4,10 +4,19 @@
 \alias{scale_fill_exploristics}
 \title{Exploristics Gradient fill scales}
 \usage{
-scale_fill_exploristics()
+scale_fill_exploristics(...)
+}
+\arguments{
+\item{...}{Arguments passed to \code{\link[ggplot2]{scale_color_gradient}}}
 }
 \description{
 Exploristics Gradient fill scales
+}
+\examples{
+library(ggplot2)
+ggplot(mtcars, aes(x = wt, y = wt)) +
+ geom_point(aes(colour = gear)) +
+ scale_fill_exploristics()
 }
 \seealso{
 \code{\link[ggplot2]{scale_color_gradient}}

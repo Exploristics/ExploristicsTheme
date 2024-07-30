@@ -56,10 +56,10 @@ cat(html_output)
 
 The \code{ExploristicsTheme} package has a range of colour palettes that are aligned with Exploristics brand but provide flexibility to create bespoke data visualizations. These palettes are:
 
-### Rebrand
+### Brand
 
 ```{r echo=FALSE}
-monochromeR::view_palette(ExploristicsTheme::Expl_Rebrand)
+monochromeR::view_palette(ExploristicsTheme::Expl_Brand)
 ```
 
 ### External

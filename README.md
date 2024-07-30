@@ -71,7 +71,7 @@ The package has a range of colour palettes that are aligned with
 Exploristics brand but provide flexibility to create bespoke data
 visualizations. These palettes are:
 
-### Rebrand
+### Brand
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 

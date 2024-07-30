@@ -1,12 +1,14 @@
-# ExploristicsTheme (development version)
+# ExploristicsTheme 2.0.0
 
-## Version 2.0.0
+## New Features
 
-### Features
+* Exploristics Theme and Colour Palettes will be applied defaulted when user
+loads *ExploristicsTheme* package.
+* Uses the latest Exploristics brand Colour Palettes (July 2024 Release).
 
--   Updating colour palettes to Exploristics rebrand.
--   Applying Exploristics theme and palettes by default.
+## Enhancements
 
-### Documentation
-
--   [pkgdown](https://pkgdown.r-lib.org/) website with advanced guide, colour palettes and graph gallery
+* Vignettes written on installing package, basic usage and advanced functionality
+for users wanting to create bespoke plots.
+* [pkgdown](https://pkgdown.r-lib.org/) website with advanced guide, 
+colour palettes and graph gallery

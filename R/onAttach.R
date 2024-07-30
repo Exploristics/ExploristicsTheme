@@ -1,12 +1,5 @@
 # On loading package set the theme as Exploristics Theme
 
-.onAttach <- function(lib, pkg) {
-  theme_set(exploristics_theme())
-
-  options(
-    ggplot2.discrete.colour = ExploristicsTheme::Expl_Brand[c(1, 7, 4, 2, 5, 3, 6)],
-    ggplot2.discrete.fill = ExploristicsTheme::Expl_Brand[c(1, 7, 4, 2, 5, 3, 6)],
-    ggplot2.continuous.colour = scale_colour_exploristics,
-    ggplot2.continuous.fill = scale_fill_exploristics
-  )
+.onAttach <- function(libname, pkgname) {
+  ExecuteOnAttach()
 }

@@ -5,6 +5,7 @@
 #' @param ... Additional arguments passed to
 #' \code{\link[ggplot2]{scale_color_gradient}}
 #' @seealso \code{\link[ggplot2]{scale_color_gradient}}
+#' @param ... Arguments passed to \code{\link[ggplot2]{scale_color_gradient}}
 #' @export
 #' @examples
 #' library(ggplot2)
@@ -14,7 +15,6 @@
 
 scale_fill_exploristics <- function(...) {
   scale_fill_gradient(low = Expl_Brand[2],
-                      high = Expl_Brand[1],
-                      na.value = Expl_Brand[4],
+                      high = Expl_Brand[7],
                       ...)
 }

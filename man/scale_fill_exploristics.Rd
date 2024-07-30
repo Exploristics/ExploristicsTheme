@@ -7,8 +7,7 @@
 scale_fill_exploristics(...)
 }
 \arguments{
-\item{...}{Additional arguments passed to
-\code{\link[ggplot2]{scale_color_gradient}}}
+\item{...}{Arguments passed to \code{\link[ggplot2]{scale_color_gradient}}}
 }
 \description{
 A two colour gradient for continuous variables to apply to fill aesthetic

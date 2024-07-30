@@ -74,28 +74,28 @@ exploristics_colour <-
       if (isTRUE(rev_gradient)) {
         # continuous
         if (colourPalette == "Expl_Blue") {
-          plot <- plot + scale_color_gradientn(colours = rev(Expl_Blue))
+          plot <- plot + scale_color_gradientn(colours = rev(ExploristicsTheme::Expl_Blue))
         }
         if (colourPalette == "Expl_External") {
           plot <-
-            plot + scale_color_gradientn(colours = rev(Expl_External[c(1, 6, 2)]))
+            plot + scale_color_gradientn(colours = rev(ExploristicsTheme::Expl_External[c(1, 6, 2)]))
         }
         if (colourPalette == "Expl_HighCont") {
           plot <-
-            plot + scale_color_gradientn(colours = rev(Expl_HighCont[c(1, 2, 4)]))
+            plot + scale_color_gradientn(colours = rev(ExploristicsTheme::Expl_HighCont[c(1, 2, 4)]))
         }
       } else {
         # continuous
         if (colourPalette == "Expl_Blue") {
-          plot <- plot + scale_color_gradientn(colours = Expl_Blue)
+          plot <- plot + scale_color_gradientn(colours = ExploristicsTheme::Expl_Blue)
         }
         if (colourPalette == "Expl_External") {
           plot <-
-            plot + scale_color_gradientn(colours = Expl_External[c(1, 6, 2)])
+            plot + scale_color_gradientn(colours = ExploristicsTheme::Expl_External[c(1, 6, 2)])
         }
         if (colourPalette == "Expl_HighCont") {
           plot <-
-            plot + scale_color_gradientn(colours = Expl_HighCont[c(1, 2, 4)])
+            plot + scale_color_gradientn(colours = ExploristicsTheme::Expl_HighCont[c(1, 2, 4)])
         }
       }
 

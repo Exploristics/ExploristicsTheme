@@ -1,5 +1,6 @@
 #' @title Exploristics Gradient colour scales
 #' @author Gareth Burns
+
 #' @param ... Additional arguments passed to
 #' \code{\link[ggplot2]{scale_color_gradient}}
 #' @description

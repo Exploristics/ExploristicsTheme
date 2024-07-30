@@ -32,7 +32,7 @@ bubble_plot <- ggplot(data, aes(x = x_value, y = y_value, size = size_value, col
   exploristics_theme() +
   guides(
     color = guide_legend(title = "Category", override.aes = list(size = 6)),  # Combine color legend
-    size = guide_legend(title = "Size", override.aes = list(color = ExploristicsTheme::Expl_Rebrand[1]))  # Combine size legend
+    size = guide_legend(title = "Size", override.aes = list(color = ExploristicsTheme::Expl_Brand[1]))  # Combine size legend
   )
 
 ggsave(filename = "man/figures/bubbleplot.jpg", plot = bubble_plot)

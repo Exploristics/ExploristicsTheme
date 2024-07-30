@@ -5,5 +5,5 @@
 
 
 scale_fill_exploristics <- function(...){
-  scale_fill_gradient(low = Expl_Rebrand[2], high = Expl_Rebrand[1], na.value = Expl_Rebrand[4], ...)
+  scale_fill_gradient(low = Expl_Brand[2], high = Expl_Brand[1], na.value = Expl_Brand[4], ...)
 }

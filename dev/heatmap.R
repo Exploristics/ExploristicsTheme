@@ -28,7 +28,7 @@ heatmap <- ggplot(data_df, aes(x = Column, y = Row, fill = Value)) +
     y = "Rows",
     fill = "Value"
   ) +
-  scale_fill_gradient2(low = Expl_Rebrand[2], mid = "white", midpoint = 6, high = Expl_Rebrand[7])
+  scale_fill_gradient2(low = Expl_Brand[2], mid = "white", midpoint = 6, high = Expl_Brand[7])
 
 ggsave(filename = "man/figures/heatmap.jpg", plot = heatmap)
 

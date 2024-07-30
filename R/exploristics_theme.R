@@ -51,12 +51,12 @@ exploristics_theme <-
         # subtitle, as well as setting a margin between the title and the subtitle
         plot.subtitle = element_text(
           family = font,
-          colour = ExploristicsTheme::Expl_Rebrand[2],
+          colour = ExploristicsTheme::Expl_Brand[2],
           size = ceiling(base_size * 1.333),
           margin = margin(9, 0, 9, 0),
           hjust = 0.5
         ),
-        plot.caption = element_text(colour = ExploristicsTheme::Expl_Rebrand[7],
+        plot.caption = element_text(colour = ExploristicsTheme::Expl_Brand[7],
                                     hjust = 1.0),
         plot.caption.position = "plot",
         # Legend format

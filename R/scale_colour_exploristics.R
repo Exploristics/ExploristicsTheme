@@ -5,8 +5,8 @@
 
 
 scale_colour_exploristics <- function(...) {
-  scale_color_gradient(low = Expl_Rebrand[2],
-                       high = Expl_Rebrand[1],
-                       na.value = Expl_Rebrand[7],
+  scale_color_gradient(low = Expl_Brand[2],
+                       high = Expl_Brand[1],
+                       na.value = Expl_Brand[7],
                        ...)
 }

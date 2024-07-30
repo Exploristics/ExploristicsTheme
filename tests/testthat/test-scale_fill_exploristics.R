@@ -12,6 +12,6 @@ test_that("scale is applied", {
   expect_identical(testObject[["scales"]][["scales"]][[1]][["aesthetics"]], "fill")
 
   # Appropriate colour applied for missing value
-  expect_identical(testObject[["scales"]][["scales"]][[1]][["na.value"]], "grey50")
+  expect_identical(testObject[["scales"]][["scales"]][[1]][["na.value"]], "#CD8581")
 
 })

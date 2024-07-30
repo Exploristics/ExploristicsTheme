@@ -1,6 +1,6 @@
 # On loading package set the theme as Exploristics Theme
 
-.onAttach <- function(pkgname, libname) {
+.onAttach <- function(lib, pkg) {
   theme_set(exploristics_theme())
 
   options(

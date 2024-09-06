@@ -25,7 +25,6 @@ Imports:
     methods,
     magick,
     rlang (>= 0.4.0),
-    methods
 Suggests: 
     knitr,
     rmarkdown,

@@ -4,9 +4,9 @@ template:
   bootstrap: 5
   bslib:
     bg: "#FFFFFF"
-    fg: "#16213D"
-    primary: "#16213D"
-    secondary: "#DA8280"
+    fg: "#18213B"
+    primary: "#18213B"
+    secondary: "#CD8581"
     base_font: {google: "Questrial"}
 
 authors:

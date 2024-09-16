@@ -3,8 +3,8 @@ library(ggplot2)
 library(dplyr)
 
 # Create sample data
-data <- data.frame(category = c("A", "B", "C", "D"),
-                   value = c(10, 20, 30, 40))
+data <- data.frame(category = c("A", "B", "C", "D", "E", "F", "G"),
+                   value = c(10, 20, 30, 40, 50, 60, 70))
 
 # Compute the percentage
 data <- data %>%
@@ -24,15 +24,27 @@ pie_chart <-
 # Create the doughnut effect by adding a white circle in the middle
 doughnut_chart <- pie_chart +
   geom_text(aes(y = ypos, label = paste0(round(percentage), "%")), color = "white") +
-  labs(title = "Doughnut Chart",
-       subtitle = "4 Discrete Groups",
-       caption = "Note: Exploristics theme applied",
-       fill = "Category") +
+  labs(
+    title = "Doughnut Chart",
+    subtitle = "7 Discrete Groups",
+    caption = "Note: Exploristics theme applied",
+    fill = "Category"
+  ) +
   exploristics_theme() +
-  theme(axis.title = element_blank(),
-        axis.line = element_blank(),
-        axis.ticks = element_blank()) +
-  annotate("text", x = 0, y = 0, label = "", size = 20, color = "white")
+  theme(
+    axis.title = element_blank(),
+    axis.line = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.x = element_blank()
+  ) +
+  annotate(
+    "text",
+    x = 0,
+    y = 0,
+    label = "",
+    size = 20,
+    color = "white"
+  )
 
 
 

@@ -1,18 +1,22 @@
 #' @title Exploristics Gradient colour scales
 #' @author Gareth Burns
-#' @param ... Arguments passed to \code{\link[ggplot2]{scale_color_gradient}}
+
+#' @param ... Additional arguments passed to
+#' \code{\link[ggplot2]{scale_color_gradient}}
+#' @description
+#' A two colour gradient for continuous variables
 #' @seealso \code{\link[ggplot2]{scale_color_gradient}}
 #' @export
 #' @examples
 #' library(ggplot2)
-#' ggplot(mtcars, aes(x = wt, y = wt)) +
-#'  geom_point(aes(colour = qsec)) +
-#'  scale_colour_exploristics()
+#' ggplot(data = mtcars, aes(x = mpg, y = hp, colour = mpg)) +
+#' geom_point() +
+#' scale_colour_exploristics()
 
 
 scale_colour_exploristics <- function(...) {
-  scale_color_gradient(low = ExploristicsTheme::Expl_Rebrand[2],
-                       high = ExploristicsTheme::Expl_Rebrand[1],
-                       na.value = ExploristicsTheme::Expl_Rebrand[4],
+  scale_color_gradient(low = Expl_Brand[2],
+                       high = Expl_Brand[1],
+                       na.value = Expl_Brand[7],
                        ...)
 }

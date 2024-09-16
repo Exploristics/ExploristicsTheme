@@ -3,7 +3,7 @@
 \docType{data}
 \name{Expl_Blue}
 \alias{Expl_Blue}
-\title{Exploristics Blue}
+\title{Colour Pallette Using Exploristics Blues}
 \format{
 An object of class \code{character} of length 6.
 }
@@ -11,6 +11,17 @@ An object of class \code{character} of length 6.
 Expl_Blue
 }
 \description{
-A character vector contain hex colour codes for Exploristics Blues.
+Colour Pallette Using Exploristics Blues
+}
+\details{
+Contains the following hex colours
+\itemize{
+\item{#002659}
+\item{#293D94}
+\item{#136BBA}
+\item{#16A4D4}
+\item{#9DD6E4}
+\item{#D6EFF5}
+}
 }
 \keyword{datasets}

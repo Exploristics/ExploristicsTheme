@@ -3,7 +3,7 @@
 \docType{data}
 \name{Expl_HighCont}
 \alias{Expl_HighCont}
-\title{Exploristics High Contrast}
+\title{Colour Pallette Using High Contrast Colours}
 \format{
 An object of class \code{character} of length 6.
 }
@@ -11,7 +11,17 @@ An object of class \code{character} of length 6.
 Expl_HighCont
 }
 \description{
-A character vector contain hex colour codes for High Contrast for use
-with accessibility in mind.
+Colour Pallette Using High Contrast Colours
+}
+\details{
+Contains the following hex colours
+\itemize{
+\item{#2D2669}
+\item{#FF4A1B}
+\item{#18CDFF}
+\item{#E8E126}
+\item{#BF00B5}
+\item{#5EB17D}
+}
 }
 \keyword{datasets}

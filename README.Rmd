@@ -37,10 +37,10 @@ html_output <- '<div style="display: grid; grid-template-columns: repeat(2, 1fr)
 graphs <- c(
   "man/figures/stackedbarplot.jpg",
   "man/figures/doughnut.jpg",
-  "man/figures/heatmap.jpg",
   "man/figures/bubbleplot.jpg",
   "man/figures/boxplot.jpg",
-  "man/figures/chloropeth.jpg")
+  "man/figures/chloropeth.jpg",
+  "man/figures/heatmap.jpg")
 
 for (graph in graphs) {
   img_html <- paste0('<img src="', graph, '" style="width: 100%; height: auto;">')
@@ -56,19 +56,19 @@ cat(html_output)
 
 The \code{ExploristicsTheme} package has a range of colour palettes that are aligned with Exploristics brand but provide flexibility to create bespoke data visualizations. These palettes are:
 
-### Expl_Rebrand
+### Brand
 
 ```{r echo=FALSE}
-monochromeR::view_palette(ExploristicsTheme::Expl_Rebrand)
+monochromeR::view_palette(ExploristicsTheme::Expl_Brand)
 ```
 
-### Expl_External
+### External
 
 ```{r echo=FALSE}
 monochromeR::view_palette(ExploristicsTheme::Expl_External)
 ```
 
-### Expl_HighContrast
+### High Contrast
 
 ```{r echo=FALSE}
 monochromeR::view_palette(ExploristicsTheme::Expl_HighCont)

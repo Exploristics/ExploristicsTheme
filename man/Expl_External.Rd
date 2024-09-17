@@ -3,7 +3,7 @@
 \docType{data}
 \name{Expl_External}
 \alias{Expl_External}
-\title{Exploristics External}
+\title{Colour Pallette Using A Colour Palette for External Clients}
 \format{
 An object of class \code{character} of length 6.
 }
@@ -11,6 +11,17 @@ An object of class \code{character} of length 6.
 Expl_External
 }
 \description{
-A character vector contain hex colour codes using External Colour Palette.
+Colour Pallette Using A Colour Palette for External Clients
+}
+\details{
+Contains the following hex colours
+\itemize{
+\item{#7119A2}
+\item{#28CAAB}
+\item{#3C56E1}
+\item{#B04AFF}
+\item{#97EDDB}
+\item{#92C8FF}
+}
 }
 \keyword{datasets}

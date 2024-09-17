@@ -24,7 +24,7 @@ Imports:
     magrittr,
     methods,
     magick,
-    rlang (>= 0.4.0)
+    rlang (>= 0.4.0),
 Suggests: 
     knitr,
     rmarkdown,

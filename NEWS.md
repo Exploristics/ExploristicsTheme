@@ -11,4 +11,4 @@ loads *ExploristicsTheme* package.
 * Vignettes written on installing package, basic usage and advanced functionality
 for users wanting to create bespoke plots.
 * [pkgdown](https://pkgdown.r-lib.org/) website with advanced guide, 
-colour palettes and graph gallery
+colour palettes and graph gallery.

@@ -12,3 +12,4 @@ loads *ExploristicsTheme* package.
 for users wanting to create bespoke plots.
 * [pkgdown](https://pkgdown.r-lib.org/) website with advanced guide, 
 colour palettes and graph gallery
+

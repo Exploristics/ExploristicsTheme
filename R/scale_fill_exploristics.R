@@ -14,7 +14,7 @@
 #' scale_colour_exploristics()
 
 scale_fill_exploristics <- function(...) {
-  scale_fill_gradient(low = Expl_Brand[2],
+  scale_fill_gradient(low = Expl_Brand[3],
                       high = Expl_Brand[1],
                       na.value = Expl_Brand[7],
                       ...)

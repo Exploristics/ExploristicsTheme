@@ -13,15 +13,16 @@ version](https://img.shields.io/badge/GitHub-2.0.0-orange.svg)](https://github.c
 
 <!-- badges: end -->
 
-A bespoke ggplot2 theme that embodies a company’s brand identity. Using
-this theme not only enhances the visual appeal of plots but also ensures
-consistency across all graphical outputs, reinforcing the brand’s
-presence and professionalism. This theme implements our unique color
-palette, typography, and stylistic elements. By integrating these
-brand-specific features into our data visualizations, we aim to provide
-a cohesive and recognizable look that aligns with our corporate values
-and aesthetic standards, thereby facilitating clearer communication and
-a stronger brand connection with our audience.
+A bespoke ggplot2 theme ultilising the Exploristics brand identity.
+Using this theme not only enhances the visual appeal of plots but also
+ensures consistency across all graphical outputs, reinforcing the
+Exploristics brand presence and professionalism. This theme implements
+the Exploristics unique colour palette, typography, and stylistic
+elements. By integrating these brand-specific features into our data
+visualizations, we aim to provide a cohesive and recognizable look that
+aligns with our corporate values and aesthetic standards, thereby
+facilitating clearer communication and a stronger brand connection with
+our audience.
 
 ## Graph Gallery
 

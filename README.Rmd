@@ -59,7 +59,7 @@ The \code{ExploristicsTheme} package has a range of colour palettes that are ali
 ### Brand
 
 ```{r echo=FALSE}
-monochromeR::view_palette(ExploristicsTheme::Expl_Brand)
+monochromeR::view_palette(ExploristicsTheme::Expl_Brand, view_labels = FALSE)
 ```
 
 ### External

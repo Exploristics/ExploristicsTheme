@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ExploristicsTheme <img src="man/figures/logo.png" align="right" height="200" style="float:right; height:200px;"/>
+# ExploristicsTheme <img src="man/figures/hex-ExploristicsTheme.png" align="right" height="200" style="float:right; height:200px;"/>
 
 <!-- badges: start -->
 
@@ -9,19 +9,20 @@
 Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active/)
 [![Package
 version](https://img.shields.io/badge/GitHub-2.0.0-orange.svg)](https://github.com/Exploristics/ExploristicsTheme)
-[![last_update](https://img.shields.io/badge/last%20update-27/07/2024-blue.svg)](https://github.com/Exploristics/ExploristicsTheme)
+[![last_update](https://img.shields.io/badge/last%20update-17/09/2024-blue.svg)](https://github.com/Exploristics/ExploristicsTheme)
 
 <!-- badges: end -->
 
-A bespoke ggplot2 theme that embodies a company’s brand identity. Using
-this theme not only enhances the visual appeal of plots but also ensures
-consistency across all graphical outputs, reinforcing the brand’s
-presence and professionalism. This theme implements our unique color
-palette, typography, and stylistic elements. By integrating these
-brand-specific features into our data visualizations, we aim to provide
-a cohesive and recognizable look that aligns with our corporate values
-and aesthetic standards, thereby facilitating clearer communication and
-a stronger brand connection with our audience.
+A bespoke ggplot2 theme ultilising the Exploristics brand identity.
+Using this theme not only enhances the visual appeal of plots but also
+ensures consistency across all graphical outputs, reinforcing the
+Exploristics brand presence and professionalism. This theme implements
+the Exploristics unique colour palette, typography, and stylistic
+elements. By integrating these brand-specific features into our data
+visualizations, we aim to provide a cohesive and recognizable look that
+aligns with our corporate values and aesthetic standards, thereby
+facilitating clearer communication and a stronger brand connection with
+our audience.
 
 ## Graph Gallery
 
@@ -90,20 +91,17 @@ visualizations. These palettes are:
 ## Installation
 
 Currently the ExploristicsTheme package is stored on the Exploristics
-GitHub [GitHub repo](https://github.com/Expl-DST). At present the
-repository is a private and requires permission to be granted by a
-member of the Data Science Team.
+GitHub [GitHub repo](https://github.com/Expl-DST).
 
 To install `ExploristicsTheme` package:
 
-1.  Set up a GitHub account: [GitHub Signup](https://github.com/join)
+1.  Install the devtools package
 
-2.  Enable Multi-Factor Authentication: [MFA
-    Guide](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
+``` r
+install.packages("devtools")
+```
 
-3.  Request access to `ExploristicsTheme` repository.
-
-4.  Run the below code to install latest version of `ExploristicsTheme`
+2.  Run the below code to install latest version of `ExploristicsTheme`
     package.
 
 ``` r

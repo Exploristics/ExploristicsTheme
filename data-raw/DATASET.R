@@ -1,6 +1,17 @@
 ## code to prepare `DATASET` dataset goes here
 
 # colour palettes
+Expl_RGB <- c(
+  "#6b89e3", "#d8807f", "#d7f67c", "#6ddabf", "#9eb7de", "#f6c0ad"
+)
+Expl_RGB_dark <- c(
+  "#576fb8", "#ae6867", "#b1ca65", "#4c9d88", "#7f93b3", "#ca9e8e"
+)
+Expl_Mono <- c(
+  "#121a31", "#16213d", "#2d3750", "#5c6477", "#ecf1f8", "#ffffff"
+)
+
+
 Expl_Rebrand <- c(
   "#16213D", "#A1B9E0", "#6B8BE5", "#DA8280"
 )
@@ -26,7 +37,10 @@ Expl_HighCont <-
     "#BF00B5",
     "#5EB17D")
 
-GradientLUT <- c(Expl_Rebrand = c(1,2),
+GradientLUT <- c(Expl_RGB = c(1, 4, 2),
+                 Expl_RGB_dark = c(1, 4, 2),
+                 Expl_Mono = c(5, 3, 2),
+                 Expl_Rebrand = c(1,2),
                  Expl_Blue = seq(length(Expl_Blue)),
                  Expl_External = c(1, 6, 2),
                  Expl_HighCont = c(1, 2, 4))
@@ -37,7 +51,10 @@ Line_Colour <- Expl_Rebrand[2]
 Tick_Colour <- Expl_Rebrand[1]
 Backgroud_Colour <- "#FFFFFF"
 
-usethis::use_data(Expl_Rebrand,
+usethis::use_data(Expl_RGB,
+                  Expl_RGB_dark,
+                  Expl_Mono,
+                  Expl_Rebrand,
                   Expl_Blue,
                   Expl_External,
                   Expl_HighCont,

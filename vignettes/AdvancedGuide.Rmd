@@ -31,7 +31,7 @@ library(stringr)
 ## Usage
 
 ### Theme
-This package provides a `theme()` for use with ggplot2. It has some sensible defaults for font sizes, axis lines etc. You can add it to your plots using `exploristics_theme()`.
+This package provides a `theme()` for use with ggplot2. It has some sensible defaults for font sizes, axis lines etc. You can add it to your plots using `theme_exploristics()`.
 
 ```{r theme}
 ## generate a plot with the Exploristics theme
@@ -39,7 +39,7 @@ cars_plot <-
   ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
   geom_point(size = 2) +
   labs(title = "Example plot") +
-  exploristics_theme()
+  theme_exploristics()
 
 cars_plot
 
@@ -51,7 +51,7 @@ To add a colour scheme to your plot use `exploristics_colour()` and/or `exploris
 ```{r colour}
 ## add colour scheme and wrap text labels
 cars_plot %>%
-  exploristics_colour(colour_pal = "Expl_External")
+  exploristics_colour(colour_pal = "Expl_RGB")
 
 ```
 
@@ -64,7 +64,7 @@ cars_plot <-
   ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
   geom_point(size = 2) +
   labs(title = "Example plot title that is a bit too long to look good without wrapping") +
-  exploristics_theme()
+  theme_exploristics()
 
 cars_plot
 
@@ -75,7 +75,7 @@ The title above gets cut off, but using `text_wrapper()` it will add a new line:
 ```{r text_wrap}
 ## add colour scheme and wrap text labels
 cars_plot %>%
-  exploristics_colour(colour_pal = "Expl_External") %>%
+  exploristics_colour(colour_pal = "Expl_RGB") %>%
   text_wrapper()
 ```
 
@@ -87,7 +87,7 @@ Use `save_with_logo()` to add a footer to your plot with the Exploristics logo a
 ```{r footer_ggplot, eval=FALSE}
 ## add colour scheme, wrap text labels and save with the Exploristics logo
 cars_plot %>%
-  exploristics_colour(colour_pal = "Expl_External") %>%
+  exploristics_colour(colour_pal = "Expl_RGB") %>%
   text_wrapper() %>%
   save_with_logo(filename = "example_cars_plot", text = "Source:Data source\nProduced by: Name")
 ```
@@ -126,21 +126,21 @@ save_with_logo("example_cars_base_r_plot.png", text = "Source: Data source")
   
   
 ### Overwriting the default theme
-If you want to change any option in the `exploristics_theme()` you can add another `theme()` call after it with the formatting you'd like to overwrite.
+If you want to change any option in the `theme_exploristics()` you can add another `theme()` call after it with the formatting you'd like to overwrite.
 
 ```{r theme_overwrite}
 ## generate a plot with the Exploristics theme
 ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
   geom_point(size = 2) +
   labs(title = "Example plot") +
-  exploristics_theme()
+  theme_exploristics()
 
 
-## add `theme()` to change additional options or overwrite `exploristics_theme()` default values
+## add `theme()` to change additional options or overwrite `theme_exploristics()` default values
 ggplot(data = mtcars, aes(x = hp, y = mpg, colour = mpg)) +
   geom_point(size = 2) +
   labs(title = "Example plot") +
-  exploristics_theme() +
+  theme_exploristics() +
   theme(legend.position = "top", legend.text = element_text(size = 12))
 
 ```
@@ -153,11 +153,11 @@ In some cases you may want to plot variables as a specific class, e.g. a `numeri
 p <-
   ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = as.factor(cyl))) +
   geom_bar(stat = "identity") +
-  exploristics_theme()
+  theme_exploristics()
 
 ## the legend title is "as.factor(cyl)"
 p %>%
-  exploristics_fill(colour_pal = "Expl_External")
+  exploristics_fill(colour_pal = "Expl_RGB")
 ```
 
 The legend title above would look better with the function call in it.
@@ -166,7 +166,7 @@ Using `text_wrapper()` it will leave the legend title as just "cyl":
 ```{r as_function_removed}
 ## but using `text_wrapper()` the legend title is now "cyl"
 p %>%
-  exploristics_fill(colour_pal = "Expl_External") %>%
+  exploristics_fill(colour_pal = "Expl_RGB") %>%
   text_wrapper()
 
 ```
@@ -189,11 +189,11 @@ cars_plot_col_fill <-
     colour = as.factor(cyl)
   )) +
   geom_bar(stat = "identity") +
-  exploristics_theme()
+  theme_exploristics()
 
 cars_plot_col_fill %>%
-  exploristics_fill(colour_pal = "Expl_HighCont") %>%
-  exploristics_colour(colour_pal = "Expl_HighCont") %>%
+  exploristics_fill(colour_pal = "Expl_RGB") %>%
+  exploristics_colour(colour_pal = "Expl_RGB") %>%
   text_wrapper()
 
  

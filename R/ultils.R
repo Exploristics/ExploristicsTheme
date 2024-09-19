@@ -112,7 +112,7 @@ retrieve_label_text <- function(plot, labels, spaces = TRUE, ...) {
       return(NULL)
     }
 
-    label <- clean_label(as_label(plot$labels[[label]]))
+    label <- clean_label(plot$labels[[label]])
 
     if (isTRUE(spaces)) {
       replace_underscore(label)

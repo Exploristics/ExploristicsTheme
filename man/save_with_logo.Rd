@@ -13,7 +13,8 @@ save_with_logo(
   width = 8,
   height = 8,
   dpi = 300,
-  suffix = NULL
+  suffix = NULL,
+  darkbg = FALSE
 )
 }
 \arguments{
@@ -34,6 +35,8 @@ save_with_logo(
 \item{dpi}{Dots per inch to use when saving the plot. Only used if \code{plot} is a ggplot. Defaults to \code{300}.}
 
 \item{suffix}{Suffix to add to the original plot filename. Only used if \code{plot} is an image file. Don't need to include file extension. Defaults to "_with_footer".}
+
+\item{darkbg}{Default is \code{FALSE}, which uses the Exploristics logo with dark text. Set to \code{TRUE} if using a dark background colour in the plot so an Exploristics logo with white text will be applied instead.}
 }
 \description{
 This function saves a ggplot with a footer with the Exploristics logo and an optional text caption added below the plot.
@@ -59,7 +62,7 @@ exploristics_theme()
 
 ## add colour scheme, wrap text labels and save with the Exploristics logo
 cars_plot \%>\%
-exploristics_colour(colour_pal="Expl_External") \%>\%
+exploristics_colour(colour_pal="Expl_RGB") \%>\%
 text_wrapper() \%>\%
 save_with_logo(filename="example_cars_plot", text= "Source:Data source\nProduced by: Name",
 width = 8, height = 8, dpi = 300)
@@ -75,7 +78,7 @@ exploristics_theme()
 
 ## add colour scheme and wrap text labels
 cars_plot \%>\%
-exploristics_colour(colour_pal = "Expl_External") \%>\%
+exploristics_colour(colour_pal = "Expl_RGB") \%>\%
 text_wrapper()
 
 ## save the plot

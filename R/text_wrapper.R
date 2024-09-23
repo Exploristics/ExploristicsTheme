@@ -42,7 +42,7 @@
 #'
 #' ## pipe along with the colour scheme
 #' cars_plot_final <- cars_plot %>%
-#' exploristics_fill(colour_pal="Expl_External") %>%
+#' exploristics_fill(colour_pal="Expl_RGB") %>%
 #' text_wrapper()
 
 
@@ -106,16 +106,16 @@ text_wrapper <-
     }
 
 
-    ## Titles
-    # does the plot have a title?
+    ## Labels
+    # does the plot have a title, axis titles, legend title?
     labels <- lapply(plot$labels, function(label) {
       !is.null(plot$labels[[label]]) && plot$labels[[label]] != ""
     })
 
     # Filter out labels with no text associated
-    labels <- labels[sapply(labels, isTRUE)]
+    label_names <- names(plot$labels)[!unlist(labels)]
 
-    labels <- lapply(labels, function(label) {
+    labels <- lapply(label_names, function(label) {
       text <- retrieve_label_text(plot, label, spaces = spaces)
       wrap_width <- switch(label,
                            "title" = title_wrap,
@@ -126,9 +126,11 @@ text_wrapper <-
                width = wrap_width)
     })
 
+    names(labels) <- label_names
+
     plot <-
       plot +
-      do.call("labs", args = labels)
+      do.call(labs, labels)
 
     return(plot)
   }

@@ -13,6 +13,7 @@
 #' @param height Height of the plot to save, in inches. Only used if `plot` is a ggplot. Defaults to `8`.
 #' @param dpi Dots per inch to use when saving the plot. Only used if `plot` is a ggplot. Defaults to `300`.
 #' @param suffix Suffix to add to the original plot filename. Only used if `plot` is an image file. Don't need to include file extension. Defaults to "_with_footer".
+#' @param darkbg Default is `FALSE`, which uses the Exploristics logo with dark text. Set to `TRUE` if using a dark background colour in the plot so an Exploristics logo with white text will be applied instead.
 #' @seealso \code{\link[ggplot2]{ggsave}}
 #' @seealso \code{\link[magick]{image_read}}
 #' @seealso \code{\link[magick]{image_trim}}
@@ -45,7 +46,7 @@
 #'
 #' ## add colour scheme, wrap text labels and save with the Exploristics logo
 #' cars_plot %>%
-#' exploristics_colour(colour_pal="Expl_External") %>%
+#' exploristics_colour(colour_pal="Expl_RGB") %>%
 #' text_wrapper() %>%
 #' save_with_logo(filename="example_cars_plot", text= "Source:Data source\nProduced by: Name",
 #' width = 8, height = 8, dpi = 300)
@@ -61,7 +62,7 @@
 #'
 #' ## add colour scheme and wrap text labels
 #' cars_plot %>%
-#' exploristics_colour(colour_pal = "Expl_External") %>%
+#' exploristics_colour(colour_pal = "Expl_RGB") %>%
 #' text_wrapper()
 #'
 #' ## save the plot
@@ -80,7 +81,8 @@ save_with_logo <-
            width = 8,
            height = 8,
            dpi = 300,
-           suffix = NULL) {
+           suffix = NULL,
+           darkbg = FALSE) {
 
     if (is.null(plot)) {
       stop("No plot provided. Please supply a ggplot or the path of a previously saved image.")
@@ -125,10 +127,18 @@ save_with_logo <-
     plot_info <- image_info(plot_img)
 
     if (is.null(logo)) {
-      # read in the logo
-      logo_raw <-
-        image_read(system.file("extdata", "FC_logo_only_name.png", package =
-                                 "ExploristicsTheme"))
+      if (isTRUE(darkbg)){
+        # read in the logo with dark text
+        logo_raw <-
+          image_read(system.file("extdata", "Exploristics_Logo_RGB_Mono_Reversed.png", package =
+                                   "ExploristicsTheme"))
+      } else{
+        # read in the logo with dark text
+        logo_raw <-
+          image_read(system.file("extdata", "Exploristics_Logo_RGB.jpg", package =
+                                   "ExploristicsTheme"))
+      }
+
     } else {
       logo_raw <-  image_read(logo)
     }

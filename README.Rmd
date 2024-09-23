@@ -62,22 +62,22 @@ The \code{ExploristicsTheme} package has a range of colour palettes that are ali
 monochromeR::view_palette(ExploristicsTheme::Expl_Brand, view_labels = FALSE)
 ```
 
-### External
+### Exploristics RGB
 
 ```{r echo=FALSE}
-monochromeR::view_palette(ExploristicsTheme::Expl_External)
+monochromeR::view_palette(ExploristicsTheme::Expl_RGB)
 ```
 
-### High Contrast
+### Exploristics RGB (Dark)
 
 ```{r echo=FALSE}
-monochromeR::view_palette(ExploristicsTheme::Expl_HighCont)
+monochromeR::view_palette(ExploristicsTheme::Expl_RGB_dark)
 ```
 
-### Expl_Blue
+### Exploristics Mono
 
 ```{r echo=FALSE}
-monochromeR::view_palette(ExploristicsTheme::Expl_Blue)
+monochromeR::view_palette(ExploristicsTheme::Expl_Mono)
 ```
 
 ## Installation

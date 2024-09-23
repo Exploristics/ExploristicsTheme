@@ -1,21 +1,17 @@
 #' @title Add Exploristics fill to a ggplot2 figure.
 #' @description This function returns a ggplot with an Exploristics colour scheme
-#'   added to it. There are 3 colour palettes to choose from. They are suitable
-#'   for those with most common types of colour blindness.
+#'   added to it. There are 3 colour palettes to choose from RGB, a darker RGB and Mono.
 #' @details This function sets the fill of the ggplot to a palette matching an
 #'   Exploristics colour scheme. A gradient of the palette will be applied for
 #'   continuous variables.
 #'   \itemize{
-#'    \item{`Expl_Blue` is a palette of 6 blues ranging from a dark navy to a
-#'    light green-blue.}
-#'    \item{`Expl_External` is a palette of 6 colours with purples, greens and
-#'    blues.}
-#'    \item{`Expl_HighCont` is a high-contrast palette of 6 colours with a variety of
-#'    colours.}
-#'    }
+#'   \item{`Expl_RGB` is a palette of 6 colours including blues, reds, green and yellow.}
+#'   \item{`Expl_RGB_dark` is a palette of darker shades of the 6 colours within `Expl_RGB`.}
+#'   \item{`Expl_Mono` is a palette of 6 colours ranging from a dark navy through grey to white.}
+#'   }
 #' @param plot A ggplot2 figure (S3: gg, ggplot).
-#' @param colour_pal The colour palette to use. Can be one of `Expl_Blue`,
-#' `Expl_External` or `Expl_HighCont`. Defaults to `Expl_Blue`.
+#' @param colour_pal The colour palette to use. Can be one of `Expl_RGB`,
+#' `Expl_RGB_dark` or `Expl_Mono`. Defaults to `Expl_RGB`.
 #' @param rev_gradient Should the reverse gradient of the colour palette be used
 #'   (only for continuous variables). Defaults to `FALSE`.
 #' @seealso \code{\link[ggplot2]{scale_color_manual}}
@@ -33,14 +29,14 @@
 #' exploristics_theme()
 #'
 #' ## adding the colour scheme can be written as one line
-#' exploristics_fill(cars_plot, colour_pal="Expl_External")
+#' exploristics_fill(cars_plot, colour_pal="Expl_RGB_dark")
 #'
 #'
 #' library(magrittr)
 #'
 #' ## or using a pipe
 #' cars_plot %>%
-#' exploristics_fill(colour_pal="Expl_External")
+#' exploristics_fill(colour_pal="Expl_RGB_dark")
 #'
 #'
 #'
@@ -53,18 +49,18 @@
 #' exploristics_theme()
 #'
 #' cars_plot %>%
-#' exploristics_fill(colour_pal = "Expl_External") %>%
-#' exploristics_colour(colour_pal = "Expl_External")
+#' exploristics_fill(colour_pal = "Expl_RGB_dark") %>%
+#' exploristics_colour(colour_pal = "Expl_RGB_dark")
 
 
 exploristics_fill <-
   function(plot,
-           colour_pal = "Expl_Blue",
+           colour_pal = "Expl_RGB",
            rev_gradient = FALSE) {
     # ensure the chosen colour palette is one of the Explorisitics palettes
     colourPalette <-
       match.arg(colour_pal,
-                choices = c("Expl_Blue", "Expl_External", "Expl_HighCont"))
+                choices = c("Expl_RGB", "Expl_RGB_dark", "Expl_Mono"))
 
     fill_class <-
       retrieve_aesthetic_class(plot, aesthetics = "fill")
@@ -87,13 +83,34 @@ exploristics_fill <-
 
       }
     } else {
-      colours <- get(colourPalette)[GradientLUT[colourPalette]]
-
       if (isTRUE(rev_gradient)) {
-        colours <- rev(colours)
+        # continuous
+        if (colourPalette == "Expl_RGB") {
+          plot <- plot + scale_fill_gradientn(colours = rev(ExploristicsTheme::Expl_RGB[c(1, 4, 2)]))
+        }
+        if (colourPalette == "Expl_RGB_dark") {
+          plot <-
+            plot + scale_fill_gradientn(colours = rev(ExploristicsTheme::Expl_RGB_dark[c(1, 4, 2)]))
+        }
+        if (colourPalette == "Expl_Mono") {
+          plot <-
+            plot + scale_fill_gradientn(colours = rev(ExploristicsTheme::Expl_Mono[c(5, 3, 2)]))
+        }
+      } else {
+        # continuous
+        if (colourPalette == "Expl_RGB") {
+          plot <- plot + scale_fill_gradientn(colours = ExploristicsTheme::Expl_RGB[c(1, 4, 2)])
+        }
+        if (colourPalette == "Expl_RGB_dark") {
+          plot <-
+            plot + scale_fill_gradientn(colours = ExploristicsTheme::Expl_RGB_dark[c(1, 4, 2)])
+        }
+        if (colourPalette == "Expl_Mono") {
+          plot <-
+            plot + scale_fill_gradientn(colours = ExploristicsTheme::Expl_Mono[c(5, 3, 2)])
+        }
       }
 
-      plot + scale_fill_gradientn(colours = colours)
     }
 
     return(plot)

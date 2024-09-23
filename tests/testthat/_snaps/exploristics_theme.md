@@ -5,7 +5,7 @@
     Output
       List of 136
        $ line                            :List of 6
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ linewidth    : NULL
         ..$ linetype     : NULL
         ..$ lineend      : NULL
@@ -22,7 +22,7 @@
        $ text                            :List of 11
         ..$ family       : NULL
         ..$ face         : NULL
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ size         : NULL
         ..$ hjust        : NULL
         ..$ vjust        : NULL
@@ -37,7 +37,7 @@
        $ axis.title                      :List of 11
         ..$ family       : chr "sans"
         ..$ face         : NULL
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ size         : num 18
         ..$ hjust        : NULL
         ..$ vjust        : NULL
@@ -108,7 +108,7 @@
        $ axis.text                       :List of 11
         ..$ family       : chr "sans"
         ..$ face         : NULL
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ size         : num 18
         ..$ hjust        : NULL
         ..$ vjust        : NULL
@@ -192,7 +192,7 @@
         ..$ inherit.blank: logi TRUE
         ..- attr(*, "class")= chr [1:2] "element_text" "element"
        $ axis.ticks                      :List of 6
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ linewidth    : num 1
         ..$ linetype     : NULL
         ..$ lineend      : NULL
@@ -233,7 +233,7 @@
        $ axis.minor.ticks.length.theta   : NULL
        $ axis.minor.ticks.length.r       : NULL
        $ axis.line                       :List of 6
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ linewidth    : num 1
         ..$ linetype     : NULL
         ..$ lineend      : NULL
@@ -273,7 +273,7 @@
        $ legend.text                     :List of 11
         ..$ family       : chr "sans"
         ..$ face         : NULL
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ size         : num 18
         ..$ hjust        : num 0
         ..$ vjust        : NULL
@@ -287,7 +287,7 @@
        $ legend.title                    :List of 11
         ..$ family       : chr "sans"
         ..$ face         : NULL
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ size         : num 18
         ..$ hjust        : NULL
         ..$ vjust        : NULL
@@ -329,7 +329,7 @@
     Output
       List of 136
        $ line                            :List of 6
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ linewidth    : NULL
         ..$ linetype     : NULL
         ..$ lineend      : NULL
@@ -346,7 +346,7 @@
        $ text                            :List of 11
         ..$ family       : NULL
         ..$ face         : NULL
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ size         : NULL
         ..$ hjust        : NULL
         ..$ vjust        : NULL
@@ -361,7 +361,7 @@
        $ axis.title                      :List of 11
         ..$ family       : chr "sans"
         ..$ face         : NULL
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ size         : num 18
         ..$ hjust        : NULL
         ..$ vjust        : NULL
@@ -432,7 +432,7 @@
        $ axis.text                       :List of 11
         ..$ family       : chr "sans"
         ..$ face         : NULL
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ size         : num 18
         ..$ hjust        : NULL
         ..$ vjust        : NULL
@@ -516,7 +516,7 @@
         ..$ inherit.blank: logi TRUE
         ..- attr(*, "class")= chr [1:2] "element_text" "element"
        $ axis.ticks                      :List of 6
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ linewidth    : num 1
         ..$ linetype     : NULL
         ..$ lineend      : NULL
@@ -557,7 +557,7 @@
        $ axis.minor.ticks.length.theta   : NULL
        $ axis.minor.ticks.length.r       : NULL
        $ axis.line                       :List of 6
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ linewidth    : num 1
         ..$ linetype     : NULL
         ..$ lineend      : NULL
@@ -597,7 +597,7 @@
        $ legend.text                     :List of 11
         ..$ family       : chr "sans"
         ..$ face         : NULL
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ size         : num 18
         ..$ hjust        : num 0
         ..$ vjust        : NULL
@@ -611,7 +611,7 @@
        $ legend.title                    :List of 11
         ..$ family       : chr "sans"
         ..$ face         : NULL
-        ..$ colour       : chr "#16213D"
+        ..$ colour       : chr "#121a31"
         ..$ size         : num 18
         ..$ hjust        : NULL
         ..$ vjust        : NULL

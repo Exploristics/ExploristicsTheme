@@ -42,7 +42,7 @@
 #'
 #' ## pipe along with the colour scheme
 #' cars_plot_final <- cars_plot %>%
-#' exploristics_fill(colour_pal="Expl_External") %>%
+#' exploristics_fill(colour_pal="Expl_RGB") %>%
 #' text_wrapper()
 
 

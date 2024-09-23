@@ -57,6 +57,7 @@ retrieve_aesthetic_variable <- function(plot, aesthetics, ...) {
 #'   variables class to be retrieved.
 #' @importFrom methods is
 #' @return A named character vector. Name is aesthetic, value is class.
+#' @importFrom methods is
 #' @noRd
 
 retrieve_aesthetic_class <- function(plot, aesthetics, ...) {

@@ -3,7 +3,7 @@
 \docType{data}
 \name{Expl_RGB}
 \alias{Expl_RGB}
-\title{Colour Palettes Using Exploristics RGB}
+\title{Colour Pallette of 6 colours including blues, reds, green and yellow}
 \format{
 An object of class \code{character} of length 6.
 }
@@ -11,9 +11,17 @@ An object of class \code{character} of length 6.
 Expl_RGB
 }
 \description{
-Colour Palettes Using Exploristics RGB
+Colour Pallette of 6 colours including blues, reds, green and yellow
 }
 \details{
-The hex colours for the 3 palettes
+Contains the following hex colours
+\itemize{
+\item{#6b89e3"}
+\item{#d8807f"}
+\item{#d7f67c"}
+\item{#6ddabf"}
+\item{#9eb7de"}
+\item{#f6c0ad"}
+}
 }
 \keyword{datasets}

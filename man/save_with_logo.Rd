@@ -62,7 +62,7 @@ exploristics_theme()
 
 ## add colour scheme, wrap text labels and save with the Exploristics logo
 cars_plot \%>\%
-exploristics_colour(colour_pal="Expl_External") \%>\%
+exploristics_colour(colour_pal="Expl_RGB") \%>\%
 text_wrapper() \%>\%
 save_with_logo(filename="example_cars_plot", text= "Source:Data source\nProduced by: Name",
 width = 8, height = 8, dpi = 300)
@@ -78,7 +78,7 @@ exploristics_theme()
 
 ## add colour scheme and wrap text labels
 cars_plot \%>\%
-exploristics_colour(colour_pal = "Expl_External") \%>\%
+exploristics_colour(colour_pal = "Expl_RGB") \%>\%
 text_wrapper()
 
 ## save the plot

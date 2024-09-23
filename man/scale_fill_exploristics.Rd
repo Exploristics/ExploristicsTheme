@@ -10,14 +10,17 @@ scale_fill_exploristics(...)
 \item{...}{Arguments passed to \code{\link[ggplot2]{scale_color_gradient}}}
 }
 \description{
-Exploristics Gradient fill scales
+A two colour gradient for continuous variables to apply to fill aesthetic
 }
 \examples{
 library(ggplot2)
-ggplot(mtcars, aes(x = wt, y = wt)) +
- geom_point(aes(colour = gear)) +
- scale_fill_exploristics()
+ggplot(data = mtcars, aes(x = wt, y = mpg, size = hp, fill = mpg)) +
+geom_point(shape = 21) +
+scale_colour_exploristics()
 }
 \seealso{
 \code{\link[ggplot2]{scale_color_gradient}}
+}
+\author{
+Gareth Burns
 }

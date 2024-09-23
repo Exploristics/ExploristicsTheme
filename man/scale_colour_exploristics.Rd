@@ -7,16 +7,17 @@
 scale_colour_exploristics(...)
 }
 \arguments{
-\item{...}{Arguments passed to \code{\link[ggplot2]{scale_color_gradient}}}
+\item{...}{Additional arguments passed to
+\code{\link[ggplot2]{scale_color_gradient}}}
 }
 \description{
-Exploristics Gradient colour scales
+A two colour gradient for continuous variables
 }
 \examples{
 library(ggplot2)
-ggplot(mtcars, aes(x = wt, y = wt)) +
- geom_point(aes(colour = qsec)) +
- scale_colour_exploristics()
+ggplot(data = mtcars, aes(x = mpg, y = hp, colour = mpg)) +
+geom_point() +
+scale_colour_exploristics()
 }
 \seealso{
 \code{\link[ggplot2]{scale_color_gradient}}
